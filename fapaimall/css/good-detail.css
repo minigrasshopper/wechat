@@ -1,0 +1,40 @@
+.infoBox{
+    padding-bottom: 50px;
+}
+.infoBox img{
+    width: 100%;
+}
+
+.hint{
+    position: fixed;
+    top: 60%;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    padding: 5px 10px;
+    overflow: hidden;
+    border-top: 1px solid #c9c9c9;
+}
+footer button{
+    width: calc(50% - 5px);
+}
+footer button:first-child{
+    float: left;
+    margin-right: 5px;
+    background: #ff9f03;
+}
+footer button:last-child{
+    float: right;
+    margin-left: 5px;
+}

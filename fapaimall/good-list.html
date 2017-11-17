@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="language">法派1855微商城</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+        <link rel="icon" href="images/favicon.ico" />
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/languagepack.js"></script>
+        <script src='js/jsonp.js'></script>
+		<script src="js/config.js"></script>
+        <script src="js/vue.js"></script>
+		<script src="js/component.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/static.css">
+        <link rel="stylesheet" type="text/css" href="css/same.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/good-list.css">
+	</head>
+	<body>
+        <section class='container hide'>
+			<vue-nav :desc="name"></vue-nav>
+
+			<div class="padding-h-10 margin-top-20">
+				<ul class="goodList">
+					<li v-for="item in pageData" v-if="item.category_id == category_id" v-on:click="jumpGoodDetail(item.id)">
+						<div>
+							<img :src="item.cover" alt=""/>
+						</div>
+						<h6 class="name_amend">{{item.name}}</h6>
+						<p><img class="festivalUse" src="images/festivalUse.png" alt="">&yen;{{item.price}}</p>
+					</li>
+				</ul>
+			</div>
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/good-list.js"></script>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="language">法派1855微商城</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+        <link rel="icon" href="images/favicon.ico" />
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/languagepack.js"></script>
+        <script src='js/jsonp.js'></script>
+		<script src="js/config.js"></script>
+        <script src="js/vue.js"></script>
+		<script src="js/component.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/static.css">
+        <link rel="stylesheet" type="text/css" href="css/same.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/profile.css">
+	</head>
+	<body>
+        <section class='container container-footer hide'>
+			<div class="userBox rel" v-if="pageData">
+				<img class="w-100" src="images/profile_bg.jpg" alt=""/>
+				<div class="abs-h-center t-c">
+					<img :src="pageData.headimgurl" alt=""/>
+					<p>{{pageData.nickname}}</p>
+				</div>
+			</div>
+			<div class="blank"></div>
+
+			<ul class="stateBox border-bottom">
+				<li v-on:touchend="jumpOrderList('unpaid')">
+					<img src="images/icon_unpaid.png" alt=""/>
+					<p class="language">待付款</p>
+					<span v-if="stateList.unpaid">{{stateList.unpaid}}</span>
+				</li>
+				<li v-on:touchend="jumpOrderList('unshipped')">
+					<img src="images/icon_unshipped.png" alt=""/>
+					<p class="language">待发货</p>
+					<span v-if="stateList.unshipped">{{stateList.unshipped}}</span>
+				</li>
+				<li v-on:touchend="jumpOrderList('shipped')">
+					<img src="images/icon_shipped.png" alt=""/>
+					<p class="language">待收货</p>
+					<span v-if="stateList.shipped">{{stateList.shipped}}</span>
+				</li>
+				<li v-on:touchend="jumpOrderList('completed')">
+					<img src="images/icon_completed.png" alt=""/>
+					<p class="language">已完成</p>
+					<span v-if="stateList.completed">{{stateList.completed}}</span>
+				</li>
+			</ul>
+
+			<ul class="commonBox">
+				<li v-on:touchend="jumpOrderList()" class="border-none margin-bottom-10">
+					<img class="icon_title" src="images/icon_order.png" alt=""/>
+					<span class="title title_amend maxTitle language">全部订单</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+				</li>
+				<li v-on:click="jumpAddress()">
+					<img class="icon_title" src="images/icon_address.png" alt=""/>
+					<span class="title title_amend maxTitle language">我的收货地址</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+				</li>
+				<li v-on:click="jumpRemain()">
+					<img class="icon_title" src="images/icon_remain.png" alt=""/>
+					<span class="title title_amend maxTitle language">我的余额</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+				</li>
+				<li v-on:click="jumpRecharge()">
+					<img class="icon_title" src="images/icon_recharge.png" alt=""/>
+					<span class="title title_amend maxTitle language">充值</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+				</li>
+				<li v-on:click="jumpCoupon()" class="border-none">
+					<img class="icon_title" src="images/icon_coupon.png" alt=""/>
+					<span class="title title_amend maxTitle language">我的优惠券</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+				</li>
+			</ul>
+			<vue-footer index="3" :show-all="showAll" :cart-num="cartNum" :cate-arr="cateArr"></vue-footer>
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/profile.js"></script>
+	</body>
+</html>

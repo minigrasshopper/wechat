@@ -1,0 +1,60 @@
+.toggleH li{
+    width: 33.33%;
+}
+
+.couponList{
+    margin-top: 50px;
+}
+.couponList li {
+    background: url(../images/ticket_bg.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.icon_add{
+    position: fixed;
+    top: 9px;
+    right: 10px;
+    height: 27px;
+    z-index: 9999;
+}
+.addBtn{
+    position: fixed;
+    top: 9px;
+    right: 10px;
+    height: 27px;
+    z-index: 9999;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0 5px;
+    font-size: 1.4rem;
+}
+
+.inputBox>div{
+    width: 80%;
+    text-align: center;
+    background: #fff;
+    border-radius: 5px;
+    padding-top: 20px;
+
+}
+.inputBox h6{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+.inputBox input{
+    width: calc(100% - 30px);
+    margin: 15px 0;
+}
+.inputBox button{
+    float: left;
+    width: 50%;
+    border-top: 1px solid #c9c9c9;
+    border-radius: 0;
+}
+.inputBox button:nth-child(1){
+    border-right: 1px solid #c9c9c9;
+}
+

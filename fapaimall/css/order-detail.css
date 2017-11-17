@@ -1,0 +1,28 @@
+.container{
+    padding-bottom: 60px;
+}
+
+.commonBox li{
+    border-bottom: none;
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    padding: 5px 10px;
+    overflow: hidden;
+    border-top: 1px solid #c9c9c9;
+}
+footer button{
+    width: 48% !important;
+}
+footer span{
+    width: 48%;
+    line-height: 40px;
+    overflow: hidden;
+    white-space: nowrap;    /*规定段落中的文本不进行换行*/
+    text-overflow: ellipsis;    /*显示省略符号来代表被修剪的文本*/
+}

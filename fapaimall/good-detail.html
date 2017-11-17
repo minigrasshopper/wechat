@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="language">法派1855微商城</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+        <link rel="icon" href="images/favicon.ico" />
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/languagepack.js"></script>
+        <script src='js/jsonp.js'></script>
+		<script src="js/config.js"></script>
+        <script src="js/vue.js"></script>
+		<script src="js/component.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/static.css">
+        <link rel="stylesheet" type="text/css" href="css/same.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/good-detail.css">
+	</head>
+	<body>
+        <section class='container hide'>
+			<vue-nav jump-new="1" v-on:jumpnew="jumpNew()" desc="商品详情" has-cart="1"></vue-nav>
+
+			<div v-if="pageData">
+				<img class="w-100" :src="pageData.cover" alt=""/>
+				<div class="border-v bg-white padding-10">
+					<h6 class="name font-16 font-normal">{{pageData.name}}</h6>
+					<div class="hidden line-30 margin-v-10">
+						<span class="color-orange"><img class="festivalUse" src="images/festivalUse.png" alt="">&yen;{{pageData.price}}</span>
+						<div class="cartBox f-r">
+							<button v-on:touchend="reduceHandle()"></button>
+							<input type="number" v-model="params.num" onkeyup="this.value=this.value.replace(/\D+/g,'')"/>
+							<button v-on:touchend="addHandle()"></button>
+						</div>
+					</div>
+					<p><span class="language">规格</span>：{{pageData.tips}}</p>
+					<p class="margin-top-5"><span class="language">销量</span>：{{pageData.sales}}<span class="language">{{pageData.unit}}</span></p>
+				</div>
+				<div class="infoBox padding-10 bg-white border-v margin-top-10">
+					<h6 class="font-normal language margin-bottom-10">商品详情</h6>
+					<div v-html="pageData.description"></div>
+				</div>
+
+				<footer>
+					<button v-on:touchend="cartHandle()" class="button-defalut language">加入购物车</button>
+					<button v-on:touchend="buyHandle()" class="button-defalut language">立即购买</button>
+				</footer>
+			</div>
+
+			<p class="hint language" v-show="hint_show">加入购物车成功</p>
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/good-detail.js"></script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+.toggleH li{
+    width: 50%;
+}
+.toggleH li span{
+    font-size: 1.6rem;
+}
+
+.bagBox{
+    overflow: hidden;
+    text-align: center;
+    margin: 20px 0;
+}
+.bagBox li{
+    float: left;
+    width: calc(50% - 10px);
+    background: #fff;
+    padding: 15px 0;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    border: 1px solid #c9c9c9;
+}
+.bagBox li:nth-child(2n+1){
+    margin-right: 10px;
+}
+.bagBox li:nth-child(2n){
+    margin-left: 10px;
+}
+.bagBox li.active{
+    color: #eb7155;
+    border: 1px solid #eb7155;
+}

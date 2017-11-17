@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="language">法派1855微商城</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+        <link rel="icon" href="images/favicon.ico" />
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/languagepack.js"></script>
+        <script src='js/jsonp.js'></script>
+		<script src="js/config.js"></script>
+        <script src="js/vue.js"></script>
+		<script src="js/component.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/static.css">
+        <link rel="stylesheet" type="text/css" href="css/same.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/coupon.css">
+	</head>
+	<body>
+        <section class='container hide'>
+			<vue-nav desc="我的优惠券"></vue-nav>
+
+			<!--<img v-on:click="addHandle()" class="icon_add" src="images/icon_add.png" alt=""/>-->
+			<button class="language addBtn" v-on:click="addHandle()">添加优惠券</button>
+			<ul class="toggleH">
+				<li v-on:click="toggleHandle('canuse')" :class="status=='canuse'?'selected':''"><span class="language">可使用</span></li>
+				<li v-on:click="toggleHandle('used')" :class="status=='used'?'selected':''"><span class="language">已使用</span></li>
+				<li v-on:click="toggleHandle('expired')" :class="status=='expired'?'selected':''"><span class="language">已过期</span></li>
+			</ul>
+
+			<ul class="couponList">
+				<li v-for="item in pageData[status]" :class="status=='canuse'?'selected':'use'">
+					<h6>{{item.qname}}</h6>
+					<p class="desc">{{item.descrip}}</p>
+					<p><span>有效期</span>：{{item.starttime}}-{{item.endtime}}</p>
+				</li>
+			</ul>
+
+			<div class="m-pop inputBox" v-if="inputBoxShow">
+				<div class='abs-center'>
+					<h6 class='language'>请输入券码</h6>
+					<input v-model="params.couponNo" type="text">
+					<p class="hidden">
+						<button v-on:click="cancelHandle()" class='language color-gray'>取消</button>
+						<button v-on:click="sureHandle()" class='language color-orange'>确定</button>
+					</p>
+				</div>
+			</div>
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/coupon.js"></script>
+	</body>
+</html>

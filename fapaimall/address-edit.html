@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="language">法派1855微商城</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+        <link rel="icon" href="images/favicon.ico" />
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/languagepack.js"></script>
+        <script src='js/jsonp.js'></script>
+		<script src="js/config.js"></script>
+        <script src="js/vue.js"></script>
+		<script src="js/component.js"></script>
+		<script src="js/cities.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/static.css">
+        <link rel="stylesheet" type="text/css" href="css/same.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/address-edit.css">
+	</head>
+	<body>
+        <section class='container hide'>
+			<vue-nav desc="编辑收货地址"></vue-nav>
+
+			<div>
+				<ul class="commonBox">
+					<li>
+						<span class="title language">收货人</span>
+						<input class="language" type="text" v-model="params.consignee" placeholder="请输入姓名"/>
+					</li>
+					<li>
+						<span class="title language">手机号码</span>
+						<input class="language" type="tel" v-model="params.cellphone" placeholder="请输入手机号码"/>
+					</li>
+					<li>
+						<span class="title language">配送城市</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{city?city:(language=='cn'?'请选择':'Please select')}}</span>
+						<select v-model="city" v-if="showAll == 1">
+							<option class="language" value=''>请选择</option>
+							<option value='北京'>北京</option>
+						</select>
+						<select v-model="city" v-if="showAll != 1">
+							<option class="language" value=''>请选择</option>
+							<option v-if="item.pn != '北京'" v-for="item in cityList" :value='item.pn'>{{item.pn}}</option>
+						</select>
+					</li>
+					<li>
+						<span class="title language">配送地区</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{params.district?params.district:(language=='cn'?'请选择':'Please select')}}</span>
+						<select v-model="params.district">
+							<option class="language" value=''>请选择</option>
+							<option v-for="item in districtList" :value='item.cn'>{{item.cn}}</option>
+						</select>
+					</li>
+				</ul>
+				<div class="remarkBox border-bottom">
+					<p><span class="language">详细地址</span>：</p>
+					<textarea class="language" v-model="params.address" placeholder="请填写街道信息"></textarea>
+				</div>
+			</div>
+
+			<div class="t-c margin-top-30">
+				<button v-on:touchend="sureHandle()" class="button-defalut language">保存</button>
+			</div>
+
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/address-edit.js"></script>
+	</body>
+</html>

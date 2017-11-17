@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="language">法派1855微商城</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+        <link rel="icon" href="images/favicon.ico" />
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/languagepack.js"></script>
+        <script src='js/jsonp.js'></script>
+		<script src="js/config.js"></script>
+        <script src="js/vue.js"></script>
+		<script src="js/component.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/static.css">
+        <link rel="stylesheet" type="text/css" href="css/same.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/pay-success.css">
+	</head>
+	<body>
+        <section class='container hide'>
+			<div v-if="pageData">
+				<div class="hintBox t-c">
+					<p>
+						<img src="images/icon_selected.png" alt=""/>
+						<span class="language">付款成功</span>
+					</p>
+					<p class="language color-gray">您已成功预定</p>
+					<p class="color-gray"><span class="language">如有疑问，请联系客服</span>：010-64378994</p>
+				</div>
+
+				<div class="shopBox padding-10 bg-white">
+					<img src="images/icon_shop.png" alt=""/>
+					<span class="language">法派1855</span>
+				</div>
+
+				<ul class="goodBox border-top">
+					<li class="border-bottom" v-for="item in pageData.goods">
+						<div>
+							<img :src="item.cover" alt=""/>
+						</div>
+						<div>
+							<p class="name">{{item.name}}</p>
+							<div class="hidden line-30">
+								<p class='f-l color-orange'>&yen;{{item.price}}</p>
+								<p class="f-r">x{{item.count}}</p>
+							</div>
+							<p v-show="pageData.withcard==1"><span class="language">生日牌</span>：<span class="color-orange">&yen;10.00</span></p>
+						</div>
+					</li>
+				</ul>
+
+				<ul class="commonBox">
+					<li>
+						<p class="title language">配送方式</p>
+						<p class="language desc">{{pageData.delivery_typeMsg}}</p>
+					</li>
+
+					<template v-if="pageData.address">
+						<!--快递到家-->
+						<li>
+							<p class="title language">收货地址</p>
+							<p class="desc">
+								{{pageData.address.consignee}}&nbsp;{{pageData.address.cellphone}}
+								<br/>
+								{{pageData.address.address}}
+							</p>
+						</li>
+						<li>
+							<p class="title language">配送日期</p>
+							<p class="language desc">{{pageData.address.deliverydate}}</p>
+						</li>
+						<li>
+							<p class="title language">配送时间</p>
+							<p class="desc">{{pageData.address.deliverytime}}</p>
+						</li>
+					</template>
+
+					<template v-if="!pageData.address">
+						<!--门店自取-->
+						<li>
+							<p class="title language">取货门店</p>
+							<p class="language desc">{{pageData.pickupshop}}</p>
+						</li>
+						<li>
+							<p class="title language">手机号</p>
+							<p class="desc">{{pageData.pickupmobile}}</p>
+						</li>
+						<li>
+							<p class="title language">取货日期</p>
+							<p class="language desc">{{pageData.pickupdate}}</p>
+						</li>
+						<li>
+							<p class="title language">取货时间</p>
+							<p class="desc">{{pageData.pickuptime}}</p>
+						</li>
+					</template>
+				</ul>
+
+				<div class="margin-top-20 t-c">
+					<button v-on:click="jumpIndex()" class="button-defalut language">确定</button>
+				</div>
+			</div>
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/pay-success.js"></script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="language">法派1855微商城</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+        <link rel="icon" href="images/favicon.ico" />
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+		<script src="js/languagepack.js"></script>
+        <script src='js/jsonp.js'></script>
+		<script src="js/config.js"></script>
+        <script src="js/vue.js"></script>
+		<script src="js/component.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/static.css">
+        <link rel="stylesheet" type="text/css" href="css/same.css">
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" type="text/css" href="css/recharge.css">
+	</head>
+	<body>
+        <section class='container hide'>
+			<vue-nav desc="充值"></vue-nav>
+
+			<ul class="toggleH">
+				<li v-on:touchend="toggleType(1)" :class="type==1?'selected':''"><span class="language">套餐充值</span></li>
+				<li v-on:touchend="toggleType(2)" :class="type==2?'selected':''"><span class="language">储值卡充值</span></li>
+			</ul>
+
+			<div v-if="pageData && type==1" class="padding-10 margin-top-50">
+				<p class="language font-16">请选择以下充值套餐</p>
+				<ul class="bagBox">
+					<li v-on:click="selectHandle(item.total_fee, $event)" v-for="item in pageData">{{item.combo_name}}</li>
+				</ul>
+				<p v-if="params.money"><span class="language">充值金额为</span>：&yen;{{params.money}}</p>
+
+				<div class="t-c margin-top-30">
+					<button v-on:click="sureHandle()" class="button-defalut language">确定</button>
+				</div>
+			</div>
+
+			<div v-if="pageData && type==2" class="margin-top-50 commonBox">
+				<ul>
+					<li class="border-none">
+						<span class="title language">储值卡券码</span>
+						<input class="language" type="text" v-model="card_params.couponNo" placeholder="请输入券码"/>
+					</li>
+				</ul>
+				<div class="t-c margin-top-30">
+					<button v-on:click="sureHandle1()" class="button-defalut language">确定</button>
+				</div>
+			</div>
+        </section>
+
+		<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/recharge.js"></script>
+	</body>
+</html>
