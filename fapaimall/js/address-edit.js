@@ -6,6 +6,7 @@
 
     function requireCb(wxshare){
         amendPageStyle();
+        var pinyin = new Pinyin();
         var requestObj = {
             create: function(obj, cb){
                 post('mall/i/address/create', obj, function(data){
@@ -32,9 +33,9 @@
                     district: '',
                     address: null
                 },
-                showAll: localStorage.showAll == 1 ? 1 : 0,   //是否显示所有
-                cityList: cityList,
-                districtList: null
+                showAll: sessionStorage.showAll == 1 ? 1 : 0,   //是否显示所有
+                cityList: [],
+                districtList: []
             },
             mounted: function(){
                 var me = this;
@@ -60,8 +61,24 @@
                     this.getDistrict();
                     changeLanguage();
                     nameFontChange();
+                    this.getCityList();
                     M.loadingHide();
                     share(config.shareInfo);
+                },
+                getCityList: function () {
+                    if(this.language == 'cn'){
+                        this.cityList = cityList;
+                    }else{
+                        var oldList = [].concat(cityList);
+                        oldList.forEach(function (item, index, arr) {
+                            oldList[index]['pn'] = pinyin.getFullChars(item['pn']);
+                            item['cs'].forEach(function (v, i) {
+                                oldList[index]['cs'][i]['cn'] = pinyin.getFullChars(v['cn']);
+                            })
+                        });
+                        this.cityList = oldList;
+                    }
+                    console.log(cityList);
                 },
                 getDistrict: function () {
                     var me = this;

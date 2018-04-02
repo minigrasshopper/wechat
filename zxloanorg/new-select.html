@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-第三方渠道</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/new-select.css" />
+	</head>
+	<body>
+		<section id='newSelectPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>选择客户经理</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<ul class="commonBox commonBox_amend margin-top-20 border-top">
+				<li>
+					<span class="title">办理网点</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+					<span class="desc_amend">{{getBankById(params.subbranch_id)?getBankById(params.subbranch_id):'选择办理网点'}}</span>
+					<select v-model="params.subbranch_id">
+						<option value="">请选择</option>
+						<option v-for="item in subbranchList" v-bind:value="item.subbranch_id">{{item.subbranch_name}}</option>
+					</select>
+				</li>
+				<li>
+					<span class="title">客户经理</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+					<span class="desc_amend">{{getManagerById(params.manager_id)?getManagerById(params.manager_id):'选择客户经理'}}</span>
+					<select v-model="params.manager_id">
+						<option value="">请选择</option>
+						<option v-bind:value="item.manager_id" v-for="item in managerList">{{item.manager_name}}</option>
+					</select>
+				</li>
+			</ul>
+			<button v-on:touchend="goNewSuccess()" class="button-default abs-h-center">下一步</button>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/new-select.js"></script>
+	</body>
+</html>

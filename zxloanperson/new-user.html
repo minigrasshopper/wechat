@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-客户端</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/new-user.css" />
+	</head>
+	<body>
+		<section id='newUserPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>申请客户信息</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<ul class="commonBox margin-top-20">
+				<li>
+					<span class="title">姓名</span>
+					<input type="text" v-model="params.name" placeholder="请输入姓名"/>
+				</li>
+				<li>
+					<span class="title">手机号</span>
+					<input type="text" v-model="params.mobile" placeholder="请输入手机号码"/>
+				</li>
+				<li class="verifyBox">
+					<span class="title">验证码</span>
+					<button v-on:touchend="getVerify($event)">发送验证码</button>
+					<input type="text" v-model="params.verifycode" placeholder="请输入验证码"/>
+				</li>
+				<li>
+					<span class="title">身份证</span>
+					<input type="text" v-model="params.idcard" placeholder="请输入证件号码"/>
+				</li>
+			</ul>
+			<p class="color-white margin-top-10 font-14">备注：请务必输入正确的手机号、身份证号，以便于查询进度。</p>
+			<button v-on:touchend="goNewSuccess()" class="button-default d-b m-auto margin-top-40">下一步</button>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/new-user.js"></script>
+	</body>
+</html>

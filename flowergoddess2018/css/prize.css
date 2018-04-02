@@ -1,0 +1,31 @@
+.ticket{
+    position: relative;
+    width: 70%;
+    margin: 10px auto 0 auto;
+    background: url('../images/ticket_list.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 16px 5%;
+    text-align: left;
+}
+.ticket h3{
+    color: #f35581;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.ticket h4{
+    color: #333;
+    font-size: 0.5rem;
+    font-weight: 500;
+}
+.ticket h5{
+    color: #f35581;
+    font-size: 0.5rem;
+    position: absolute;
+    top: 0;
+    right: 6%;
+    height: 100%;
+    text-align: center;
+    writing-mode: tb;
+    font-weight: 600;
+}

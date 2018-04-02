@@ -15,6 +15,7 @@
         <script src='js/jsonp.js'></script>
 		<script src="js/config.js"></script>
         <script src="js/vue.js"></script>
+		<script src="js/pinyin.js"></script>
 		<script src="js/component.js"></script>
 		<script src="js/cities.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/static.css">
@@ -42,11 +43,12 @@
 						<span class="desc_amend">{{city?city:(language=='cn'?'请选择':'Please select')}}</span>
 						<select v-model="city" v-if="showAll == 1">
 							<option class="language" value=''>请选择</option>
-							<option value='北京'>北京</option>
+							<option v-if="language=='cn'" value='北京'>北京</option>
+							<option v-if="language=='en'" value='BeiJing'>BeiJing</option>
 						</select>
 						<select v-model="city" v-if="showAll != 1">
 							<option class="language" value=''>请选择</option>
-							<option v-if="item.pn != '北京'" v-for="item in cityList" :value='item.pn'>{{item.pn}}</option>
+							<option v-if="item.pn != '北京' && item.pn != 'BeiJing'" v-for="item in cityList" :value='item.pn'>{{item.pn}}</option>
 						</select>
 					</li>
 					<li>

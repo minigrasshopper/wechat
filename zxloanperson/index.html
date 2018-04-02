@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个贷-客户端</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/config.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/same.css" />
+	<link rel="stylesheet" type="text/css" href="css/static.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+	<body>
+        <section id='indexPage' class='hide'>
+			<img class='logo' src="images/logo.png">
+			<img class="abs-h-center title" src="images/index_title.png" alt=""/>
+			<div class="abs-h-center img_text w-100 t-c">
+				<img src="images/index_img.png" alt=""/>
+				<img src="images/index_text.png" alt=""/>
+				<button v-on:touchend="goNew()" class="d-b button-default">我要贷款</button>
+				<button v-on:touchend="goQuery()" class="d-b button-clear">进度查询</button>
+			</div>
+			<p class="abs w-100 t-c color-white">本服务由中国中信银行股份有限公司提供</p>
+        </section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>

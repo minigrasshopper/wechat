@@ -1,0 +1,13 @@
+.deleteBtn{
+    border-bottom: none;
+}
+.deleteBtn img{
+    height: 16px;
+    margin-right: 3px;
+    margin-top: -2px;
+}
+.addBtn{
+    width: 57%;
+    height: 30px;
+    font-size: 1.4rem;
+}

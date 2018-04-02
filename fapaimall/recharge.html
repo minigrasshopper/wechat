@@ -33,7 +33,10 @@
 			<div v-if="pageData && type==1" class="padding-10 margin-top-50">
 				<p class="language font-16">请选择以下充值套餐</p>
 				<ul class="bagBox">
-					<li v-on:click="selectHandle(item.total_fee, $event)" v-for="item in pageData">{{item.combo_name}}</li>
+					<li v-on:click="selectHandle(item.total_fee, $event)" v-for="item in pageData">
+						<p>{{item.combo_name}}</p>
+						<p>赠送{{item.gift_fee}}元</p>
+					</li>
 				</ul>
 				<p v-if="params.money"><span class="language">充值金额为</span>：&yen;{{params.money}}</p>
 

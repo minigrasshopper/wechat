@@ -1,0 +1,16 @@
+.logo{
+	width: 40%;
+	margin: 0 auto;
+	display: block;
+}
+.codePage>div{
+	width: 90%;
+}
+.codePage img{
+	width: 60%;
+}
+.codePage p{
+	margin-top: 15px;
+	color: #fff;
+	font-size: 1.4rem;
+}

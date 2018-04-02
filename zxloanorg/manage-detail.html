@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-第三方渠道</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/manage-detail.css" />
+	</head>
+	<body>
+		<section id='manageDetailPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>客户详细信息</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div class="userBox bg-gray" v-if="pageData">
+				<p>
+					<span>申请编号</span>
+					<span>{{pageData.apply_no}}</span>
+				</p>
+				<p>
+					<span>贷款人</span>
+					<span>{{pageData.customer.name}}</span>
+				</p>
+				<p v-for="(item, index) in pageData.pawn">
+					<span>房屋地址{{pageData.pawn.length>1?(index+1):''}}</span>
+					<span>{{item.address}}</span>
+				</p>
+				<p>
+					<span>联系电话</span>
+					<a id="tel">{{pageData.customer.mobile}}</a>
+				</p>
+			</div>
+			<ul class="commonBox margin-top-20" v-if="pageData">
+				<li>
+					<span class="title">推荐人柜员号</span>
+					<span class="desc">{{pageData.invite_code?pageData.invite_code:'无'}}</span>
+				</li>
+				<li>
+					<span class="title">产品类型</span>
+					<span class="desc">{{product_name}}</span>
+				</li>
+				<li>
+					<span class="title">业务状态</span>
+					<span class="desc">{{pageData.statusMsg?pageData.statusMsg:'暂无'}}</span>
+				</li>
+
+				<!--预约面签成功后分配-->
+				<li v-show="pageData.appoint_info[0]">
+					<span class="title">预约时间</span>
+					<span class="desc">{{pageData.appoint_info[0]}}</span>
+				</li>
+				<li v-show="pageData.appoint_info[1]">
+					<span class="title">面签地点</span>
+					<span class="desc">{{pageData.appoint_info[1]}}</span>
+				</li>
+				<li v-show="pageData.manager.name">
+					<span class="title">客户经理</span>
+					<span class="desc">{{pageData.manager.name}}</span>
+				</li>
+			</ul>
+			<div class="margin-top-20 t-c">
+				<button v-on:touchend='goManageWorkflow()' class="button-default">工作流详情</button>
+			</div>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/manage-detail.js"></script>
+	</body>
+</html>

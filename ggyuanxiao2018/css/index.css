@@ -1,0 +1,644 @@
+body{
+    font-size: 0.7rem !important;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: scroll;
+}
+.logo{
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@keyframes title_run{
+    from{
+        transform: translateX(-50%) scale(0.2);
+    }
+    60%{
+        transform: translateX(-50%) scale(1);
+    }
+    80%{
+        transform: translateX(-50%) scale(0.7);
+    }
+    to{
+        transform: translateX(-50%) scale(1);
+    }
+}
+@keyframes music_run {
+    from{
+        transform: rotate(-360deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/*followPage开始*/
+#followPage{
+    text-align: center;
+}
+#followPage img{
+    width: 60%;
+}
+#followPage p{
+    margin-top: 10px;
+    font-size: 0.7rem;
+    color: #ccc;
+}
+/*followPage结束*/
+
+/*indexPage开始*/
+.icon-music_on, .icon-music_off{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+    z-index: 100;
+}
+.icon-music_on{
+    animation: music_run 5s linear infinite;
+}
+#indexPage .title{
+    width: 86%;
+    top: 12%;
+    animation: title_run 1s .5s linear both;
+}
+@keyframes start_run{
+    from{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+#indexPage>div{
+    width: 100%;
+    bottom: 5%;
+}
+#indexPage .startBtn{
+    display: block;
+    width: 55%;
+    animation: start_run 1s linear infinite;
+    margin: auto;
+}
+#indexPage .ruleBtn, #indexPage .prizeBtn{
+    margin-top: 20px;
+    width: 38%;
+}
+#indexPage .ruleBtn{
+    float: left;
+    margin-left: 6%;
+}
+#indexPage .prizeBtn{
+    float: right;
+    margin-right: 6%;
+}
+/*indexPage结束*/
+
+/*rulePage开始*/
+@keyframes rule_run{
+    from{
+        transform: translateX(-50%) translateY(-50%) scale(0.2);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+}
+#rulePage>div{
+    top: 45%;
+    width: 82%;
+    animation: rule_run .5s linear both;
+}
+#rulePage .icon-close{
+    bottom: 0;
+    font-size: 2rem;
+    transform: translateX(-50%) translateY(120%);
+    color: #fff;
+}
+#rulePage .rules{
+    width: 70%;
+    top: 21%;
+    height: 75%;
+    text-align: left;
+    overflow: scroll;
+    color: #000;
+    /*background: #fff;*/
+}
+/*rulePage结束*/
+
+/*gamePage开始*/
+#gamePage .gameHintBox img{
+    width: 45%;
+    top: 5%;
+    right: 5%;
+}
+#gamePage .gameHintBox button{
+    position: absolute !important;
+    bottom: 20%;
+    color: #fff;
+    border: 1px solid #fff;
+}
+#gamePage .controlBox{
+    width: 85%;
+    top: 20px;
+}
+#gamePage .controlBox li{
+    position: relative;
+    width: 100%;
+}
+#gamePage .controlBox li:last-child{
+    margin-top: 28px;
+}
+#gamePage .controlBox p{
+    position: relative;
+    margin-left: 30px;
+    width: calc(100% - 100px);
+    height: 16px;
+}
+#gamePage .controlBox i{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 16px;
+    background: #2c0405;
+}
+#gamePage .controlBox li:nth-child(1) p{
+    background: #04cbde;
+}
+#gamePage .controlBox li:nth-child(2) p{
+    background: #fbddb7;
+}
+#gamePage .controlBox .text{
+    right: 0;
+    width: 60px;
+}
+#gamePage .controlBox .icon{
+    left: 0;
+    width: 48px;
+    z-index: 99;
+}
+#gamePage .madeBox{
+    width: 75%;
+    top: 46%;
+    z-index: 99;
+}
+#gamePage .game_tool{
+    width: 100%;
+}
+#gamePage .score_time{
+    width: 100%;
+    bottom: 10%;
+}
+#gamePage .score_time .shakeBtn{
+    width: 63%;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+#gamePage .score_time ul{
+    overflow: hidden;
+}
+#gamePage .score_time ul li{
+    width: 50%;
+}
+#gamePage .score_time ul li:nth-child(1){
+    float: left;
+    text-align: left;
+    padding-left: 8%;
+}
+#gamePage .score_time ul li:nth-child(2){
+    float: right;
+    text-align: right;
+    padding-right: 8%;
+}
+#gamePage .score_time ul li img{
+    height: 24px;
+}
+#gamePage .score_time ul li p{
+    color: #ffdb3f;
+    display: inline-block;
+    margin-left: 4px;
+}
+#gamePage .score_time ul li p span{
+    color: #fff;
+    font-size: 0.9rem;
+}
+@keyframes materialHint_run {
+    from{
+        right: 0;
+        transform: translateX(100%);
+    }
+    to{
+        right: 5%;
+        transform: translateX(0);
+    }
+}
+#gamePage .materialHint{
+    position: absolute;
+    bottom: 28%;
+    color: #fde00a;
+    font-size: 1rem;
+    animation: materialHint_run .3s .2s linear both;
+}
+.game_noodles{
+    width: 100%;
+}
+@keyframes madeBox_run {
+    from{
+        transform: translateX(-50%) translateY(-50%);
+    }
+    25%{
+        transform: translateX(-50%) translateY(-52%);
+    }
+    50%{
+        transform: translateX(-52%) translateY(-50%);
+    }
+    75%{
+        transform: translateX(-52%) translateY(-48%);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+#gamePage .madeBox_run{
+    animation: madeBox_run .24s linear infinite;
+}
+@keyframes runBox_run1 {
+    from{
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+@keyframes runBox_run2 {
+    from{
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+@keyframes runBox_run3 {
+    from{
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+.runBox_run1{
+    animation: runBox_run1 2s .5s linear infinite;
+}
+.runBox_run2{
+    animation: runBox_run2 2s .2s linear infinite;
+}
+.runBox_run3{
+    animation: runBox_run3 2s .1s linear infinite;
+}
+@keyframes complete_run {
+    from{
+
+    }
+    to{
+        top: 120%;
+        left: 20%;
+    }
+}
+.complete_run{
+    animation: complete_run .5s linear both !important;
+}
+/*gamePage结束*/
+
+/*resultPage开始*/
+#resultPage>div{
+    width: 74%;
+    text-align: center;
+}
+#resultPage .decorate{
+    width: 43%;
+    top: 24%;
+}
+#resultPage .resultBox{
+    width: 100%;
+    top: 6%;
+    padding: 0 6px;
+}
+#resultPage .resultBox h2{
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 500;
+}
+#resultPage .resultBox h2 span{
+    color: #fff811;
+}
+#resultPage .resultBox p{
+    font-size: 0.8rem;
+    margin-top: 8px;
+    color: #feffff;
+}
+#resultPage .btnBox{
+    width: 100%;
+    bottom: 8%;
+}
+#resultPage .btnBox img{
+    width: 60%;
+    margin-bottom: 10px;
+}
+/*resultPage结束*/
+
+/*sharePage开始*/
+@keyframes share_run {
+    from{
+        top: 10px;
+        right: 16px;
+    }
+    50%{
+        top: 5px;
+        right: 8px;
+    }
+    to{
+        top: 10px;
+        right: 16px;
+    }
+}
+#sharePage img{
+    position: absolute;
+    width: 68%;
+    top: 16px;
+    right: 16px;
+    animation: share_run 1s linear infinite;
+}
+/*sharePage结束*/
+
+
+
+/*myprizePage开始*************************/
+/*20% + (70% - 50px) + 50px + 10%*/
+#myprizePage>ul{
+    top: 25%;
+    height: calc(70% - 60px);
+}
+#myprizePage li{
+    width: 95%;
+    margin: 8px auto;
+    background-size: 100% 100%;
+    padding: 18px 12px;
+}
+#myprizePage li div{
+    width: calc(100% - 40px);
+}
+#myprizePage li div p{
+    margin-top: 8px;
+    color: #999;
+}
+#myprizePage li div h2{
+    color: #e4771a;
+}
+
+/*li.noApply 表示券不能使用-开始*/
+#myprizePage li.noApply div h2{
+    color: #999;
+}
+/*li.noApply 表示券不能使用-结束*/
+
+#myprizePage .aheadBtn{
+    right: 15px;
+    width: 12px;
+}
+#myprizePage .state{
+    width: 58px;
+    right: 27px;
+    z-index: 100;
+}
+#backBtn{
+    height: 44px;
+    bottom: 5%;
+}
+/*myprizePage结束************************/
+
+/*verifyPage开始*/
+#verifyPage{
+    background: #56bd48 !important;
+    padding: 18px 15px;
+}
+#verifyPage input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
+    color: #9a9a9a;
+}
+#verifyPage>div{
+    background: #fff;
+    border-radius: 6px;
+    padding-bottom: 50px;
+}
+#verifyPage .name_time_state{
+    padding: 18px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+#verifyPage .name_time_state span{
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #56bd48;
+    bottom: -6px;
+}
+#verifyPage .name_time_state span:nth-child(1){
+    left: -6px;
+}
+#verifyPage .name_time_state span:nth-child(2){
+    right: -6px;
+}
+#verifyPage .name_time_state h2{
+    color: #55bd4c;
+    margin-bottom: 8px;
+    padding: 0 18px;
+}
+#verifyPage .name_time_state h6{
+    color: #55bd4c;
+    margin-bottom: 8px;
+    padding: 0 18px;
+    font-weight: 500;
+}
+#verifyPage .name_time_state p{
+    color: #888;
+}
+#verifyPage .name_time_state img{
+    width: 88px;
+    right: 20px;
+    bottom: -45px;
+}
+
+/*#verifyPage.noApply 表示券不能使用-开始*/
+#verifyPage.noApply{
+    background: #ccc !important;
+}
+#verifyPage.noApply .name_time_state span{
+    background: #ccc;
+}
+#verifyPage.noApply .name_time_state h2{
+    color: #999;
+}
+#verifyPage.noApply .name_time_state h6{
+    color: #999;
+}
+#verifyPage.noApply .showBox #checkBtn{
+    background: #999;
+}
+/*#verifyPage.noApply 表示券不能使用-结束*/
+
+#verifyPage .showBox{
+    padding: 18px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+#verifyPage .showBox p{
+    color: #373737;
+}
+#verifyPage .showBox .code{
+    font-size: 1.8rem;
+    margin: 8px auto;
+}
+#verifyPage .showBox h5{
+    margin-bottom: 12px;
+    color: #454545;
+}
+#verifyPage .showBox input,#verifyPage .showBox textarea{
+    border: 1px solid #999;
+    width: 60%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    color: #454545;
+    font-size: 1.3rem;
+}
+#verifyPage .showBox textarea{
+    height: 65px;
+    padding-top: 5px;
+}
+#verifyPage .showBox button{
+    background: #56bd48;
+    display: block;
+    margin: 12px auto 0 auto;
+    width: 100px;
+    color: #fff;
+    height: 30px;
+}
+#verifyPage .showBox.codeBox{
+    padding: 60px 0;
+}
+#verifyPage .showBox.codeBox .code{
+    font-size: 2.8rem;
+}
+
+#verifyPage .getShopBox{
+    height: 40px;
+    line-height: 40px;
+    color: #666;
+    padding: 0 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
+#verifyPage .getShopBox .aheadBtn1{
+    right: 20px;
+    width: 10px;
+}
+
+#verifyPage .descBox{
+    padding: 18px;
+    color: #454545;
+}
+
+#verifyCloseBtn{
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #e6e6e6;
+    width: calc(100% - 30px);
+    background: #fff;
+    bottom: 18px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: #56bd48;
+    font-size: 2rem;
+}
+/*条形码\二维码样式*/
+#barcode,#qrcode{
+    margin: auto;
+    width: 50% !important;
+}
+#barcode object,#qrcode object{
+    width: 100%;
+}
+/*verifyPage结束*/
+
+/*shopPage开始*/
+#shopPage{
+    background: #fff !important;
+}
+#shopPage .previousBox{
+    height: 45px;
+    line-height: 45px;
+    font-size: 1.8rem;
+    color: #fff;
+    background: #55bd47;
+}
+#shopPage .previousBtn{
+    width: 14px;
+    left: 0;
+    margin: 0 20px;
+}
+#shopPage li{
+    padding: 20px 12px;
+    border-bottom: 1px solid #dcdada;
+}
+#shopPage li div{
+    width: calc(100% - 28px);
+    border-right: 1px solid #dcdada;
+}
+#shopPage li div h2 span{
+    color: #999;
+    margin-right: 10px;
+    font-weight: 500;
+}
+#shopPage li div p{
+    color: #666;
+    margin: 8px 0;
+}
+#shopPage li div h6{
+    color: #008aff;
+    font-weight: 500;
+}
+#shopPage li img{
+    right: 11px;
+    width: 18px;
+}
+/*shopPage结束*/
+
+/*********************************微信端媒体查询*****************************/
+/*iphone6 pluse*/
+@media only screen and (max-width: 414px) and (max-height: 672px){
+
+}
+/*iphone6*/
+@media only screen and (max-width: 375px) and (max-height: 603px){
+    #gamePage .eggBox {
+        padding: 0 8%;
+    }
+}
+/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 504px){
+    #gamePage .eggBox {
+        padding: 0 10%;
+    }
+}
+/*iphone4*/
+@media only screen and (max-width: 320px) and (max-height: 416px){
+
+}

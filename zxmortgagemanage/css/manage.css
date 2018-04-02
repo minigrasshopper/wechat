@@ -1,0 +1,75 @@
+.searchBox{
+    position: relative;
+    width: 100%;
+    padding: 10px 20px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.searchBox input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding-right: 30px;
+}
+.searchBox .iconfont{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    line-height: 56px;
+    font-size: 1.2rem;
+    padding: 0 10px;
+}
+
+.noHint{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.infoBox{
+    padding: 10px 20px;
+    background: #fff;
+}
+.infoBox li{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.infoBox li p .name{
+    font-size: 0.8rem;
+}
+.infoBox .icon-edit{
+    color: #ff4c45;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+}
+.infoBox li>p{
+    line-height: 1.2rem;
+}
+
+.stateBox{
+    margin-top: 10px;
+    background: #fff;
+    overflow: hidden;
+    border-top: 1px solid #c9c9c9;
+    text-align: center;
+}
+.stateBox p{
+    margin-top: 10px;
+    float: left;
+    line-height: 1rem;
+    width: 30%;
+    margin-right: 5%;
+}
+.stateBox p span:nth-child(2){
+    display: block;
+}
+.stateBox p span:nth-child(1){
+    color: #0873c0;
+    text-decoration: underline;
+}
+.stateBox p.active{
+    color: #d80109;
+}
+.stateBox p:nth-child(3n){
+    margin-right: 0;
+}

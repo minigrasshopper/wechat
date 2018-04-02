@@ -1,0 +1,260 @@
+/*placeholder��ʽ��ʼ*/
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+	color: #999;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+	color: #999;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+	color: #999;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+	color: #999;
+}
+/*placeholder��ʽ����*/
+section{
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+	position: relative;
+	font-size: 1.4rem;
+	color: #373b3c;
+	background: #fff;
+}
+.bg-gray{
+	background: #f5f5f5;
+}
+.container{
+	padding: 60px 20px 20px 20px;
+}
+nav{
+	background: #ff4c45;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	font-size: 1.6rem;
+	color: #fff;
+	text-align: center; 
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+nav img{
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+	height: 45px;
+	padding: 12px 20px;
+}
+nav .icon_back{
+	left: 0;
+}
+nav .icon_home{
+	right: 0;
+}
+input, select{
+	height: 36px;
+	background: transparent;
+	font-size: 1.4rem;
+}
+button{
+	background: #ff4c45;
+	height: 36px;
+	font-size: 1.5rem;
+	color: #fff;
+	border-radius: 18px;
+	padding: 0 20px;
+}
+.button-default{
+	width: 66%;
+}
+.button-clear{
+	color: #ff4c45;
+	background: transparent;
+}
+.button-clear-auto{
+	color: #ff4c45;
+	background: transparent;
+	padding: 0;
+	width: auto;
+}
+.button-outline{
+	color: #ff4c45;
+	border: 1px solid #ff4c45;
+	background: transparent;
+}
+.color-black{
+	color: #373b3c;
+}
+.color-gray{
+	color: #999;
+}
+.color-white{
+	color: #fff;
+}
+.color-red{
+	color: #ed3b3b !important;
+}
+.border-top{
+	border-top: 1px solid #ccc;
+}
+.border-bottom{
+	border-bottom: 1px solid #ccc;
+}
+.border-v-bottom{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.margin-v-20{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.margin-top-20{
+	margin-top: 20px;
+}
+.margin-top-30{
+	margin-top: 30px;
+}
+.margin-top-40{
+	margin-top: 40px;
+}
+.margin-bottom-10{
+	margin-bottom: 10px;
+}
+.margin-bottom-20{
+	margin-bottom: 20px;
+}
+.padding-v-20{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+/*commonBox��ʼ*************************************/
+.commonBox{
+	font-size: 1.4rem;
+	line-height: 24px;
+}
+.commonBox li{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	padding: 8px 10px;
+	position: relative;
+}
+.commonBox li:active{
+	opacity: 0.6;
+}
+.commonBox .title{
+	float: left;
+	color: #373b3c;
+}
+.commonBox input.input_sm{
+	width: calc(100% - 160px);
+}
+/*.desc_amend���ұ���ahead_btn�����*/
+.commonBox .desc_amend{
+	padding-right: 15px;
+}
+.commonBox .desc, .commonBox .desc_amend{
+	max-width: calc(100% - 100px);
+	text-align: right;
+	float: right;
+	color: #666;
+}
+.commonBox .icon{
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	width: 8px;
+}
+.commonBox select{
+	width: 100%;
+	opacity: 0;
+	border: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 40px;
+}
+.commonBox input{
+	float: right;
+	height: 24px;
+	max-width: calc(100% - 120px);
+	border: none;
+	text-align: right;
+}
+.commonBox .deleteBtn{
+	float: right;
+}
+/*.double-select������input��*/
+.commonBox li.double-select div{
+	float: right;
+}
+.commonBox li.double-select select{
+	float: none;
+	width: auto;
+	text-align: center;
+	position: static;
+	opacity: 1;
+	height: 100%;
+}
+/*.commonBox_amend���м��li��ʽ�仯����*/
+.commonBox_amend .icon{
+	right: 0;
+}
+.commonBox_amend li{
+	margin: 0 20px;
+	padding-left: 0;
+	padding-right: 0;
+}
+.commonBox_amend li.mainTitle,.commonBox_amend li:last-child{
+	margin: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.commonBox_amend li:last-child .icon{
+	right: 20px;
+}
+/*commonBox����*/
+
+.searchCommon{
+	overflow: hidden;
+}
+.searchCommon div{
+	float: left;
+	width: calc(100% - 90px);
+	position: relative;
+}
+.searchCommon input{
+	width: 100%;
+	border-radius: 18px;
+	padding-left: 30px;
+}
+.searchCommon img{
+	width: 16px;
+	left: 10px;
+}
+.searchCommon button{
+	float: right;
+	width: 80px;
+}
+
+.title-c{
+	width: 100%;
+	height: 1px;
+	background: #ccc;
+	margin: 15px 0;
+}
+.title-c h6{
+	height: 30px;
+	line-height: 30px;
+	border-radius: 15px;
+	padding: 0 20px;
+	color: #ed3b3b;
+	border: 1px solid #ed3b3b;
+	background: #fff;
+}
+
+.line{
+	margin-top: -2px;
+}

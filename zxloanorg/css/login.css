@@ -1,0 +1,25 @@
+#loginPage>div{
+	top: 45%;
+}
+#loginPage .logo{
+	width: 37%;
+}
+#loginPage ul{
+	width: 73%;
+	margin: 60px auto;
+}
+#loginPage li{
+	height: 40px;
+	margin-bottom: 20px;
+}
+#loginPage li:last-child{
+	margin-bottom: 0;
+}
+#loginPage li img{
+	left: 15px;
+	width: 15px;
+}
+#loginPage li input{
+	padding-left: 40px;
+	border-radius: 20px;
+}

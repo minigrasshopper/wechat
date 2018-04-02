@@ -29,7 +29,7 @@
                 //localStorage.city开始
                 var gap = 3600 * 1000 * 24 * 3;     //ms
                 // var gap = 3000;     //ms
-                if(!localStorage.city){
+                /*if(!localStorage.city){
                     localStorage.preTime = new Date().getTime();
                 }else{
                     var now = new Date().getTime();
@@ -37,7 +37,7 @@
                         localStorage.city = '';
                         localStorage.preTime = new Date().getTime();
                     }
-                }
+                }*/
                 //localStorage.city结束
             },
             data: {
@@ -50,12 +50,12 @@
                     keyword: null   //搜索关键词
                 },
                 city: '',
-                showAll: localStorage.showAll == 1 ? 1 : 0,   //是否显示所有
-                cityBoxShow: localStorage.city ? false : true,
+                showAll: sessionStorage.showAll == 1 ? 1 : 0,   //是否显示所有
+                cityBoxShow: sessionStorage.city ? false : true,
                 cityList: [
-                    {city: '北京', showAll: 1},
-                    {city: '其他', showAll: 0}
-                ]
+                    {city: '北京', showAll: 1, eName: 'Beijing'},
+                    {city: '其他', showAll: 0, eName: 'Other'}
+                ],
             },
             mounted: function(){
                 var me = this;
@@ -174,8 +174,8 @@
                 selectCity: function (city, showAll) {
                     this.city = city;
                     this.showAll = showAll;
-                    localStorage.city = city;
-                    localStorage.showAll = showAll;
+                    sessionStorage.city = city;
+                    sessionStorage.showAll = showAll;
                 },
                 cityHandle: function () {
                     if(!this.city){

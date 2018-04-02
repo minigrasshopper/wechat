@@ -1,0 +1,74 @@
+.titleBox img{
+    width: 20%;
+}
+.titleBox p{
+    width: 40%;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+    color: #ed3b3b;
+    border: 1px solid #ed3b3b;
+    margin: 20px auto;
+    font-size: 1.5rem;
+}
+
+.stateBox li{
+    position: relative;
+}
+.stateBox li:last-child div:nth-child(1) p:nth-child(2){
+    display: none;
+}
+.stateBox li div:nth-child(1){
+    width: 18px;
+    height: 100%;
+    position: absolute;
+}
+.stateBox li div:nth-child(1) p:nth-child(1){
+    width: 18px;
+    height: 18px;
+    background: #999;
+    border: 2px solid #dfdfdf;
+    border-radius: 50%;
+}
+.stateBox li div:nth-child(1) p:nth-child(2){
+    width: 1px;
+    height: calc(100% - 16px);
+    background: #999;
+    margin: -2px auto 0 auto;
+}
+
+.stateBox li div:nth-child(2){
+    padding-left: 24px;
+    padding-bottom: 10px;
+}
+.stateBox li div:nth-child(2) p{
+    margin-bottom: 5px;
+}
+.stateBox li div:nth-child(2) p:last-child{
+    margin-bottom: 0;
+}
+.stateBox li button{
+    font-size: 1.2rem;
+    height: auto;
+    padding: 3px 10px;
+    background: #999;
+    border-radius: 2px;
+}
+
+.stateBox li.active{
+    color: #6591fc;
+}
+.stateBox li.active .light{
+    color: #82a8ff;
+}
+.stateBox li.active div:nth-child(1) p:nth-child(1){
+    background: #6591fc;
+    border: 2px solid #c1d4fe;
+}
+.stateBox li.active div:nth-child(1) p:nth-child(2){
+    background: #6591fc;
+}
+.stateBox li.active button{
+    background: #ff4c45;
+}
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_528574_s8lswmp8sl7kfbt9.css">
+    <script src="//at.alicdn.com/t/font_528574_s8lswmp8sl7kfbt9.js"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <audio id="audioBg" src="resource/new.mp3" loop="loop" preload></audio>
+
+    <section id="followPage" class="maskBox hide">
+        <div class="abs-center w-100">
+            <img src="" alt=""/>
+            <p>请长按识别后，进入游戏</p>
+        </div>
+    </section>
+
+    <section id="indexPage" class="hide" :style="styles.bg">
+        <i class="iconfont icon-music_on" v-if="musicPlay" v-on:touchend="toggleMusic(0)"></i>
+        <i class="iconfont icon-music_off" v-if="!musicPlay" v-on:touchend="toggleMusic(1)"></i>
+        <img class="logo" :src="selfData.index.logo" alt=""/>
+        <img class="title abs-h-center" :src="selfData.index.index_title" alt=""/>
+        <div class="abs-h-center">
+            <img class="startBtn" v-on:touchend="startHandle()" :src="selfData.index.btn_start" alt="">
+            <img class="ruleBtn" v-on:touchend="ruleHandle()" :src="selfData.index.btn_rule" alt="">
+            <img class="prizeBtn" v-on:touchend="prizeHandle()" :src="selfData.index.btn_prize" alt="">
+        </div>
+    </section>
+
+    <section id="rulePage" class="maskBox hide">
+        <div class="abs-center">
+            <img class="w-100" :src="selfData.rule.rule_bg" alt=""/>
+            <i class="iconfont icon-close abs-h-center" v-on:touchend="closeHandle()"></i>
+            <div class="abs-h-center rules" v-html="selfData.rules"></div>
+        </div>
+    </section>
+
+    <section id="gamePage" class="hide" :style="styles.bg">
+        <div class="maskBox gameHintBox" v-if="hintShow">
+            <img class="abs" :src="selfData.game.game_hint" alt="">
+            <button v-on:touchend="knowHandle()" class="abs-h-center weui-btn weui-btn_mini weui-btn_plain-default">我知道了</button>
+        </div>
+        <ul class="controlBox abs-h-center">
+            <li>
+                <img class="icon abs-v-center" :src="selfData.game.game_icon_water" alt="">
+                <p><i class="water"></i></p>
+                <img v-on:touchend="materialHandle('water')" class="text abs-v-center" :src="selfData.game.game_text_water" alt="">
+            </li>
+            <li>
+                <img class="icon abs-v-center" :src="selfData.game.game_icon_noodles" alt="">
+                <p><i class="noodles"></i></p>
+                <img v-on:touchend="materialHandle('noodles')" class="text abs-v-center" :src="selfData.game.game_text_noodles" alt="">
+            </li>
+        </ul>
+        <div class="madeBox abs-center">
+            <img class="game_noodles abs-center" :src="selfData.game.game_noodles" alt="">
+            <img class="game_tool" :src="selfData.game.game_tool" alt="">
+            <div class="abs-center runBox wh-100" v-for="(item, key) in madeArr">
+                <img class="abs-center game_ball" :data-initscale="item.initscale"
+                     :data-lastscale="item.lastscale" :style="ballStyle(item)" :src="item.ball" alt="">
+            </div>
+        </div>
+        <p class="materialHint hide"></p>
+        <div class="score_time abs-h-center">
+            <img v-on:touchend="shakeHandle()" class="shakeBtn" :src="selfData.game.btn_shake" alt="">
+            <ul>
+                <li>
+                    <img :src="selfData.game.game_icon_score" alt="">
+                    <p>数量 / <span>{{score}}</span>个</p>
+                </li>
+                <li>
+                    <img :src="selfData.game.game_icon_time" alt="">
+                    <p>时间 / <span>{{second >= 10 ? second : '0' + second}}</span>秒</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="resultPage" class="maskBox hide">
+        <div class="abs-center">
+            <img class="w-100" :src="selfData.result.result_bg" alt="">
+            <img v-if="state==1" class="decorate abs-h-center" :src="selfData.result.result_has" alt="">
+            <img v-if="state!=1" class="decorate abs-h-center" :src="selfData.result.result_no" alt="">
+            <div v-if="state==1" class="resultBox abs-h-center" v-html="textConvert(selfData.text.nice_hint)"></div>
+            <div v-if="state==0" class="resultBox abs-h-center" v-html="textConvert(selfData.text.fail_hint)"></div>
+            <div v-if="state==2" class="resultBox abs-h-center" v-html="textConvert(selfData.text.exhaust_hint)"></div>
+            <div class="btnBox abs-h-center">
+                <img v-on:touchend="againHandle()" :src="selfData.result.btn_again" alt="">
+                <img v-on:touchend="shareHandle()" :src="selfData.result.btn_share" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="sharePage" class="maskBox hide" v-on:touchend="closeHandle()">
+        <img :src="selfData.share.share" alt="">
+    </section>
+
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

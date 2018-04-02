@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>樱花女神</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script src="js/hammer.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/component.js"></script>
+    <script src='js/lrz.mobile.min.js'></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_585901_93q3wkxx0tlqh0k9.css">
+    <script src="//at.alicdn.com/t/font_585901_93q3wkxx0tlqh0k9.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/sign.css">
+</head>
+<body>
+    <section class="hide container">
+        <vue-footer index_in="2"></vue-footer>
+        <img class="title" src="images/sign_title.png" alt="">
+        <div class="inputBox">
+            <p>
+                <span class="color-default">昵称</span>
+                <input v-model="params.name" :disabled="upload==1" type="text" placeholder="请输入您的报名昵称">
+            </p>
+            <p>
+                <span class="color-default">电话</span>
+                <input v-model="params.mobile" :disabled="upload==1" type="text" placeholder="请输入您的手机号码">
+            </p>
+            <p>
+                <span class="color-default">我是</span>
+                <select v-model="params.cate" :disabled="upload==1">
+                    <option value=""></option>
+                    <option v-for="(value, key) in user_cates" :value="key">{{value}}</option>
+                </select>
+            </p>
+            <p v-if="params.cate == 'whu'">
+                <span class="color-default">学号</span>
+                <input v-model="params.whu_student_no" :disabled="upload==1" type="text" placeholder="请输入您的学号">
+            </p>
+        </div>
+        <h6>*参与者提供的个人信息（除昵称外）仅用于活动主办方联系获奖者，不公开展示和泄漏。</h6>
+        <ul class="imgBox">
+            <li v-for="(item, key) in params.pics">
+                <i v-if="upload==0" v-on:click="deleteHandle(key)" class="iconfont icon-close"></i>
+                <img class="abs-center" :src="item" alt="">
+            </li>
+            <li class="addBtn" v-if="upload==0 && params.pics.length<3">
+                <div class="abs-center">
+                    <span>+</span>
+                    <p>添加照片</p>
+                </div>
+                <input v-on:change="uploadHandle($event)" type="file" accept="image/*" />
+            </li>
+        </ul>
+        <h6>*请上传2-3张真实清晰的个人照，请勿过分美颜，让我们认识更真实美丽的你。照片尺寸建议比例1:1，大小不要超过5M，默认由第一张照片生成拉票海报。</h6>
+        <img v-if="upload==0" v-on:click="submitHandle()" class="submitBtn" src="images/btn_submit.png" alt="">
+        <img v-if="upload==1" v-on:click="jumpDetail()" class="lookBtn" src="images/btn_look.png" alt="">
+        <div class="maskBox hide editBox">
+            <div class="abs-center square">
+                <img id="photo" :src="imgCurr" alt="">
+            </div>
+            <div class="btnBox abs-h-center">
+                <button v-on:click="cancelHandle()">取消</button>
+                <button v-on:click="useHandle()">使用</button>
+            </div>
+        </div>
+        <div class="maskBox resultcommon giftBox hide">
+            <div class="abs-center">
+                <img class="icon" src="images/icon_success.png" alt="">
+                <h1>恭喜报名成功！</h1>
+                <p>快去让小伙伴给你投票吧！</p>
+                <button v-on:click="jumpDetail()">查看我的页面</button>
+                <i v-if="hasGetCoupon==1">哇，获得一张良品铺子优惠券！</i>
+                <div v-if="hasGetCoupon==1" class="ticket" v-on:click="jumpUrl(couponInfo.geturl)">
+                    <h3>{{couponInfo.name}}</h3>
+                    <h4>{{couponInfo.desc}}</h4>
+                    <h5>立即使用</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="js/sign.js"></script>
+</body>
+</html>

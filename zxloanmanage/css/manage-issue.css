@@ -1,0 +1,32 @@
+ul li{
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background: #f5f5f5;
+    padding: 15px;
+}
+ul li.active p:nth-child(1) .desc{
+    color: #fe4c42;
+}
+ul li p{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+ul li p:last-child{
+    margin-bottom: 0;
+}
+ul li span{
+    float: left;
+}
+ul li p span:nth-child(1){
+    width: 80px;
+}
+ul li p span:nth-child(2){
+    width: calc(100% - 80px);
+    word-wrap: break-word;
+}
+.title{
+    color: #373b3c;
+}
+.desc{
+    color: #666;
+}

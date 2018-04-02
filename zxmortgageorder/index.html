@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>中信按揭</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_564026_vn6k1awh238tzkt9.css">
+    <script src="//at.alicdn.com/t/font_564026_vn6k1awh238tzkt9.js"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <section class='hide'>
+        <div class='profileBox rel w-100'>
+            <img class='w-100' src="images/index_decorate.jpg">
+            <div class='w-100 abs-center t-c'>
+                <img v-bind:src="wxinfo.headimgurl" />
+                <p>{{wxinfo.nickname}}</p>
+            </div>
+            <button v-on:touchend="backHandle()" class='abs'>退出<i class="iconfont icon-ahead"></i></button>
+        </div>
+
+        <ul>
+            <li v-on:touchend="jumpPage('list')">
+                <img class='abs-v-center' src="images/icon_manage.png">
+                <div>
+                    <p>业务管理</p>
+                    <p>Administration</p>
+                </div>
+            </li>
+            <li v-on:touchend="jumpPage('new')">
+                <img class='abs-v-center' src="images/icon_new.png">
+                <div>
+                    <p>新业务申请</p>
+                    <p>New Business</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

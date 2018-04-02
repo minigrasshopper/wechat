@@ -1,0 +1,45 @@
+.userBox{
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+.userBox p{
+    overflow: hidden;
+    line-height: 2.4rem;
+}
+.userBox p span{
+    float: left;
+}
+.userBox p span:nth-child(1){
+    width: 85px;
+}
+.userBox p span:nth-child(2){
+    width: calc(100% - 85px);
+    color: #999;
+}
+.orderBox>div{
+    width: 80%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 30px 0;
+}
+.orderBox ul{
+    padding: 0 20px;
+    margin: 35px auto 0 auto;
+}
+.orderBox li{
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.orderBox li p{
+    line-height: 2.4rem;
+}
+.orderBox li input,.orderBox li select{
+    width: 100%;
+}
+.orderBox li.timeBox select{
+    float: left;
+    width: 48%;
+}
+.orderBox li.timeBox select[name='selectH']{
+    margin-right: 4%;
+}

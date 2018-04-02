@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个贷-客户端</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/config.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/same.css" />
+	<link rel="stylesheet" type="text/css" href="css/static.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/query-list.css" />
+</head>
+	<body>
+        <section id='queryListPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>我的业务</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div class="bigBox margin-bottom-20" v-for="(item, index) in pageData">
+				<ul class="commonBox">
+					<li>
+						<span class="title">申请编号：</span>
+						<span class="f-l">{{item.apply_no}}</span>
+						<span class="f-r color-red">{{item.date}}</span>
+					</li>
+					<li>
+						<span class="title">申请人</span>
+						<span class="desc">{{item.customer.name}}</span>
+					</li>
+					<li v-for="(v, index) in item.pawn">
+						<span class="title">房屋地址{{item.pawn.length>1?(index+1):''}}</span>
+						<span class="desc">{{v.address}}</span>
+					</li>
+					<li>
+						<span class="title">联系电话</span>
+						<span class="desc">{{item.customer.mobile}}</span>
+					</li>
+				</ul>
+				<p class="hidden controlBox">
+					<span class="f-r font-16 color-yellow" v-on:click="detailHandle($event, item.apply_no, index)">查看详情</span>
+					<span class="f-r font-16 color-yellow hide" v-on:click="closeHandle($event)">收起</span>
+				</p>
+				<ul class="stateBox hide">
+					<!--.active表示当前状态-->
+					<li v-for="(value, index) in item.workflow" v-bind:class="index==0?'active':''">
+						<div>
+							<p></p>
+							<p></p>
+						</div>
+						<div>
+							<p class="font-14">{{value.status}}</p>
+							<p class="font-13">操作时间：{{value.datetime}}</p>
+						</div>
+					</li>
+				</ul>
+				<p class="hint color-white hide">尚无数据</p>
+			</div>
+
+			<div class="t-c margin-top-30">
+				<button v-on:touchend="backHandle()" class="button-default">返回</button>
+			</div>
+        </section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/query-list.js"></script>
+	</body>
+</html>

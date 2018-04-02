@@ -1,0 +1,45 @@
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.moneyBox{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 30px 0;
+    background: #ffeae5;
+    font-size: 1.3rem;
+}
+.moneyBox canvas{
+    margin: 0 2%;
+}
+.moneyBox>div{
+    width: 60%;
+}
+.moneyBox p{
+    position: relative;
+    line-height: 2rem;
+    margin-bottom: 5px;
+}
+.moneyBox span{
+    color: #6194fd;
+}
+.moneyBox i{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background: transparent;
+}
+.moneyBox p:nth-child(1) i{
+    background: #d60008;
+}
+.moneyBox p:nth-child(2) i{
+    background: #ff9865;
+}
+.moneyBox button{
+    border-radius: 0;
+    height: 28px;
+    font-size: 1.4rem;
+    padding: 0 15px;
+}

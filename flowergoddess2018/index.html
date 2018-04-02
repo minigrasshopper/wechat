@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>樱花女神</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script src="js/vue.js"></script>
+    <script src="js/component.js"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_585901_93q3wkxx0tlqh0k9.css">
+    <script src="//at.alicdn.com/t/font_585901_93q3wkxx0tlqh0k9.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <section class="container hide">
+        <vue-footer index_in="1"></vue-footer>
+        <img class="w-100" src="images/index_banner.jpg" alt="">
+        <img class="index_rule" src="images/index_rule.png" alt="">
+        <ul class="numBox" v-if="info">
+            <li>
+                <img src="images/index_sign.png" alt="">
+                <p class="abs-center">{{info.upload_user_num}}</p>
+            </li>
+            <li>
+                <img src="images/index_vote.png" alt="">
+                <p class="abs-center">{{info.vote_user_num}}</p>
+            </li>
+            <li>
+                <img src="images/index_ticket.png" alt="">
+                <p class="abs-center">{{info.vote_num}}</p>
+            </li>
+        </ul>
+        <div class="searchBox">
+            <input v-model="keyword" class="wh-100 border border-radius" type="text" placeholder="请输入选手编号或昵称进行搜索">
+            <i v-on:click="searchHandle()" class="iconfont icon-search"></i>
+        </div>
+        <ul class="toggleBox">
+            <li v-on:click="toggleType(0)">
+                <img v-show="type==0" src="images/index_btn1.png" alt="">
+                <img v-show="type!=0" src="images/index_btn2.png" alt="">
+                <p :class="type==0?'selected':''" class="abs-center">全部选手</p>
+            </li>
+            <li v-on:click="toggleType(1)">
+                <img v-show="type==1" src="images/index_btn1.png" alt="">
+                <img v-show="type!=1" src="images/index_btn2.png" alt="">
+                <p :class="type==1?'selected':''" class="abs-center">最新加入</p>
+            </li>
+            <li v-on:click="toggleType(2)">
+                <img v-show="type==2" src="images/index_btn1.png" alt="">
+                <img v-show="type!=2" src="images/index_btn2.png" alt="">
+                <p :class="type==2?'selected':''" class="abs-center">武大专区</p>
+            </li>
+        </ul>
+        <ul class="rankBox">
+            <li v-for="item in rankArr" v-on:click="jumpDetail(item.voteid)">
+                <div class="rank" v-if="!type">
+                    <img v-show="item.rank <=3" class="w-100" src="images/index_rank1.png" alt="">
+                    <img v-show="item.rank > 3" class="w-100" src="images/index_rank2.png" alt="">
+                    <span class="abs-center color-white">{{item.rank}}</span>
+                </div>
+                <div class="imgBox">
+                    <img class="abs-center w-100" :src="item.pics[0]" alt="">
+                </div>
+                <p class="hidden-e m-t-4">
+                    <span>{{item.no}}</span>
+                    <span class="color-default">{{item.name}}</span>
+                </p>
+                <p class="num-btn">
+                    <i class="color-default iconfont icon-nice"></i>
+                    <span class="color-default">{{item.votes}}</span>
+                    <img src="images/btn_support.png" alt="">
+                </p>
+            </li>
+        </ul>
+        <div class="weui-loadmore hide">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+        <p class="loadHint loadHint-has hide">加载完成</p>
+        <p class="loadHint loadHint-no hide">已经被你看光啦</p>
+    </section>
+
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

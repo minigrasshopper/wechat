@@ -1,0 +1,219 @@
+body{
+    font-size: 1.4rem;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    overflow: scroll;
+}
+
+/*prizePage开始*/
+#prizePage>ul{
+    top: 23%;
+    height: calc(73% - 60px);
+}
+#prizePage li{
+    position: relative;
+    width: 90%;
+    margin: 8px auto;
+    background-size: 100% 100%;
+    padding: 18px 12px;
+}
+#prizePage li div{
+    width: calc(100% - 40px);
+}
+#prizePage li div h2{
+    color: #ad3d29;
+}
+#prizePage li div p{
+    margin-top: 8px;
+    color: #999;
+}
+#prizePage li.noApply div h2{
+    color: #999;
+}
+#prizePage .icon-ahead{
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+}
+#prizePage .aheadBtn0{
+    color: #9a9a9a;
+}
+#prizePage .aheadBtn1{
+    color: #ad3d29;
+}
+#prizePage .icon-expired, #prizePage .icon-used{
+    color: #999;
+    font-size: 4rem;
+    right: 10%;
+}
+#prizePage .backBtn{
+    height: 40px;
+    bottom: 5%;
+}
+/*prizePage结束*/
+
+/*verifyPage开始*/
+#verifyPage{
+    background: #56bd48 !important;
+    padding: 18px 15px;
+}
+#verifyPage input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{
+    color: #9a9a9a;
+}
+#verifyPage>div{
+    background: #fff;
+    border-radius: 6px;
+    padding-bottom: 50px;
+}
+#verifyPage .name_time_state{
+    padding: 18px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+#verifyPage .name_time_state span{
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #56bd48;
+    bottom: -6px;
+}
+#verifyPage .name_time_state span:nth-child(1){
+    left: -6px;
+}
+#verifyPage .name_time_state span:nth-child(2){
+    right: -6px;
+}
+#verifyPage .name_time_state h2{
+    color: #55bd4c;
+    margin-bottom: 8px;
+    padding: 0 18px;
+}
+#verifyPage .name_time_state h6{
+    color: #55bd4c;
+    margin-bottom: 8px;
+    padding: 0 18px;
+    font-weight: 500;
+}
+#verifyPage .name_time_state p{
+    color: #888;
+}
+#verifyPage .name_time_state .iconfont{
+    font-size: 6rem;
+    right: 20px;
+    bottom: 0;
+    color: #999;
+}
+
+/*#verifyPage.noApply 表示券不能使用-开始*/
+#verifyPage.noApply{
+    background: #ccc !important;
+}
+#verifyPage.noApply .name_time_state span{
+    background: #ccc;
+}
+#verifyPage.noApply .name_time_state h2{
+    color: #999;
+}
+#verifyPage.noApply .name_time_state h6{
+    color: #999;
+}
+#verifyPage.noApply .showBox button{
+    background: #999;
+}
+/*#verifyPage.noApply 表示券不能使用-结束*/
+
+#verifyPage .showBox{
+    padding: 18px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+#verifyPage .showBox p{
+    color: #373737;
+}
+#verifyPage .showBox .code{
+    font-size: 1.8rem;
+    margin: 8px auto;
+}
+#verifyPage .showBox h5{
+    margin-bottom: 12px;
+    color: #454545;
+}
+#verifyPage .showBox input,#verifyPage .showBox textarea{
+    border: 1px solid #999;
+    width: 60%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    color: #454545;
+    font-size: 1.3rem;
+}
+#verifyPage .showBox textarea{
+    height: 65px;
+    padding-top: 5px;
+}
+#verifyPage .showBox button{
+    background: #56bd48;
+    display: block;
+    margin: 12px auto 0 auto;
+    width: 100px;
+    color: #fff;
+    height: 30px;
+}
+#verifyPage .showBox.codeBox{
+    padding: 60px 0;
+}
+#verifyPage .showBox.codeBox .code{
+    font-size: 2.8rem;
+}
+#verifyPage .descBox{
+    padding: 18px;
+    color: #454545;
+}
+#verifyPage .verifyCloseBtn{
+    position: fixed;
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #e6e6e6;
+    width: calc(100% - 30px);
+    background: #fff;
+    bottom: 18px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: #56bd48;
+    font-size: 2rem;
+}
+/*条形码\二维码样式*/
+#barcode,#qrcode{
+    margin: auto;
+    width: 50% !important;
+}
+#barcode object, #qrcode object{
+    width: 100%;
+}
+/*verifyPage结束*/
+
+/*********************************微信端媒体查询*****************************/
+/*iphone6 pluse*/
+@media only screen and (max-width: 414px) and (max-height: 672px){
+
+}
+/*iphone6*/
+@media only screen and (max-width: 375px) and (max-height: 603px){
+    #gamePage .eggBox {
+        padding: 0 8%;
+    }
+}
+/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 504px){
+    #gamePage .eggBox {
+        padding: 0 10%;
+    }
+}
+/*iphone4*/
+@media only screen and (max-width: 320px) and (max-height: 416px){
+
+}

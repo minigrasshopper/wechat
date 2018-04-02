@@ -1,0 +1,113 @@
+.container{
+    height: auto;
+    padding-bottom: 100px;
+}
+.index_rule{
+    display: block;
+    margin: 10px auto;
+    width: 94%;
+}
+.numBox{
+    overflow: hidden;
+}
+.numBox li{
+    position: relative;
+    float: left;
+    width: 28%;
+    margin-left: 4%;
+}
+.numBox li img{
+    width: 100%;
+}
+.numBox li p{
+    width: 100%;
+    font-size: 0.9rem;
+    text-align: center;
+    top: 54%;
+}
+.searchBox{
+    width: 94%;
+    margin: 10px auto;
+    height: 40px;
+    position: relative;
+}
+.searchBox input{
+    padding-left: 6px;
+    padding-right: 40px;
+}
+.searchBox .iconfont{
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 40px;
+    color: #f25582;
+    font-size: 20px;
+    margin: 0 15px;
+}
+.toggleBox{
+    overflow: hidden;
+}
+.toggleBox li{
+    position: relative;
+    float: left;
+    width: 30%;
+    margin-left: 2.5%;
+}
+.toggleBox li img{
+    width: 100%;
+}
+.toggleBox li p{
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #f1567e;
+}
+.toggleBox li p.selected{
+    color: #fff;
+}
+.rankBox{
+    overflow: hidden;
+}
+.rankBox li{
+    position: relative;
+    float: left;
+    border: 1px solid #da96a1;
+    width: 44%;
+    margin: 10px 0 0 4%;
+    background: #fff;
+    padding: 4px;
+}
+.rankBox li .imgBox{
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+}
+.rankBox li .hidden-e{
+    line-height: 24px;
+}
+.rankBox li .num-btn{
+    overflow: hidden;
+    line-height: 22px;
+}
+.rankBox li .num-btn .iconfont{
+    font-size: 0.8rem;
+}
+.rankBox li .num-btn span{
+    font-size: 0.6rem;
+}
+.rankBox li .num-btn img{
+    height: 22px;
+    float: right;
+}
+.rankBox li .rank{
+    position: absolute;
+    right: 4px;
+    top: 0;
+    width: 20%;
+    z-index: 99;
+}
+.loadHint{
+    text-align: center;
+    margin-top: 10px;
+}

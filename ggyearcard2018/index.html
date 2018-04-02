@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>新年贺卡</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/same.css" />
+    <link rel="stylesheet" type="text/css" href="css/static.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+    <audio id="audio_bg" src="http://qcdn.letwx.com/app/ggyearcard2018-build/resource/music_1.mp3" preload loop></audio>
+    <img id="music" class="abs music_on hide" src="" alt=""/>
+    <img id="setBtn" class="abs hide pos-bottom pos-right" src="images/set.png" alt=""/>
+
+    <section id="indexPage" class="rel hide wh-100">
+        <img class="abs-h-center logo" src="images/logo.png" alt=""/>
+        <div class="abs-h-center w-100 textBox">
+            <img src="images/index_text1.png" alt="">
+            <img src="images/index_text2.png" alt="">
+            <img src="images/index_text3.png" alt="">
+            <img src="images/index_text4.png" alt="">
+            <img src="images/index_text5.png" alt="">
+        </div>
+        <div class="abs-h-center w-100 titleBox">
+            <img class="w-100" src="images/index_happy.png" alt="">
+            <img class="w-100" src="images/index_title.png" alt="">
+        </div>
+        <img class="indexHint abs-h-center" src="images/index_hint.png" alt=""/>
+    </section>
+
+    <section id="sharePage" class="m-pop hide">
+        <img class="abs" src="images/share.png" alt=""/>
+    </section>
+
+    <section id="panelPage" class="m-pop hide w-100">
+        <div class="panelBox rel">
+            <p data-type="music" class="rel">
+                <img class="abs-v-center" src="images/music.png" alt=""/><span>音乐</span>
+                <select id="musicBox" class="abs-center wh-100" style="opacity: 0">
+                    <option value="1">Small Happiness</option>
+                    <option value="2">Race Against the Sunset</option>
+                    <option value="3">拥有Masbfca</option>
+                    <!--<option value="4">初めてのデート</option>-->
+                </select>
+            </p>
+            <p class="active" data-type="temp"><img class="abs-v-center" src="images/temp_active.png" alt=""/><span>模板</span></p>
+            <p data-type="decorate"><img class="abs-v-center" src="images/decorate.png" alt=""/><span>特效</span></p>
+            <img class="abs-v-center closeBtn" src="images/close_btn.png" alt=""/>
+        </div>
+
+        <div id='temp' class="rel selectBox">
+            <img class="prevBtn abs-v-center" src="images/allow_left.png" alt=""/>
+            <img class="nextBtn abs-v-center" src="images/allow_right.png" alt=""/>
+            <div class="swiper-container abs-center">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-type="onePage">
+                        <img class="thumb" src="images/thumb_1.png" alt=""/>
+                        <img class="abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                    <div class="swiper-slide" data-type="twoPage">
+                        <img class="thumb" src="images/thumb_2.png" alt=""/>
+                        <img class="hide abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                    <div class="swiper-slide" data-type="threePage">
+                        <img class="thumb" src="images/thumb_3.png" alt=""/>
+                        <img class="hide abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                    <div class="swiper-slide" data-type="fourPage">
+                        <img class="thumb" src="images/thumb_4.png" alt=""/>
+                        <img class="hide abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                    <div class="swiper-slide" data-type="fivePage">
+                        <img class="thumb" src="images/thumb_5.png" alt=""/>
+                        <img class="hide abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id='decorate' class="rel hide selectBox">
+            <img class="prevBtn abs-v-center swiperBtn" src="images/allow_left.png" alt=""/>
+            <img class="nextBtn abs-v-center swiperBtn" src="images/allow_right.png" alt=""/>
+            <div class="swiper-container abs-center">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-type="decorate_flower">
+                        <img class="decorate" src="images/decorate_1.png" alt=""/>
+                        <img class="abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                    <div class="swiper-slide" data-type="decorate_gold">
+                        <img class="decorate" src="images/decorate_2.png" alt=""/>
+                        <img class="hide abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                    <div class="swiper-slide" data-type="decorate_star">
+                        <img class="decorate" src="images/decorate_3.png" alt=""/>
+                        <img class="hide abs-center ico_select" src="images/selectd.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="onePage" data-temp="onePage" class="cardPage wh-100 hide rel">
+        <img class="abs-h-center logo" src="images/logo.png" alt=""/>
+        <img class="abs-center title" src="images/one_title.png" alt=""/>
+        <img class="abs w-100 one_light" src="images/one_light.png" alt="">
+        <img class="abs-v-center one_left pos-left" src="images/one_left.png" alt=""/>
+        <img class="abs-v-center one_right pos-right" src="images/one_right.png" alt=""/>
+        <div class="textBox">
+            <textarea class="abs-h-center" wrap="off">TO:Michal&#13;Merry Christams&#13;FROM:Lisa</textarea>
+            <pre class="abs-h-center hide hidden-s"></pre>
+        </div>
+        <img class="share abs-h-center" src="images/btn_share1.png" alt=""/>
+        <img class="made hide abs-h-center" src="images/btn_make1.png" alt=""/>
+    </section>
+
+    <section id="twoPage" data-temp="twoPage" class="cardPage wh-100 hide rel">
+        <img class="abs-h-center logo" src="images/logo.png" alt=""/>
+        <img class="abs title" src="images/two_title.png" alt=""/>
+        <img class="abs two_decorate" src="images/two_decorate.png" alt=""/>
+        <div class="textBox">
+            <textarea class="abs" wrap="off">TO:Michal&#13;雪舞圣诞所有祝愿&#13;与你想约&#13;FROM:Lisa</textarea>
+            <pre class="abs hide hidden-s"></pre>
+        </div>
+        <img class="share abs-h-center" src="images/btn_share2.png" alt=""/>
+        <img class="made hide abs-h-center" src="images/btn_make2.png" alt=""/>
+    </section>
+
+    <section id="threePage" data-temp="threePage" class="cardPage wh-100 hide rel">
+        <img class="abs-h-center logo" src="images/logo.png" alt=""/>
+        <img class="abs-h-center title" src="images/three_title.png" alt=""/>
+        <img class="abs-h-center three_decorate" src="images/three_decorate.png" alt=""/>
+        <img class="abs-h-center three_circle" src="images/three_circle.png" alt=""/>
+        <div class="textBox">
+            <textarea class="abs-h-center" wrap="off">TO:Michal&#13;新年的美好祝愿赠予你&#13;FROM:Lisa</textarea>
+            <pre class="abs-h-center hide hidden-s"></pre>
+        </div>
+        <img class="share abs-h-center" src="images/btn_share2.png" alt=""/>
+        <img class="made hide abs-h-center" src="images/btn_make2.png" alt=""/>
+    </section>
+
+    <section id="fourPage" data-temp="fourPage" class="cardPage wh-100 hide rel">
+        <img class="abs-h-center logo" src="images/logo.png" alt=""/>
+        <img class="abs w-100 four_light" src="images/four_light.png" alt="">
+        <img class="abs-h-center title" src="images/four_title.png" alt=""/>
+        <div class="textBox">
+            <textarea class="abs-h-center" wrap="off">TO:Michal&#13;新年快乐&#13;FROM:Lisa</textarea>
+            <pre class="abs-h-center hide hidden-s"></pre>
+        </div>
+        <img class="share abs-h-center" src="images/btn_share1.png" alt=""/>
+        <img class="made hide abs-h-center" src="images/btn_make1.png" alt=""/>
+    </section>
+
+    <section id="fivePage" data-temp="fivePage" class="cardPage wh-100 hide rel">
+        <img class="abs-h-center logo" src="images/logo.png" alt=""/>
+        <img class="abs title" src="images/five_title.png" alt=""/>
+        <img class="abs five_decorate" src="images/five_decorate.png" alt=""/>
+        <img class="abs-h-center five_flower1" src="images/five_flower1.png" alt=""/>
+        <img class="abs-h-center five_flower2" src="images/five_flower2.png" alt=""/>
+        <div class="textBox">
+            <textarea class="abs" wrap="off">TO:Michal&#13;新年的美好祝愿&#13;赠予你&#13;FROM:Lisa</textarea>
+            <pre class="abs hide hidden-s"></pre>
+        </div>
+        <img class="share abs-h-center" src="images/btn_share2.png" alt=""/>
+        <img class="made hide abs-h-center" src="images/btn_make2.png" alt=""/>
+    </section>
+
+    <canvas width="100%" height="100%" class="snow abs-center"></canvas>
+    <script src="http://qcdn.letwx.com/app/libs/jquery.min.js"></script>
+    <script src="js/jquery.let_it_snow.js"></script>
+    <script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-客户经理</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/manage-detail.css" />
+	</head>
+	<body>
+		<section id='manageDetailPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>客户详细信息</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div class="userBox bg-gray" v-if="pageData">
+				<p>
+					<span>申请编号</span>
+					<span>{{pageData.apply_no}}</span>
+				</p>
+				<p>
+					<span>贷款人</span>
+					<span>{{pageData.customer.name}}</span>
+				</p>
+				<p v-for="(item, index) in pageData.pawn">
+					<span>房屋地址{{pageData.pawn.length>1?(index+1):''}}</span>
+					<span>{{item.address}}</span>
+				</p>
+				<p>
+					<span>联系电话</span>
+					<a id="tel">{{pageData.customer.mobile}}</a>
+				</p>
+			</div>
+
+			<div class="issueBox bg-gray margin-top-20" v-if="pageData && pageData.problems.length != 0">
+				<div>
+					<p v-on:touchend="toggleIssue(1)" :class="issueActive?'active':''">未处理问题</p>
+					<p v-on:touchend="toggleIssue(0)" :class="!issueActive?'active':''">已处理问题</p>
+				</div>
+				<ul class="active" v-show="issueActive">
+					<li v-if="item.hasfill == 0" v-for="item in pageData.problems">
+						<p>{{item.content}}</p>
+						<p v-show="item.remark">备注信息：{{item.remark}}</p>
+						<p class="hidden">
+							<span class="f-l">提交人：{{item.operater}}</span>
+							<span class="f-r">操作岗：{{item.opjob}}</span>
+						</p>
+						<p>{{item.createtime}}</p>
+					</li>
+				</ul>
+				<ul v-show="!issueActive">
+					<li v-if="item.hasfill == 1" v-for="item in pageData.problems">
+						<p>{{item.content}}</p>
+						<p>备注信息：{{item.remark}}</p>
+						<p class="hidden">
+							<span class="f-l">提交人：{{item.operater}}</span>
+							<span class="f-r">操作岗：{{item.opjob}}</span>
+						</p>
+						<p>{{item.createtime}}</p>
+					</li>
+				</ul>
+			</div>
+
+			<div class="t-r">
+				<button v-on:touchend='goManageWorkflow()' class="button-default button-clear-auto">查看工作流 &gt;</button>
+			</div>
+
+			<ul class="commonBox" v-if="pageData">
+				<li>
+					<span class="title">推荐人柜员号</span>
+					<span class="desc">{{pageData.invite_code?pageData.invite_code:'无'}}</span>
+				</li>
+				<li>
+					<span class="title">产品类型</span>
+					<span class="desc">{{product_name}}</span>
+				</li>
+				<li>
+					<span class="title">业务状态</span>
+					<span class="desc">{{pageData.statusMsg?pageData.statusMsg:'暂无'}}</span>
+				</li>
+
+				<!--预约面签成功后分配-->
+				<li v-show="pageData.appoint_info[0]">
+					<span class="title">预约时间</span>
+					<span class="desc">{{pageData.appoint_info[0]}}</span>
+				</li>
+				<li v-show="pageData.appoint_info[1]">
+					<span class="title">面签地点</span>
+					<span class="desc">{{pageData.appoint_info[1]}}</span>
+				</li>
+				<li v-show="pageData.manager.name">
+					<span class="title">客户经理</span>
+					<span class="desc">{{pageData.manager.name}}</span>
+				</li>
+			</ul>
+
+			<div class="margin-top-20 t-c" v-if="pageData">
+				<button v-show="pageData.need_appoint==1" v-on:touchend="appointShow(1)" class="button-default margin-bottom-10">预约面签</button>
+				<button v-show="pageData.need_appoint==1" v-on:touchend="appointShow(2)" class="button-default button-outline margin-bottom-10">拒绝面签</button>
+				<button v-show="pageData.need_appointcheck==1" v-on:touchend='checkHandle(1)' class="button-default margin-bottom-10">面签成功</button>
+				<button v-show="pageData.need_appointcheck==1" v-on:touchend='checkShow()' class="button-default button-outline margin-bottom-10">面签失败</button>
+				<button v-show="pageData.need_appointcheck==1" v-on:touchend="appointShow(1)" class="button-default margin-bottom-10">再次预约</button>
+				<button v-show="pageData.result_check" v-on:touchend='examineHandle()' class="button-default margin-bottom-10">审批结果</button>
+				<button v-show="pageData.result_final" v-on:touchend='loanHandle()' class="button-default margin-bottom-10">放款结果</button>
+			</div>
+
+			<div class="m-pop appoint1Box hide appoint_check_common">
+				<div class="abs-center">
+					<img class="abs closeBtn" src="images/close_btn.png" v-on:touchend="closeHandle()" alt=""/>
+					<div class="rel title-c">
+						<h6 class="abs-center">预约面签</h6>
+					</div>
+					<ul class="t-l">
+						<li>
+							<p>请选择预约面签日期</p>
+							<input type="date" v-model="operateInfo.day" placeholder="请选择预约面签时间"/>
+						</li>
+						<li class="timeBox hidden t-c">
+							<p>请填写预约面签时间</p>
+							<div class="f-l">
+								<select v-model="operateInfo.hour1">
+									<option value="">请选择</option>
+									<option v-for="item in hour1Max" v-bind:value="item">{{item}}</option>
+								</select>
+								<span>时</span>
+							</div>
+							<span>--</span>
+							<div class="f-r">
+								<select v-model="operateInfo.hour2">
+									<option value="">请选择</option>
+									<option v-for="item in hour2Max" v-if="item>=operateInfo.hour1" v-bind:value="item">{{item}}</option>
+								</select>
+								<span>时</span>
+							</div>
+						</li>
+						<li>
+							<p>请填写预约面签地点</p>
+							<input type="text" v-model="operateInfo.subbranch_name" placeholder="请填写预约面签地点"/>
+						</li>
+					</ul>
+					<button v-on:touchend='appointHandle(1)' class="button-default">确认提交</button>
+				</div>
+			</div>
+
+			<div class="m-pop examineBox hide appoint_check_common" v-if="pageData">
+				<!--审批结果-->
+				<div class="abs-center">
+					<img class="abs closeBtn" src="images/close_btn.png" v-on:touchend="closeHandle()" alt=""/>
+					<div class="rel title-c">
+						<h6 class="abs-center">审批结果</h6>
+					</div>
+					<ul class="commonBox margin-v-20" v-if="pageData.result_check">
+						<li>
+							<span class="title">贷款金额（元）</span>
+							<span class="desc">{{pageData.result_check.loan_money}}</span>
+						</li>
+						<li>
+							<span class="title">贷款期限（{{pageData.result_check.term_unit}}）</span>
+							<span class="desc">{{pageData.result_check.term}}</span>
+						</li>
+						<li>
+							<span class="title">贷款利率（%）</span>
+							<span class="desc">{{pageData.result_check.rate}}</span>
+						</li>
+						<li>
+							<span class="title">还款方式</span>
+							<span class="desc">{{pageData.result_check.pay_method}}</span>
+						</li>
+					</ul>
+					<button v-on:touchend='closeHandle()' class="button-default">我知道了</button>
+				</div>
+			</div>
+
+			<div class="m-pop loanBox hide appoint_check_common" v-if="pageData">
+				<!--放款结果-->
+				<div class="abs-center">
+					<img class="abs closeBtn" src="images/close_btn.png" v-on:touchend="closeHandle()" alt=""/>
+					<div class="rel title-c">
+						<h6 class="abs-center">放款结果</h6>
+					</div>
+					<ul class="commonBox margin-v-20" v-if="pageData.result_final">
+						<li>
+							<span class="title">贷款金额（元）</span>
+							<span class="desc">{{pageData.result_final.loan_money}}</span>
+						</li>
+						<li>
+							<span class="title">贷款期限（{{pageData.result_final.term_unit}}）</span>
+							<span class="desc">{{pageData.result_final.term}}</span>
+						</li>
+						<li>
+							<span class="title">贷款利率（%）</span>
+							<span class="desc">{{pageData.result_final.rate}}</span>
+						</li>
+						<li>
+							<span class="title">还款方式</span>
+							<span class="desc">{{pageData.result_final.pay_method}}</span>
+						</li>
+					</ul>
+					<button v-on:touchend='closeHandle()' class="button-default">我知道了</button>
+				</div>
+			</div>
+
+			<div class="m-pop appoint2Box hide appoint_check_common">
+				<div class="abs-center">
+					<img class="abs closeBtn" src="images/close_btn.png" v-on:touchend="closeHandle()" alt=""/>
+					<div class="rel title-c">
+						<h6 class="abs-center">拒绝面签</h6>
+					</div>
+					<textarea v-model="operateInfo.appointReason" placeholder="请说明拒绝理由"></textarea>
+					<button v-on:touchend='appointHandle(2)' class="button-default">确认提交</button>
+				</div>
+			</div>
+
+			<div class="m-pop check2Box hide appoint_check_common">
+				<div class="abs-center">
+					<img class="abs closeBtn" src="images/close_btn.png" v-on:touchend="closeHandle()" alt=""/>
+					<div class="rel title-c">
+						<h6 class="abs-center">面签失败</h6>
+					</div>
+					<textarea v-model="operateInfo.checkReason" placeholder="请说明拒绝理由"></textarea>
+					<button v-on:touchend='checkHandle(2)' class="button-default">确认提交</button>
+				</div>
+			</div>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/manage-detail.js"></script>
+	</body>
+</html>

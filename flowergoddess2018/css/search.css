@@ -1,0 +1,75 @@
+.container{
+    height: 100%;
+    padding-top: 36px;
+}
+.index_rule{
+    display: block;
+    margin: 10px auto;
+    width: 94%;
+}
+h6{
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 20px 0;
+    color: #999;
+}
+.searchBox{
+    width: 94%;
+    margin: 10px auto;
+    height: 40px;
+    position: relative;
+}
+.searchBox input{
+    padding-left: 6px;
+    padding-right: 40px;
+}
+.searchBox .iconfont{
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 40px;
+    color: #f25582;
+    font-size: 20px;
+    margin: 0 15px;
+}
+
+.rankBox{
+    overflow: hidden;
+}
+.rankBox li{
+    position: relative;
+    float: left;
+    border: 1px solid #da96a1;
+    width: 44%;
+    margin: 10px 0 0 4%;
+    background: #fff;
+    padding: 4px;
+}
+.rankBox li .imgBox{
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+}
+.rankBox li .num-btn{
+    overflow: hidden;
+    line-height: 22px;
+}
+.rankBox li .num-btn .iconfont{
+    font-size: 0.8rem;
+}
+.rankBox li .num-btn span{
+    font-size: 0.6rem;
+}
+.rankBox li .num-btn img{
+    height: 22px;
+    float: right;
+}
+.rankBox li .rank{
+    position: absolute;
+    right: 4px;
+    top: 0;
+    width: 20%;
+    z-index: 99;
+}

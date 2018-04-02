@@ -1,0 +1,604 @@
+section{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+.page{
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.logo{
+    position: absolute;
+    width: 48px;
+    left: calc(50% - 24px);
+    top: 0;
+}
+.swiper-button-prev{
+    background-image: url('../images/slide_left.png') !important;
+}
+.swiper-button-next{
+    background-image: url('../images/slide_right.png') !important;
+}
+.textBox{
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+}
+.textBox textarea,.textBox pre{
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
+    text-align: center;
+    line-height: 20px;
+    opacity: 0.8;
+}
+@keyframes opacity_run {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes scale_hv_run {
+    from{
+        transform: translateX(-50%) translateY(-50%) scale(0);
+    }
+    60%{
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+    70%{
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+    }
+    80%{
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+    90%{
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+}
+@keyframes scale_run {
+    from{
+        transform: scale(0);
+    }
+    60%{
+        transform: scale(1);
+    }
+    70%{
+        transform: scale(0.8);
+    }
+    80%{
+        transform: scale(1);
+    }
+    90%{
+        transform: scale(0.8);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes top_run {
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+@keyframes top_h_run {
+    from{
+        transform: translateX(-50%) translateY(-100%);
+    }
+    to{
+        transform: translateX(-50%) translateY(0);
+    }
+}
+@keyframes bottom-h-run {
+    from{
+        transform: translateX(-50%) translateY(100%);
+    }
+    to{
+        transform: translateX(-50%) translateY(0);
+    }
+}
+@keyframes text_40_run {
+    from{
+        height: 0;
+    }
+    to{
+        height: 40px;
+    }
+}
+@keyframes text_60_run {
+    from{
+        height: 0;
+    }
+    to{
+        height: 60px;
+    }
+}
+@keyframes share_run {
+    from{
+        top: 10px;
+        right: 16px;
+    }
+    50%{
+        top: 5px;
+        right: 8px;
+    }
+    to{
+        top: 10px;
+        right: 16px;
+    }
+}
+.shareBox img{
+    position: absolute;
+    width: 45%;
+    top: 16px;
+    right: 16px;
+    animation: share_run 1s linear infinite;
+}
+.paperBox{
+    text-align: center;
+}
+.paperBox p{
+    top: 8%;
+    width: 100%;
+    color: #fff;
+    font-size: 0.8rem;
+}
+.paperBox button{
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: 8%;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+}
+.paperBox img{
+    width: 100%;
+    transform: scale(0.6);
+}
+.hintBox, .shareBox, .paperBox{
+    background: rgba(0,0,0,0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+}
+.hintBox>div{
+    width: 100%;
+    text-align: center;
+}
+.hintBox p{
+    color: #fff;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+}
+.hintBox button{
+    margin-top: 30px;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+}
+.controlBox{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+}
+@keyframes control_in {
+    from{
+        transform: translateY(100%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+@keyframes control_out {
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(100%);
+    }
+}
+.controlBox_in{
+    animation: control_in .6s .2s linear both;
+}
+.controlBox_out{
+    animation: control_out .6s .2s linear both;
+}
+.controlBox .topBox{
+    padding: 5px 15px;
+    background: rgba(0,0,0,0.8);
+}
+.controlBox .topBox img{
+    height: 24px;
+}
+.controlBox .topBox span{
+    color: #fff;
+    font-size: 0.7rem;
+    margin-left: 6px;
+}
+.controlBox ul{
+    padding: 24px 20px;
+    overflow: hidden;
+}
+.controlBox ul li{
+    position: relative;
+    float: left;
+    width: 22%;
+    margin-right: 4%;
+}
+.controlBox ul li:last-child{
+    margin-right: 0;
+}
+.controlBox ul li .ico{
+    width: 100%;
+}
+.controlBox ul li .icon_select{
+    width: 18px;
+    bottom: -6px;
+    right: -6px;
+}
+.swiper-container{
+    width: 100%;
+    height: 100%;
+}
+.editBtn{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    z-index: 999;
+}
+/*onePage -- start*/
+.onePage{
+    background-image: url('../images/one_bg.jpg');
+}
+@keyframes one_circle_run {
+    from{
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+@keyframes one_text_run {
+    from{
+        transform: translateX(-50%) rotateY(0deg);
+    }
+    to{
+        transform: translateX(-50%) rotateY(360deg);
+    }
+}
+.one_circle{
+    width: 64%;
+    top: 42%;
+}
+.one_circle_show{
+    animation: one_circle_run 5s .5s infinite;
+}
+.one_text{
+    width: 45%;
+    top: 0;
+    /*z-index: 8;*/
+}
+.one_text_show{
+    animation: one_text_run 5s .5s infinite;
+}
+.one_flower1, .one_flower2{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.one_flower1_show, .one_flower2_show{
+    animation: opacity_run 2s .5s both;
+}
+.onePage .textBox{
+    top: 73%;
+    width: 72%;
+}
+.onePage .textBox textarea, .onePage .textBox pre{
+    height: 40px;
+}
+.onePage .textBox textarea.textBox_show, .onePage .textBox pre.textBox_show{
+    animation: text_40_run 1s .5s linear both;
+}
+.onePage .btnBox{
+    width: 100%;
+    bottom: 2%;
+}
+.onePage .btnBox img{
+    display: block;
+    width: 30%;
+    margin: auto;
+}
+/*onePage -- end*/
+
+/*twoPage -- start*/
+.twoPage{
+    background-image: url('../images/two_bg.jpg');
+}
+.two_dog{
+    width: 100%;
+}
+.two_dog_show{
+    animation: scale_hv_run 2s .5s linear both;
+}
+.two_lamp{
+    top: 0;
+    left: 5%;
+    width: 24%;
+}
+.two_lamp_show{
+    animation: top_run 1s .5s linear both;
+}
+.two_spray{
+    width: 100%;
+    bottom: 0;
+}
+.two_spray_show{
+    animation: bottom-h-run .5s .5s linear both;
+}
+.two_text{
+    width: 100%;
+    height: 100%;
+}
+.two_text_show{
+    animation: opacity_run 2s .5s both;
+}
+.two_text2{
+    width: 8%;
+    left: 6%;
+    bottom: 8%;
+}
+.twoPage .textBox{
+    top: 73%;
+}
+.twoPage .textBox_show{
+    animation: text_40_run 1s .5s linear both;
+}
+.twoPage .textBox textarea, .twoPage .textBox pre{
+    height: 40px;
+}
+.twoPage .btnBox{
+    width: 100%;
+    bottom: 2%;
+}
+.twoPage .btnBox img{
+    display: block;
+    width: 32%;
+    margin: auto;
+}
+/*twoPage -- end*/
+
+/*threePage -- start*/
+.threePage{
+    background-image: url('../images/three_bg.jpg');
+}
+.three_title{
+    width: 34%;
+    left: 15%;
+    top: 5%;
+}
+.three_title_show{
+    animation: scale_run 2s .5s linear both;
+}
+.three_dog{
+    top: 60%;
+    width: 96%;
+}
+.three_dog_show{
+    animation: opacity_run 1.5s .5s both;
+}
+.three_lamp{
+    width: 48%;
+    top: 0;
+    right: 0;
+}
+.three_lamp_show{
+    animation: top_run 1s .5s linear both;
+}
+.three_text{
+    width: 100%;
+    height: 100%;
+}
+.three_text_show{
+    animation: opacity_run 1.5s .5s both;
+}
+.threePage .textBox{
+    top: 73%;
+}
+.threePage .textBox_show{
+    animation: text_40_run 1s .5s linear both;
+}
+.threePage .textBox textarea, .threePage .textBox pre{
+    height: 40px;
+}
+.threePage .btnBox{
+    width: 100%;
+    bottom: 2%;
+}
+.threePage .btnBox img{
+    display: block;
+    width: 32%;
+    margin: auto;
+}
+/*threePage -- end*/
+
+/*fourPage -- start*/
+.fourPage{
+    background-image: url('../images/four_bg.jpg');
+}
+.four_title{
+    width: 92%;
+    top: 45%;
+}
+.four_title_show{
+    animation: scale_hv_run 2s .5s linear both;
+}
+.four_decorate{
+    width: 100%;
+    height: 100%;
+}
+.four_decorate_show{
+    animation: opacity_run 2s .5s linear both;
+}
+.four_text{
+    width: 31%;
+    left: 5%;
+    top: 5%;
+}
+.four_text_show{
+    animation: opacity_run 1s .5s linear both;
+}
+.four_cloud{
+    width: 40%;
+    right: 5%;
+    top: 5%;
+}
+.four_cloud_show{
+    animation: opacity_run 1s .5s linear both;
+}
+.fourPage .textBox{
+    top: 73%;
+}
+.fourPage .textBox_show{
+    animation: text_40_run 1s .5s linear both;
+}
+.fourPage .textBox textarea, .fourPage .textBox pre{
+    height: 40px;
+}
+.fourPage .btnBox{
+    width: 100%;
+    bottom: 2%;
+}
+.fourPage .btnBox img{
+    display: block;
+    width: 32%;
+    margin: auto;
+}
+/*fourPage -- end*/
+
+/*fivePage -- start*/
+.fivePage{
+    background-image: url('../images/five_bg.jpg');
+}
+.five_title{
+    width: 60%;
+    top: 0;
+    z-index: 9;
+}
+.five_title_show{
+    animation: top_h_run 1s .5s linear both;
+}
+.five_decorate{
+    width: 100%;
+    height: 100%;
+}
+.five_decorate_show{
+    animation: opacity_run 1s .5s linear both;
+}
+.five_cloud{
+    top: 24%;
+    width: 89%;
+}
+.five_cloud_show{
+    animation: opacity_run 1s .5s linear both;
+}
+.five_text{
+    bottom: 38%;
+    right: 8%;
+    width: 30%;
+}
+.five_text_show{
+    animation: opacity_run 1s .5s linear both;
+}
+.fivePage .textBox{
+    width: 40%;
+    top: 56%;
+    left: 5%;
+    text-align: right;
+}
+.fivePage .textBox_show{
+    animation: text_60_run 1s .5s linear both;
+}
+.fivePage .textBox textarea, .fivePage .textBox pre{
+    height: 60px;
+    text-align: right;
+}
+.fivePage .btnBox{
+    width: 100%;
+    bottom: 16%;
+}
+.fivePage .btnBox img{
+    display: block;
+    width: 32%;
+    margin: auto;
+}
+/*fivePage -- end*/
+
+/*sixPage -- start*/
+.sixPage{
+    background-image: url('../images/six_bg.jpg');
+}
+.six_title{
+    top: 48%;
+    width: 70%;
+}
+.six_title_show{
+    animation: scale_hv_run 2s .5s linear both;
+}
+.six_decorate, .six_star{
+    width: 100%;
+    height: 100%;
+}
+.six_decorate_show, .six_star_show{
+    animation: opacity_run 2s .5s linear both;
+}
+.six_dog1{
+    width: 21%;
+    left: 5%;
+    top: 36%;
+    z-index: 9;
+}
+.six_dog2{
+    width: 21%;
+    right: 5%;
+    bottom: 20%;
+    z-index: 9;
+}
+.six_dog1_show, .six_dog2_show{
+    animation: opacity_run 1s .5s linear both;
+}
+.sixPage .textBox{
+    top: 73%;
+    width: 50%;
+}
+.sixPage .textBox_show{
+    animation: text_60_run 1s .5s linear both;
+}
+.sixPage .textBox textarea, .sixPage .textBox pre{
+    height: 60px;
+}
+.sixPage .btnBox{
+    width: 100%;
+    bottom: 2%;
+}
+.sixPage .btnBox img{
+    display: block;
+    width: 36%;
+    margin: auto;
+}
+/*sixPage -- end*/

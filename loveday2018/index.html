@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_528574_s8lswmp8sl7kfbt9.css">
+    <script src="//at.alicdn.com/t/font_528574_s8lswmp8sl7kfbt9.js"></script>
+    <script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/canvas.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/same.css" />
+    <link rel="stylesheet" type="text/css" href="css/static.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+    <audio id="audioBg" src="resource/mygirl.mp3" loop="loop" preload></audio>
+
+    <section id="indexPage" class="hide">
+        <img class="logo" :src="selfData.index.logo" alt=""/>
+        <i class="iconfont icon-music_on" v-if="musicPlay" v-on:touchend="toggleMusic(0)"></i>
+        <i class="iconfont icon-music_off" v-if="!musicPlay" v-on:touchend="toggleMusic(1)"></i>
+        <img class="star star1" src="images/star.png" alt="">
+        <img class="star star2" src="images/star.png" alt="">
+        <img class="star star3" src="images/star.png" alt="">
+        <img class="star star4" src="images/star.png" alt="">
+        <img class="star star5" src="images/star.png" alt="">
+
+        <img class="male" :class="canTry?'male_try':'male_in'" src="images/index_male.png" alt="">
+        <img class="female" :class="canTry?'female_try':'female_in'" src="images/index_female.png" alt="">
+        <img class="abs-center hand" :class="canTry?'show':'hide'" src="images/index_hand.png" alt="">
+        <img class="hint abs-h-center" :class="canGet?'show':'hide'" src="images/index_hint.png" alt="">
+        <img class="femaleGet" :class="canGet?'show':'hide'" src="images/index_female_get.png" alt="">
+        <img class="startBtn abs-h-center" v-on:touchend="jumpNext()" :class="canGet?'show':'hide'" src="images/btn_start.png" alt="">
+    </section>
+
+    <section id="onePage" class="hide fadeIn">
+        <img class="wh-100 origin" src="images/one_origin.jpg" alt="">
+        <img class="abs-h-center lockBtn" v-on:touchend="lockHandle()" src="images/btn_lock.png" alt="">
+        <canvas id="cvs" class="hide"></canvas>
+        <img class="hint abs-h-center hide" src="images/one_hint.png" alt="">
+        <img class="newBtn abs-h-center hide" v-on:touchend="jumpNext()" src="images/btn_new.png" alt="">
+    </section>
+
+    <section id="twoPage" class="hide fadeIn">
+        <img class="wh-100 person" v-on:touchend="resultHandle()" src="images/two_person.png" alt="">
+        <img class="abs-h-center lockBtn" v-on:touchend="lockHandle()" src="images/btn_lock.png" alt="">
+        <img class="hint abs-h-center hide" src="images/two_hint.png" alt="">
+        <img class="newBtn abs-h-center hide" v-on:touchend="jumpNext()" src="images/btn_new.png" alt="">
+        <img class="result abs-h-center hide" src="images/two_result.png" alt="">
+    </section>
+
+    <section id="threePage" class="hide fadeIn">
+        <img class="text abs-h-center" v-on:touchend="resultHandle()" src="images/three_text.png" alt="">
+        <img class="hint abs-h-center hide" src="images/three_hint.png" alt="">
+        <img class="abs-h-center lockBtn" v-on:touchend="lockHandle()" src="images/btn_lock.png" alt="">
+        <img class="newBtn abs-h-center hide" v-on:touchend="jumpNext()" src="images/btn_new.png" alt="">
+        <img class="result abs hide" src="images/three_result.png" alt="">
+        <img class="heart wh-100 abs-h-center hide" src="images/three_heart.png" alt="">
+    </section>
+
+    <section id="fourPage" class="hide fadeIn">
+        <img class="hint abs-h-center hide" src="images/four_hint.png" alt="">
+        <img class="abs-h-center lockBtn" v-on:touchend="lockHandle()" src="images/btn_lock.png" alt="">
+        <img class="newBtn abs-h-center hide" v-on:touchend="jumpNext()" src="images/btn_new.png" alt="">
+    </section>
+
+    <section id="fivePage" class="hide fadeIn">
+        <img class="fiveBg wh-100 abs-h-center" src="images/five_bg.jpg" alt="">
+        <img class="fiveBg2 wh-100 abs-h-center hide" src="images/five_bg2.jpg" alt="">
+        <img class="hint abs-h-center hide" src="images/five_hint.png" alt="">
+        <img class="abs-h-center lockBtn" v-on:touchend="lockHandle()" src="images/btn_lock.png" alt="">
+        <img class="newBtn abs-h-center hide" v-on:touchend="jumpNext()" src="images/btn_break.png" alt="">
+    </section>
+
+    <section id="resultPage" class="m-pop hide">
+        <div class="abs-center">
+            <div class="resultBox fadeIn">
+                <div v-if="state==1" class="textBox" v-html="textConvert(selfData.text.nice_hint)"></div>
+                <div v-if="state==2" class="textBox" v-html="textConvert(selfData.text.exhaust_hint)"></div>
+                <img class="decorate" src="images/result_decorate.png" alt="">
+            </div>
+
+            <div class="btnBox">
+                <img v-on:touchend="getHandle()" src="images/btn_get.png" alt="">
+                <img v-on:touchend="againHandle()" src="images/btn_again.png" alt="">
+                <img v-on:touchend="shareHandle()" src="images/btn_share.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section id="sharePage" class="m-pop hide" v-on:touchend="closeHandle()">
+        <img src="images/share.png" alt="">
+    </section>
+
+    <section id="followPage" class="m-pop hide rel">
+        <div class="abs-center w-100">
+            <img src="" alt=""/>
+            <p>请长按识别后，进入游戏</p>
+        </div>
+    </section>
+
+    <script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

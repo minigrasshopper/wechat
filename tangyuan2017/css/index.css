@@ -1,0 +1,433 @@
+#indexPage,#rulePage,#gamePage,#resultPage,#myprizePage{
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+/*followPage开始*/
+#followPage{
+	text-align: center;
+}
+#followPage img{
+	width: 80%;
+}
+#followPage p{
+	margin-top: 10px;
+	font-size: 1.2rem;
+	color: #ccc;
+}
+/*followPage结束*/
+
+/*indexPage开始*/
+@keyframes indexTitle_run{
+	from{
+		transform: translateX(-50%) scale(0);
+	}
+    60%{
+        transform: translateX(-50%) scale(1);
+    }
+    70%{
+        transform: translateX(-50%) scale(0.9);
+    }
+    80%{
+        transform: translateX(-50%) scale(1);
+    }
+    90%{
+        transform: translateX(-50%) scale(0.9);
+    }
+	to{
+		transform: translateX(-50%) scale(1);
+	}
+}
+@keyframes start_run {
+	from{
+		transform: translateX(-50%) scale(1);
+	}
+	50%{
+		transform: translateX(-50%) scale(1.05);
+	}
+	to{
+		transform: translateX(-50%) scale(1);
+	}
+}
+#logo{
+	top: 0;
+	width: 20%;
+}
+.indexTitle{
+	width: 71.8%;
+	top: 14.3%;
+    animation: indexTitle_run 1s linear forwards;
+    -webkit-animation: indexTitle_run 1s linear forwards;
+}
+#startBtn{
+    width: 66.5%;
+	bottom: 14.6%;
+    animation: start_run 1s linear infinite;
+    -webkit-animation: start_run 1s linear infinite;
+}
+#indexPage>div{
+	bottom: 4%;
+	width: 100%;
+	overflow: hidden;
+}
+#indexPage>div>img{
+	width: 31.8%;
+}
+#ruleBtn{
+	margin-left: 5%;
+}
+#myprizeBtn{
+	margin-right: 5%;
+}
+/*indexPage结束*/
+
+/*rulePage开始*/
+@keyframes rule_run {
+	from{
+		transform: translateX(-50%) translateY(-50%) scale(0.2);
+	}
+	to{
+		transform: translateX(-50%) translateY(-50%) scale(1);
+	}
+}
+.rule_run{
+	animation: rule_run 0.5s linear forwards;
+	-webkit-animation: rule_run 0.5s linear forwards;
+}
+.ruleBox{
+	width: 74%;
+}
+#ruleBg{
+	width: 100%;
+}
+#ruleCloseBtn{
+	top: 10px;
+	right: 10px;
+	width: 24px;
+}
+.rules{
+    width: 100%;
+    padding: 0 8px;
+    top: 20%;
+	height: 63%;
+	text-align: left;
+	color: #f9ffff;
+	overflow: scroll;
+}
+.rules p{
+    margin-bottom: 15px;
+}
+/*rulePage结束*/
+
+/*gamePage开始*/
+.gameTitle{
+    width: 72.3%;
+    top: 16%;
+}
+#state{
+    width: 31.7%;
+    top: 55%;
+}
+@keyframes state_run {
+    from{
+        transform: translateX(-50%) scale(1);
+    }
+    to{
+        transform: translateX(-50%) scale(0);
+    }
+}
+.state_run{
+    animation: state_run 1s linear infinite;
+}
+#babyBox{
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+#babyBox li{
+    border-top: 1px solid #f4251b;
+}
+#babyBox li:last-child{
+    border-bottom: 1px solid #f4251b;
+}
+#babyBox li p{
+    width: 25%;
+    height: 100%;
+    float: left;
+    border-right: 1px solid #f4251b;
+    position: relative;
+}
+#babyBox li p:last-child{
+    width: 25%;
+    border-right: none;
+}
+#babyBox li p img{
+    width: 80%;
+}
+#clock{
+    top: 0;
+    right: 20px;
+    z-index: 999;
+}
+#clock img{
+    width: 35px;
+}
+#second{
+    top: 37%;
+    color: #b61300;
+    font-size: 14px;
+    font-weight: 600;
+}
+@keyframes wrong_run {
+    from{
+        background: #b61300;
+    }
+    20%{
+        background: #b35348;
+    }
+    40%{
+        background: #b61300;
+    }
+    60%{
+        background: #b35348;
+    }
+    80%{
+        background: #b61300;
+    }
+    to{
+        background: #b35348;
+    }
+}
+.wrong_run{
+    animation: wrong_run 0.3s linear infinite;
+}
+@keyframes hand_run {
+    from{
+        transform: translateX(-50%) translateY(100%);
+    }
+    to{
+        transform: translateX(-50%) translateY(70%);
+    }
+}
+#hand{
+    left: 37.5%;
+    width: 15%;
+    bottom: 0;
+    margin-bottom: 25%;
+    animation: hand_run 0.5s linear infinite;
+    z-index: 999;
+}
+/*gamePage结束*/
+
+/*resultPage开始*/
+@keyframes star_run {
+    from{
+        transform-origin: 50% 50%;
+        transform: rotate(-360deg);
+    }
+    to{
+        transform-origin: 50% 50%;
+        transform: rotate(360deg);
+    }
+}
+#resultPage .star{
+    width: 100%;
+    animation: star_run 8s linear infinite;
+}
+#resultPage>div{
+    width: 73.7%;
+}
+#resultBox{
+    text-align: center;
+    top: 26.7%;
+}
+#resultBox .numShow{
+    font-size: 18px;
+    color: #ffede1;
+    margin-bottom: 16px;
+}
+#resultBox .numShow span{
+    color: #fbdd94;
+    font-size: 20px;
+}
+#resultBox .hint{
+    font-size: 16px;
+    color: #fbdd94;
+    margin-bottom: 16px;
+}
+#resultBox img{
+    width: 60%;
+    margin: 18px auto;
+    display: block;
+}
+/*resultPage结束*/
+
+/*share开始*/
+@keyframes share_move {
+	from{
+		top: 10px;
+		right: 16px;
+	}
+	50%{
+		top: 5px;
+		right: 8px;
+	}
+	to{
+		top: 10px;
+		right: 16px;
+	}
+}
+.share_hint{
+	width: 60%;
+	top: 16px;
+	right: 16px;
+	animation: share_move 1s linear infinite;
+	-webkit-animation: share_move 1s linear infinite;
+}
+/*share结束*/
+
+/*myprizePage页面开始*/
+#myprizePage{
+	text-align: center;
+    background: #e03021;
+}
+#myprizePage:before{
+	content: '';
+	display: table;
+}
+.prizeTitle{
+    text-align: center;
+    font-size: 23px;
+    color: #ffff63;
+    height: 65px;
+    line-height: 65px;
+    font-weight: 500;
+}
+.ticketBox{
+    height: calc(85% - 65px);
+	overflow: scroll;
+    padding: 0 8px;
+}
+.ticket{
+	width: 100%;
+    border-bottom: 1px solid #fbe750;
+    padding: 15px 0;
+}
+.ticket:nth-child(1){
+    border-top: 1px solid #fbe750;
+}
+.ticket div{
+	width: calc(100% - 110px);
+    margin-left: 15px;
+	text-align: left;
+}
+.ticket div h3{
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: #f4f0e5;
+}
+.ticket div p{
+	font-size: 1rem;
+	color: #f4f0e5;
+}
+.ticket button{
+	width: 65px;
+	height: 30px;
+	font-size: 1.4rem;
+	font-weight: 600;
+	border-radius: 4px;
+	position: absolute;
+	top: 50%;
+    margin: 0 15px;
+    right: 0;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+.use{
+	background: #fed53b;
+	color: #823f00;
+}
+.used{
+	background: #ccc;
+	color: #fff;
+}
+#backBtn{
+	width: 34%;
+	top: 87%;
+}
+/*myprizePage页面结束*/
+
+/*checkpsd页面开始*/
+#checkpsdPage .checkBox{
+	background: #ed4b32;
+	width: 75%;
+	text-align: center;
+	border-radius: 12px;
+}
+#prizeCloseBtn{
+	width: 24px;
+	top: 10px;
+	right: 10px;
+}
+@keyframes checkBox_run{
+	from{
+		top: 0;
+		transform: translateX(-50%) translateY(-50%) scale(0.2);
+		opacity: 0;
+	}
+	to{
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%) scale(1);
+		opacity: 1;
+	}
+}
+.checkBox_run{
+	animation: checkBox_run 0.5s linear forwards;
+	-webkit-animation: checkBox_run 0.5s linear forwards;
+}
+.checkBox>div{
+	margin-top: 40px;
+}
+.checkBox input{
+	width: 90%;
+	height: 33px;
+	border-radius: 8px;
+	text-align: center;
+	font-size: 2rem;
+	background: #fff;
+}
+.checkBox .title{
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #fff;
+	margin: 10px 0 15px 0;
+}
+/*条形码\二维码样式*/
+#barcode,#qrcode{
+    margin: auto;
+    width: 90% !important;
+}
+#barcode object,#qrcode object{
+    width: 100%;
+}
+.checkBox .code{
+	font-size: 1.8rem;
+	color: #999;
+	margin: 20px auto;
+	font-weight: normal;
+}
+#sureBtn{
+	width: 35.4%;
+	margin: 18px auto;
+}
+/*checkpsd页面结束*/
+
+
+/*********************************媒体查询*****************************/
+/*iphone4*/
+@media only screen and (max-width: 320px) and (max-height: 416px){
+
+}
+/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 504px){
+
+}

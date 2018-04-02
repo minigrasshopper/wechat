@@ -27,7 +27,7 @@
             el: 'section',
             data: {
                 pageData: [],
-                showAll: localStorage.showAll == 1 ? 1 : 0,   //是否显示所有
+                showAll: sessionStorage.showAll == 1 ? 1 : 0,   //是否显示所有
                 order: getUrlParam().order ? JSON.parse(getUrlParam().order) : null
             },
             mounted: function(){

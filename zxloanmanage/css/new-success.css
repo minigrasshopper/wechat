@@ -1,0 +1,25 @@
+.container{
+    padding: 45px 0 20px 0;
+}
+.titleBox{
+    background: url('../images/bg_gradient.png') no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    padding: 30px;
+}
+.titleBox img{
+    width: 28%;
+}
+.titleBox h2{
+    color: #fff400;
+    font-size: 3rem;
+    margin: 5px auto;
+}
+.titleBox p{
+    color: #fff;
+    font-size: 1.5rem;
+}
+.commonBox{
+    padding: 20px;
+}
+

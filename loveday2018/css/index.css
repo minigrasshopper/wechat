@@ -1,0 +1,423 @@
+body{
+    font-size: 1.4rem;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.logo{
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@keyframes music_run {
+    from{
+        transform: rotate(-360deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.icon-music_on, .icon-music_off{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 3rem;
+    color: #a07451;
+    z-index: 100;
+}
+.icon-music_on{
+    animation: music_run 5s linear infinite;
+}
+@keyframes lock_run {
+    from{
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+    50%{
+        transform: translateX(-50%) translateY(-50%) scale(0.9);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+}
+.lockBtn{
+    width: 41%;
+    animation: lock_run 2s linear infinite;
+    z-index: 999;
+}
+@keyframes new_run {
+    from{
+        transform: translateX(-50%) translateY(-50%);
+    }
+    50%{
+        transform: translateX(-50%) translateY(-60%);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+.newBtn{
+    width: 41%;
+    bottom: 2%;
+    animation: new_run 2s linear infinite;
+    z-index: 999;
+}
+@keyframes fade_in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.fadeIn{
+    animation: fade_in 1s linear both;
+}
+@keyframes fade_out {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+.fadeOut{
+    animation: fade_out 1s linear both;
+}
+
+/*followPage开始*/
+#followPage{
+    text-align: center;
+}
+#followPage img{
+    width: 60%;
+}
+#followPage p{
+    margin-top: 10px;
+    font-size: 1.4rem;
+    color: #ccc;
+}
+/*followPage结束*/
+
+/*indexPage开始*/
+#indexPage{
+    background-image: url('../images/index_bg.jpg');
+}
+@keyframes male_in {
+    from{
+        transform: translateX(-100%) translateY(-50%);
+    }
+    to{
+        transform: translateX(0) translateY(-50%);
+    }
+}
+@keyframes female_in {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+@keyframes male_try {
+    from{
+        transform: translateX(0%) translateY(-50%);
+    }
+    50%{
+        transform: translateX(-10%) translateY(-50%);
+    }
+    to{
+        transform: translateX(0) translateY(-50%);
+    }
+}
+@keyframes female_try {
+    from{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(10%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+#indexPage .male{
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 45%;
+    transform: translateX(0) translateY(-50%);
+}
+#indexPage .female{
+    position: absolute;
+    right: 0;
+    top: 45%;
+    width: 45%;
+}
+#indexPage .male_in{
+    animation: male_in 1s .5s linear both;
+}
+#indexPage .female_in{
+    animation: female_in 1s 1.5s linear both;
+}
+#indexPage .male_try{
+    animation: male_try 2s linear infinite;
+}
+#indexPage .female_try{
+    animation: female_try 2s linear infinite;
+}
+#indexPage .male_female_out{
+    opacity: 0;
+    transition: opacity 1.5s linear;
+}
+#indexPage .hand{
+    width: 14%;
+}
+@keyframes opacity_run {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+#indexPage .femaleGet{
+    position: absolute;
+    right: 0;
+    top: 45%;
+    width: 60%;
+    animation: opacity_run 1s linear both;
+}
+#indexPage .hint{
+    top: 15%;
+    width: 46%;
+    animation: opacity_run 1s 1s linear both;
+}
+#indexPage .startBtn{
+    width: 48%;
+    bottom: 10%;
+    animation: opacity_run .5s 2s linear both;
+}
+@keyframes star_run {
+    from{
+        transform: scale(0.2);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    to{
+        transform: scale(0.2);
+    }
+}
+#indexPage .star{
+    position: absolute;
+    animation: star_run 3s linear infinite;
+    z-index: 99;
+}
+#indexPage .star1{
+    left: 20%;
+    top: 28%;
+    width: 15px;
+    animation-delay: .5s;
+}
+#indexPage .star2{
+    left: 60%;
+    top: 30%;
+    width: 20px;
+    animation-delay: .8s;
+}
+#indexPage .star3{
+    left: 50%;
+    top: 65%;
+    width: 20px;
+    animation-delay: 1s;
+}
+#indexPage .star4{
+    left: 80%;
+    top: 43%;
+    width: 15px;
+    animation-delay: .3s;
+}
+#indexPage .star5{
+    left: 20%;
+    top: 66%;
+    width: 15px;
+    animation-delay: .3s;
+}
+/*indexPage结束*/
+
+/*onePage开始*/
+#onePage{
+    background-image: url('../images/one_bg.jpg');
+}
+#cvs{
+    opacity: 1;
+    -webkit-transition:opacity .5s;
+    -ms-transition:opacity .5s;
+    -moz-transition:opacity .5s;
+}
+#onePage .lockBtn{
+    top: 34%;
+}
+#onePage .hint{
+    width: 72%;
+    top: 34%;
+}
+/*onePage结束*/
+
+/*twoPage开始*/
+#twoPage{
+    background-image: url('../images/two_bg.jpg');
+}
+@keyframes person_run {
+    from{
+        transform: rotate(180deg) scale(0.2);
+    }
+    to{
+        transform: rotate(0) scale(1);
+    }
+}
+#twoPage .person_run{
+    animation: person_run 1s linear both;
+}
+#twoPage .person{
+    transform: rotate(180deg);
+}
+#twoPage .lockBtn{
+    bottom: 6%;
+}
+#twoPage .hint{
+    width: 38%;
+    bottom: 6%;
+}
+#twoPage .result{
+    width: 51%;
+    top: 8%;
+}
+/*twoPage结束*/
+
+/*threePage开始*/
+#threePage{
+    background-image: url('../images/three_bg.jpg');
+}
+#threePage .text{
+    width: 46%;
+    top: 46%;
+}
+#threePage .lockBtn{
+    top: 58%;
+}
+#threePage .hint{
+    width: 42%;
+    top: 54%;
+}
+#threePage .result{
+    left: 46%;
+    top: 69%;
+    width: 43%;
+    animation-delay: .5s;
+}
+#threePage .heart{
+    animation-duration: 3s;
+}
+/*threePage结束*/
+
+/*fourPage开始*/
+#fourPage{
+    background-image: url('../images/four_bg.jpg');
+}
+#fourPage .lockBtn{
+    top: 66%;
+}
+#fourPage .hint{
+    width: 56%;
+    top: 66%;
+}
+/*fourPage结束*/
+
+/*fivePage开始*/
+#fivePage .lockBtn{
+    top: 72%;
+}
+#fivePage .hint{
+    width: 54%;
+    top: 72%;
+}
+#fivePage .newBtn{
+    width: 42%;
+    bottom: 2%;
+}
+/*fivePage结束*/
+
+/*resultPage开始*/
+#resultPage>div{
+    width: 80%;
+}
+#resultPage .resultBox{
+    text-align: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+}
+#resultPage .textBox h2{
+    font-size: 3.2rem;
+    color: #cd092e;
+}
+#resultPage .textBox p{
+    font-size: 1.8rem;
+    margin-top: 6px;
+    color: #d12040;
+}
+#resultPage .resultBox .decorate{
+    width: 90%;
+    margin-top: 6px;
+}
+#resultPage .btnBox{
+    overflow: hidden;
+    text-align: center;
+    margin-top: 20px;
+}
+#resultPage .btnBox img:nth-child(1){
+    width: 64%;
+}
+#resultPage .btnBox img:nth-child(2){
+    float: left;
+    width: 40%;
+    margin: 8px 5% 0 5%;
+}
+#resultPage .btnBox img:nth-child(3){
+    float: right;
+    width: 40%;
+    margin: 8px 5% 0 5%;
+}
+/*resultPage结束*/
+
+/*sharePage开始*/
+@keyframes share_run {
+    from{
+        top: 10px;
+        right: 16px;
+    }
+    50%{
+        top: 5px;
+        right: 8px;
+    }
+    to{
+        top: 10px;
+        right: 16px;
+    }
+}
+#sharePage img{
+    position: absolute;
+    width: 38%;
+    top: 16px;
+    right: 16px;
+    animation: share_run 1s linear infinite;
+}
+/*sharePage结束*/

@@ -1,0 +1,41 @@
+section{
+    /*font-size: 0.6rem;*/
+}
+.color-default{
+    color: #f25580;
+}
+.detailBox{
+    width: 96%;
+    margin: 16px auto 0 auto;
+    background: #feeef1;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: justify;
+}
+.detailBox h6{
+    font-size: 0.8rem;
+    line-height: 24px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.detailBox h6 img{
+    height: 16px;
+    margin-right: 6px;
+}
+.detailBox p{
+    line-height: 22px;
+}
+.rule_ads{
+    display: block;
+    padding: 0 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+.lppz_img{
+    display: block;
+    margin: 4px auto;
+    width: 116px;
+}
+.lppz_hint{
+    text-align: center;
+}

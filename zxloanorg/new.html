@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-第三方渠道</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/new.css" />
+	</head>
+	<body>
+		<section id='newPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>新业务申请</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div class="cloneBox margin-bottom-10" v-for="(item, index) in params">
+				<ul class="commonBox commonBox_amend">
+					<li class="color-red mainTitle">房屋信息</li>
+					<li>
+						<span class="title">房屋所有权人</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{item.owner?item.owner:'请选择'}}</span>
+						<select v-model="item.owner">
+							<option value="">请选择</option>
+							<option value="本人或配偶">本人或配偶</option>
+							<option value="成年子女">成年子女</option>
+							<option value="本人或配偶的父母">本人或配偶的父母</option>
+							<option value="其他">其他</option>
+						</select>
+					</li>
+					<li v-on:click="goNewBuilding(index)">
+						<span class="title">房屋地址</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{item.project_name?item.project_name:'请选择'}} {{item.building_name}} {{item.room_name}}</span>
+					</li>
+					<li>
+						<span class="title">房屋性质</span>
+						<span class="desc">{{item.property}}</span>
+					</li>
+					<li>
+						<span class="title">房屋面积（㎡）</span>
+						<input type="number" v-model="item.area" placeholder="请输入房屋面积"/>
+						<!--<input type="number" v-bind:disabled="item.areaedit==0" v-model="item.area" placeholder="请输入房屋面积"/>-->
+					</li>
+				</ul>
+				<div class="t-r" v-show="params.length>1">
+					<button v-on:click="removeHandle(index)" class="deleteBtn button-clear"><img src="images/icon_delete.png" alt=""/>删除</button>
+				</div>
+			</div>
+
+			<div class="t-c margin-top-20">
+				<button v-on:click="addHandle()" class="addBtn button-default button-outline">+添加房屋信息</button>
+			</div>
+			<div class="t-c margin-top-40">
+				<button v-on:click="goNewValue()" class="button-default">马上预估</button>
+			</div>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/new.js"></script>
+	</body>
+</html>

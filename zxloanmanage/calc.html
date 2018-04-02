@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-客户经理</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/calc.css" />
+	</head>
+	<body>
+		<section id='calcPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>费率计算</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<ul class="commonBox commonBox_amend border-top">
+				<li>
+					<span class="title">贷款金额（万）</span>
+					<input type="number" v-model="params.money" placeholder="请填写"/>
+				</li>
+				<li class="double-select">
+					<span class="title">贷款期限</span>
+					<div>
+						<select v-model="params.year" v-on:change="termChangeHandle()">
+							<option value="0">0</option>
+							<option v-for="item in yearMax" v-bind:value="item">{{item}}</option>
+						</select>
+						年
+						<select v-model="params.month" v-on:change="termChangeHandle()">
+							<option value="0">0</option>
+							<option v-for="item in monthMax" v-bind:value="item">{{item}}</option>
+						</select>
+						月
+					</div>
+				</li>
+				<li>
+					<span class="title">基准利率（%）</span>
+					<span class="desc">{{params.rate_origin}}</span>
+				</li>
+				<li>
+					<span class="title">浮动利率（-100~100）</span>
+					<input class="input_sm" type="number" v-on:blur="FloatinputHandle()" v-model="params.rate_float" placeholder="请填写(可不填)"/>
+				</li>
+				<li>
+					<span class="title">实际利率</span>
+					<span class="desc">{{params.rate}}</span>
+				</li>
+				<li>
+					<span class="title">还款方式</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+					<span class="desc_amend">{{showByValue(params.method, methods)?showByValue(params.method, methods):'请选择'}}</span>
+					<select v-model="params.method">
+						<option value="">请选择</option>
+						<option v-for="(item, key) in methods" v-bind:value="key">{{item.name}}</option>
+					</select>
+				</li>
+			</ul>
+
+			<div class="t-c margin-top-20">
+				<button v-on:touchend="calcHandle()" class="button-default">开始计算</button>
+			</div>
+
+			<div v-show="moneyObj" class="moneyBox margin-v-20 hidden">
+				<canvas id="canvas" class="f-l"></canvas>
+				<div class="f-l" v-if="moneyObj">
+					<p><i></i>贷款总金额：<span>{{moneyObj.ben}}</span> 万</p>
+					<p><i></i>贷款利息约：<span>{{moneyObj.xi}}</span> 元</p>
+					<p v-show="moneyObj.method=='等额本息'"><i></i>月均还款：<span>{{moneyObj.list[0].money_total}}</span> 元</p>
+					<p v-show="moneyObj.method!='等额本息'"><i></i>第一期还款：<span>{{moneyObj.list[0].money_total}}</span> 元</p>
+					<p><i></i><button v-on:touchend="goCalcDetail()">详情</button></p>
+				</div>
+			</div>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/calc.js"></script>
+	</body>
+</html>

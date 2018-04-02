@@ -14,10 +14,14 @@
     float: left;
     width: calc(50% - 10px);
     background: #fff;
-    padding: 15px 0;
+    padding: 10px 0;
     font-size: 1.6rem;
     margin-bottom: 10px;
     border: 1px solid #c9c9c9;
+}
+.bagBox li P:nth-child(2){
+    color: #FF0000;
+    margin-top: 4px;
 }
 .bagBox li:nth-child(2n+1){
     margin-right: 10px;
@@ -26,6 +30,5 @@
     margin-left: 10px;
 }
 .bagBox li.active{
-    color: #eb7155;
     border: 1px solid #eb7155;
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>樱花女神</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script src="js/hammer.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/component.js"></script>
+    <script src='js/lrz.mobile.min.js'></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_585901_93q3wkxx0tlqh0k9.css">
+    <script src="//at.alicdn.com/t/font_585901_93q3wkxx0tlqh0k9.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/prize.css">
+</head>
+<body>
+    <section class="hide container">
+        <vue-footer index_in="4"></vue-footer>
+        <img class="title" src="images/prize_title.png" alt="">
+        <div class="ticket" v-for="item in list" v-on:click="jumpUrl(item.geturl)">
+            <h3>{{item.name}}</h3>
+            <h4>{{item.desc}}</h4>
+            <h5>立即使用</h5>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="js/prize.js"></script>
+</body>
+</html>

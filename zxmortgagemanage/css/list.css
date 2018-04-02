@@ -1,0 +1,50 @@
+h6{
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    color: #d80109;
+    background: #fff;
+}
+.stateBox{
+    padding: 0 20px;
+    color: #999;
+    background: #fff;
+}
+.stateBox li{
+    float: left;
+    line-height: 1rem;
+    width: 30%;
+    margin-bottom: 10px;
+    margin-right: 5%;
+}
+.stateBox li.active{
+    color: #d80109;
+}
+.stateBox li:nth-child(3n){
+    margin-right: 0;
+}
+
+.infoBox{
+    padding: 0 20px;
+    background: #fff;
+}
+.infoBox li{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.infoBox li p{
+    line-height: 1.2rem;
+}
+.infoBox li p:nth-child(1){
+    overflow: hidden;
+}
+.infoBox li .name{
+
+}
+.infoBox li .mobile{
+    float: right;
+}
+.infoBox li .lost{
+    color: #ed3b3b;
+}

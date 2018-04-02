@@ -1,0 +1,195 @@
+section{
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+.profileBox{
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: 88;
+}
+.color-default{
+    color: #f35581;
+}
+.profileBox .headimg{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.profileBox .name{
+    position: absolute;
+    left: 80px;
+    top: 14px;
+    width: calc(100% - 160px);
+}
+.profileBox .score{
+    position: absolute;
+    left: 80px;
+    bottom: 14px;
+}
+.profileBox .rankBox{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 100%;
+    width: 70px;
+    background: #fd769e;
+    text-align: center;
+    color: #fff;
+}
+.imgBox{
+    padding: 0 10px;
+    margin-top: 10px;
+}
+.imgBox img{
+    width: 100%;
+    margin-bottom: 6px;
+}
+.voteBox{
+    overflow: hidden;
+    padding: 0 10px;
+    margin: 10px 0;
+}
+.voteBox li{
+    position: relative;
+    width: 48%;
+    height: 50px;
+    background-image: url('../images/btn_bg.png');
+    background-size: 100% 100%;
+    text-align: center;
+}
+.voteBox li:nth-child(1){
+    float: left;
+    line-height: 50px;
+}
+.voteBox li:nth-child(2){
+    float: right;
+    line-height: 20px;
+}
+.voteBox li img{
+    width: 30px;
+    left: 8%;
+}
+.voteBox li p{
+    color: #fff;
+    font-size: 0.8rem;
+    margin-left: 50px;
+}
+.voteBox li:nth-child(2) p{
+    margin-top: 5px;
+}
+.voteBox li i{
+    position: absolute;
+    left: calc(8% + 30px);
+    top: 10px;
+    line-height: 10px;
+    color: #ffdd00;
+}
+.madeBtn{
+    width: calc(100% - 20px);
+    display: block;
+    margin: 0 auto 10px auto;
+}
+.funsBox{
+    margin: 0 10px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+}
+.funsBox h6{
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 20px 0;
+    color: #999;
+}
+.funsBox>img{
+    width: 50%;
+}
+.funsBox li{
+    line-height: 40px;
+    overflow: hidden;
+    padding: 10px;
+    border-bottom: 1px solid #ff8caf;
+}
+.funsBox li p{
+    float: left;
+}
+.funsBox li p:nth-child(1){
+     width: calc(100% - 100px);
+}
+.funsBox li p:nth-child(2){
+    width: 100px;
+    text-align: right;
+}
+.funsBox li img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0 4px;
+}
+.adBox{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    z-index: -99;
+}
+.makeupBox{
+    z-index: -88;
+    background: url('../images/common_bg.jpg') repeat;
+    background-size: 100% auto;
+}
+.adBox .headimg{
+    width: 100%;
+}
+.adBox .qrcode{
+    width: 100px;
+    bottom: -50px;
+}
+.adBox .textBox{
+    padding: 58px 0;
+    text-align: center;
+    background: url('../images/ad_decorate.jpg') no-repeat center bottom;
+    background-size: 100% auto;
+}
+.adBox .textBox .line{
+    display: block;
+    width: 60%;
+    height: 1px;
+    background: #f35581;
+    opacity: 0.4;
+    margin: 8px auto;
+}
+.codeBox{
+    bottom: 0;
+    transform: translateX(-50%) translateY(50%);
+    text-align: center;
+}
+
+.hintBox{
+    background: url('../images/common_bg.jpg') repeat;
+    background-size: 100% auto;
+    text-align: center;
+}
+.hintBox .icon-close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #000;
+    font-size: 1.2rem;
+}
+.hintBox .adimg{
+    width: 70%;
+    margin-top: 50px;
+}
+.hintBox  .detail_method{
+    width: 80%;
+    margin-top: 20px;
+}
+.showBox{
+    z-index: 1000;
+}
+.showBox img{
+    z-index: 99;
+}

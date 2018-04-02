@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>新春贺卡</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+	<script src="js/config.js"></script>
+	<link rel="stylesheet" href="css/same.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<audio id="audioBg" src="resource/new.mp3" preload="auto" loop></audio>
+	<section>
+		<div class="shareBox hide" v-on:touchend="shareClose()">
+			<img src="images/share.png" alt="">
+		</div>
+		<div class="paperBox hide">
+			<p class="abs-h-center">长按可保存至手机</p>
+			<img src="" alt="">
+			<button v-on:touchend="closePaper()" class="weui-btn weui-btn_mini weui-btn_plain-default">返回</button>
+		</div>
+		<div class="hintBox hide">
+			<div class="abs-center">
+				<p>滑动选择喜欢的卡片</p>
+				<p>开始制作吧</p>
+				<button v-on:touchend="knowHandle()" class="weui-btn weui-btn_mini weui-btn_plain-default">我知道了</button>
+			</div>
+		</div>
+		<div class="controlBox hide">
+			<div class="topBox">
+				<img src="images/icon_decorate.png" alt="">
+				<span>选择元素</span>
+				<img v-on:touchend="closeHandle()" class="f-r" src="images/btn_close.png" alt="">
+			</div>
+			<ul>
+				<li v-on:touchend="toggleSelect(key)" v-for="(item, key) in icoArr[index]">
+					<img class="ico" :src="item" alt="">
+					<img v-if="showArr[index][key] == 1" class="icon_select abs" src="images/icon_select.png" alt="">
+				</li>
+			</ul>
+		</div>
+
+		<img class="editBtn hide" v-on:touchend="openHandle()" src="images/btn_edit.png" alt="">
+
+		<div class="swiper-container">
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="page onePage hide">
+						<img v-show="showArr[0][0]==1" :class="isPaper?'':'one_circle_show'" class="one_circle abs-center" src="images/one_circle.png" alt="">
+						<img v-show="showArr[0][1]==1" :class="isPaper?'':'one_text_show'" class="one_text abs-h-center" src="images/one_text.png" alt="">
+						<img v-show="showArr[0][2]==1" :class="isPaper?'':'one_flower1_show'" class="one_flower1 abs" src="images/one_flower1.png" alt="">
+						<img v-show="showArr[0][3]==1" :class="isPaper?'':'one_flower2_show'" class="one_flower2 abs" src="images/one_flower2.png" alt="">
+
+						<img v-show="showArr[0][0]==0" class="one_circle abs-center" src="images/one_circle_hide.png" alt="">
+						<img v-show="showArr[0][1]==0" class="one_text abs-center" src="images/one_text_hide.png" alt="">
+						<img v-show="showArr[0][2]==0" class="one_flower1 abs" src="images/one_flower1_hide.png" alt="">
+						<img v-show="showArr[0][3]==0" class="one_flower2 abs" src="images/one_flower2_hide.png" alt="">
+
+						<div class="textBox abs-h-center">
+							<textarea :class="isPaper?'':'textBox_show'" wrap="off">值此新年佳节&#13;恭祝您，狗年吉祥，阖家安康</textarea>
+							<pre :class="isPaper?'':'textBox_show'" class="hide hidden-s"></pre>
+						</div>
+						<div class="btnBox abs-h-center" v-if="btnArr[0]==1 && !isPaper">
+							<img v-if="!isShare" v-on:touchend="shareHandle(0)" src="images/btn_share1.png" alt="">
+							<img v-if="!isShare" v-on:touchend="canvasHandle(0)" src="images/btn_made1.png" alt="">
+							<img v-if="isShare" v-on:touchend="homeHandle()" src="images/btn_work1.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page twoPage hide">
+						<img v-show="showArr[1][0]==1" :class="isPaper?'':'two_dog_show'" class="two_dog abs-center" src="images/two_dog.png" alt="">
+						<img v-show="showArr[1][1]==1" :class="isPaper?'':'two_lamp_show'" class="two_lamp abs" src="images/two_lamp.png" alt="">
+						<img v-show="showArr[1][2]==1" :class="isPaper?'':'two_spray_show'" class="two_spray abs-h-center" src="images/two_spray.png" alt="">
+						<img v-show="showArr[1][3]==1" :class="isPaper?'':'two_text_show'" class="two_text abs-center" src="images/two_text.png" alt="">
+
+						<img v-show="showArr[1][0]==0" class="two_dog abs-center" src="images/two_dog_hide.png" alt="">
+						<img v-show="showArr[1][1]==0" class="two_lamp abs" src="images/two_lamp_hide.png" alt="">
+						<img v-show="showArr[1][2]==0" class="two_spray abs-h-center" src="images/two_spray_hide.png" alt="">
+						<img v-show="showArr[1][3]==0" class="two_text2 abs" src="images/two_text_hide.png" alt="">
+						<div class="textBox abs-h-center">
+							<textarea :class="isPaper?'':'textBox_show'" wrap="off">值此新年佳节&#13;恭祝您，狗年吉祥，阖家安康</textarea>
+							<pre :class="isPaper?'':'textBox_show'" class="hide hidden-s"></pre>
+						</div>
+						<div class="btnBox abs-h-center" v-if="btnArr[1]==1 && !isPaper">
+							<img v-if="!isShare" v-on:touchend="shareHandle(1)" src="images/btn_share2.png" alt="">
+							<img v-if="!isShare" v-on:touchend="canvasHandle(1)" src="images/btn_made2.png" alt="">
+							<img v-if="isShare" v-on:touchend="homeHandle()" src="images/btn_work2.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page threePage hide">
+						<img v-show="showArr[2][0]==1" :class="isPaper?'':'three_title_show'" class="three_title abs" src="images/three_title.png" alt="">
+						<img v-show="showArr[2][1]==1" :class="isPaper?'':'three_dog_show'" class="three_dog abs-center" src="images/three_dog.png" alt="">
+						<img v-show="showArr[2][2]==1" :class="isPaper?'':'three_lamp_show'" class="three_lamp abs" src="images/three_lamp.png" alt="">
+						<img v-show="showArr[2][3]==1" :class="isPaper?'':'three_text_show'" class="three_text abs-center" src="images/three_text.png" alt="">
+
+						<img v-show="showArr[2][0]==0" class="three_title abs" src="images/three_title_hide.png" alt="">
+						<img v-show="showArr[2][1]==0" class="three_dog abs-center" src="images/three_dog_hide.png" alt="">
+						<img v-show="showArr[2][2]==0" class="three_lamp abs" src="images/three_lamp_hide.png" alt="">
+						<img v-show="showArr[2][3]==0" class="three_text abs-center" src="images/three_text_hide.png" alt="">
+
+						<div class="textBox abs-h-center">
+							<textarea :class="isPaper?'':'textBox_show'" wrap="off">值此新年佳节&#13;恭祝您，狗年吉祥，阖家安康</textarea>
+							<pre :class="isPaper?'':'textBox_show'" class="hide hidden-s"></pre>
+						</div>
+						<div class="btnBox abs-h-center" v-if="btnArr[2]==1 && !isPaper">
+							<img v-if="!isShare" v-on:touchend="shareHandle(2)" src="images/btn_share3.png" alt="">
+							<img v-if="!isShare" v-on:touchend="canvasHandle(2)" src="images/btn_made3.png" alt="">
+							<img v-if="isShare" v-on:touchend="homeHandle()" src="images/btn_work3.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page fourPage hide">
+						<img v-show="showArr[3][0]==1" :class="isPaper?'':'four_title_show'" class="abs-center four_title" src="images/four_title.png" alt="">
+						<img v-show="showArr[3][1]==1" :class="isPaper?'':'four_decorate_show'" class="abs-center four_decorate" src="images/four_decorate.png" alt="">
+						<img v-show="showArr[3][2]==1" :class="isPaper?'':'four_text_show'" class="abs four_text" src="images/four_text.png" alt="">
+						<img v-show="showArr[3][3]==1" :class="isPaper?'':'four_cloud_show'" class="abs four_cloud" src="images/four_cloud.png" alt="">
+
+						<img v-show="showArr[3][0]==0" class="abs-center four_title" src="images/four_title_hide.png" alt="">
+						<img v-show="showArr[3][1]==0" class="abs-center four_decorate" src="images/four_decorate_hide.png" alt="">
+						<img v-show="showArr[3][2]==0" class="abs four_text" src="images/four_text_hide.png" alt="">
+						<img v-show="showArr[3][3]==0" class="abs four_cloud" src="images/four_cloud_hide.png" alt="">
+
+						<div class="textBox abs-h-center">
+							<textarea :class="isPaper?'':'textBox_show'" wrap="off">值此新年佳节&#13;恭祝您，狗年吉祥，阖家安康</textarea>
+							<pre :class="isPaper?'':'textBox_show'" class="hide hidden-s"></pre>
+						</div>
+						<div class="btnBox abs-h-center" v-if="btnArr[3]==1 && !isPaper">
+							<img v-if="!isShare" v-on:touchend="shareHandle(3)" src="images/btn_share3.png" alt="">
+							<img v-if="!isShare" v-on:touchend="canvasHandle(3)" src="images/btn_made3.png" alt="">
+							<img v-if="isShare" v-on:touchend="homeHandle()" src="images/btn_work3.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page fivePage hide">
+						<img v-show="showArr[4][0]==1" :class="isPaper?'':'five_title_show'" class="five_title abs-h-center" src="images/five_title.png" alt="">
+						<img v-show="showArr[4][1]==1" :class="isPaper?'':'five_decorate_show'" class="abs-center five_decorate" src="images/five_decorate.png" alt="">
+						<img v-show="showArr[4][2]==1" :class="isPaper?'':'five_cloud_show'" class="abs-h-center five_cloud" src="images/five_cloud.png" alt="">
+						<img v-show="showArr[4][3]==1" :class="isPaper?'':'five_text_show'" class="abs five_text" src="images/five_text.png" alt="">
+
+						<img v-show="showArr[4][0]==0" class="five_title abs-h-center" src="images/five_title_hide.png" alt="">
+						<img v-show="showArr[4][1]==0" class="abs-center five_decorate" src="images/five_decorate_hide.png" alt="">
+						<img v-show="showArr[4][2]==0" class="abs-h-center five_cloud" src="images/five_cloud_hide.png" alt="">
+						<img v-show="showArr[4][3]==0" class="abs five_text" src="images/five_text_hide.png" alt="">
+
+						<div class="textBox abs">
+							<textarea :class="isPaper?'':'textBox_show'" wrap="off">值此新年佳节&#13;恭祝您&#13;狗年吉祥，阖家安康</textarea>
+							<pre :class="isPaper?'':'textBox_show'" class="hide hidden-s"></pre>
+						</div>
+						<div class="btnBox abs-h-center" v-if="btnArr[4]==1 && !isPaper">
+							<img v-if="!isShare" v-on:touchend="shareHandle(4)" src="images/btn_share3.png" alt="">
+							<img v-if="!isShare" v-on:touchend="canvasHandle(4)" src="images/btn_made3.png" alt="">
+							<img v-if="isShare" v-on:touchend="homeHandle()" src="images/btn_work3.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div class="page sixPage hide">
+						<img v-show="showArr[5][0]==1" :class="isPaper?'':'six_title_show'" class="abs-center six_title" src="images/six_title.png" alt="">
+						<img v-show="showArr[5][1]==1" :class="isPaper?'':'six_decorate_show'" class="six_decorate abs-center" src="images/six_decorate.png" alt="">
+						<img v-show="showArr[5][2]==1" :class="isPaper?'':'six_star_show'" class="six_star abs-center" src="images/six_star.png" alt="">
+						<img v-show="showArr[5][3]==1" :class="isPaper?'':'six_dog1_show'" class="six_dog1 abs" src="images/six_dog1.png" alt="">
+						<img v-show="showArr[5][3]==1" :class="isPaper?'':'six_dog2_show'" class="six_dog2 abs" src="images/six_dog2.png" alt="">
+
+						<img v-show="showArr[5][0]==0" class="abs-center six_title" src="images/six_title_hide.png" alt="">
+						<img v-show="showArr[5][1]==0" class="six_decorate abs-center" src="images/six_decorate_hide.png" alt="">
+						<img v-show="showArr[5][2]==0" class="six_star abs-center" src="images/six_star_hide.png" alt="">
+						<img v-show="showArr[5][3]==0" class="six_dog1 abs" src="images/six_dog1_hide.png" alt="">
+						<img v-show="showArr[5][3]==0" class="six_dog2 abs" src="images/six_dog2_hide.png" alt="">
+
+						<div class="textBox abs-h-center">
+							<textarea :class="isPaper?'':'textBox_show'" wrap="off">值此新年佳节&#13;恭祝您&#13;狗年吉祥，阖家安康</textarea>
+							<pre :class="isPaper?'':'textBox_show'" class="hide hidden-s"></pre>
+						</div>
+						<div class="btnBox abs-h-center" v-if="btnArr[5]==1 && !isPaper">
+							<img v-if="!isShare" v-on:touchend="shareHandle(5)" src="images/btn_share4.png" alt="">
+							<img v-if="!isShare" v-on:touchend="canvasHandle(5)" src="images/btn_made4.png" alt="">
+							<img v-if="isShare" v-on:touchend="homeHandle()" src="images/btn_work4.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="js/index.js"></script>
+</body>
+</html>

@@ -58,7 +58,7 @@
             data: {
                 pageData: [],   //购物车信息
                 cartNum: 0,
-                showAll: localStorage.showAll == '1' ? 1 : 0,
+                showAll: sessionStorage.showAll == '1' ? 1 : 0,
                 cateArr: sessionStorage.getItem('cateArr') ? JSON.parse(sessionStorage.getItem('cateArr')) : null,    //蛋糕分类
                 otherList: [],   //其他推荐
                 isAll: false     //是否全选
@@ -90,7 +90,7 @@
                         requestObj.goodsList(function(data){
                             var goods = data.goods;
                             var arr = [];
-                            if(localStorage.showAll != '1'){
+                            if(me.showAll != '1'){
                                 $.each(goods, function (index, value) {
                                     if(value.category_id != 1 && value.category_id != 2 && value.category_id != 16){
                                         arr.push(value);

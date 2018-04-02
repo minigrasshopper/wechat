@@ -40,8 +40,8 @@
                 //从PC端进入，需要切换语言版本
                 if(getUrlParam().lang){
                     localStorage.language = getUrlParam().lang;
-                    localStorage.showAll = getUrlParam().showAll;
-                    localStorage.city = getUrlParam().city;
+                    sessionStorage.showAll = getUrlParam().showAll;
+                    sessionStorage.city = getUrlParam().city;
                     if(!localStorage.preTime){
                         localStorage.preTime = new Date().getTime();
                     }

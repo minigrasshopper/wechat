@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>中信按揭</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_564026_tv1o5w8z5fk49529.css">
+    <script src="//at.alicdn.com/t/font_564026_tv1o5w8z5fk49529.js"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    <section class='container hide' v-if="pageData">
+        <nav>
+            <i v-on:touchend="historyHandle()" class="iconfont icon-back"></i>
+            <span>业务管理</span>
+        </nav>
+        <div class='searchBox'>
+            <input v-model="params.mobile" type="text" placeholder="请输入姓名或手机号码">
+            <i v-on:touchend="searchHandle()" class="iconfont icon-search"></i>
+        </div>
+        <h6>业务状态</h6>
+        <div class='stateBox'>
+            <ul class='hidden t-c'>
+                <!--.active表示选择状态-->
+                <li :class="currstatus==item.status?'active':''" v-for="(item, key) in pageData.statusList" v-on:touchend='toggleState(item.status)'>
+                    <p>{{item.v}}</p>
+                    <p>{{item.k}}</p>
+                </li>
+            </ul>
+        </div>
+        <h6 class="margin-top-10">业务列表</h6>
+        <div class='infoBox'>
+            <ul>
+                <li v-on:click="jumpNew(item.apply_no)" v-for="(item, key) in pageData.list">
+                    <p><span class="name">{{item.customer.name}}</span><span class="mobile">{{item.customer.mobile}}</span></p>
+                    <p v-if="item.lackStatus"><span>缺：</span><span class="lost">{{item.lackStatus}}</span></p>
+                    <p><span>最后提交：</span><span>{{item.latestDateTime}}</span></p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/list.js"></script>
+</body>
+</html>

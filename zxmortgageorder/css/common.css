@@ -1,0 +1,129 @@
+body{
+    color: #454545;
+    font-size: 0.7rem !important;
+}
+section{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    position: relative;
+}
+.container{
+    background: #eee;
+    padding-top: 36px;
+}
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: #ff4c45;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    font-size: 0.8rem;
+    color: #fff;
+    text-align: center;
+}
+nav .icon-back{
+    position: absolute;
+    font-size: 1rem;
+    line-height: 36px;
+    left: 10px;
+}
+.iconfont{
+    vertical-align: middle;
+}
+input{
+    height: 36px;
+    border: 1px solid #ddd;
+}
+input:focus{
+    border: 1px solid #ff4c45;
+}
+button{
+    background: #ff4c45;
+    height: 36px;
+    font-size: 0.8rem;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0 20px;
+}
+.button-default{
+    width: 66%;
+}
+.button-clear{
+    color: #ff4c45;
+    background: transparent;
+}
+.button-clear-auto{
+    color: #ff4c45;
+    background: transparent;
+    padding: 0;
+    width: auto;
+}
+.button-outline{
+    color: #ff4c45;
+    border: 1px solid #ff4c45;
+    background: transparent;
+}
+
+.exhibitBox{
+    position: relative;
+    width: 100%;
+    background: #fff;
+    padding: 8px 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #c9c9c9;
+}
+.exhibitBox .desc{
+    float: left;
+    width: 100px;
+    line-height: 24px;
+}
+.exhibitBox.large .desc{
+    width: 140px;
+}
+.exhibitBox .value, .exhibitBox input{
+    float: right;
+    padding-right: 15px;
+    width: calc(100% - 110px);
+    text-align: right;
+    color: #666;
+    line-height: 24px;
+}
+.exhibitBox.large .value, .exhibitBox.large input{
+    width: calc(100% - 150px);
+}
+.exhibitBox input{
+    height: 24px;
+    border: none;
+}
+.exhibitBox .padding0{
+    padding-right: 0;
+}
+.exhibitBox .icon-ahead{
+    font-size: 0.8rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    color: #999;
+}
+.exhibitBox select{
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.margin-top-10{
+    margin-top: 10px;
+}
+.font-13{
+    font-size: 0.65rem;
+}
+.font-14{
+    font-size: 0.7rem;
+}

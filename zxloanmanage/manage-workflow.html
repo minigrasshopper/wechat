@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-客户经理</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/manage-workflow.css" />
+	</head>
+	<body>
+		<section id='manageWorkflowPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>工作流详情</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div class="t-c titleBox margin-bottom-20">
+				<img src="images/icon_state.png" alt=""/>
+				<p>当前状态</p>
+			</div>
+			<ul class="stateBox">
+				<li v-for="(item, index) in pageData" v-bind:class="index==0?'active':''">
+					<div>
+						<p></p>
+						<p></p>
+					</div>
+					<div>
+						<p class="font-14">{{item.status}}</p>
+						<p class="font-13 light">操作时间：{{item.datetime}}</p>
+						<p>
+							<span class="font-13 light">操作人：{{item.operater}}</span>
+							<button v-show="item.issues.length" v-on:touchend="goManageIssue(item.issues)" class="f-r">问题查看</button>
+						</p>
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/manage-workflow.js"></script>
+	</body>
+</html>

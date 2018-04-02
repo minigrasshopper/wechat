@@ -31,7 +31,7 @@
                 isnineforward: 0,
                 goodsId: localStorage.goodsId ? localStorage.goodsId : 0,
                 language: localStorage.language ? localStorage.language : 'cn',
-                showAll: localStorage.showAll == 1 ? 1 : 0,   //是否显示所有
+                showAll: sessionStorage.showAll == 1 ? 1 : 0,   //是否显示所有
                 addressDefault: null,  //当前默认地址
                 params: getUrlParam().order ? JSON.parse(getUrlParam().order) : {  //提交信息
                     //直接购买模式必须，购物车模式不传
@@ -102,6 +102,19 @@
                             console.log(me.pageData);
                         });
                     }
+                    // 判断9点前后
+                    var now = new Date();
+                    var h = now.getHours();
+                    var m = now.getMinutes();
+                    var s = now.getSeconds();
+                    console.log(h,m);
+                    var sum = h * 3600 + m * 60 + s;
+                    if(sum > 9 * 3600){
+                        this.isnineforward = 0;
+                    }else{
+                        this.isnineforward = 1;
+                    }
+
                 },
                 dataOrigin: function(){
                     var me = this;
@@ -308,17 +321,6 @@
                     return result;
                 },
                 dateChangeHandle: function(type){
-                    var now = new Date();
-                    var h = now.getHours();
-                    var m = now.getMinutes();
-                    var s = now.getSeconds();
-                    console.log(h,m);
-                    var sum = h * 3600 + m * 60 + s;
-                    if(sum > 9 * 3600){
-                        this.isnineforward = 0;
-                    }else{
-                        this.isnineforward = 1;
-                    }
                     switch (type){
                         case 1:
                             this.params.pickuptime = '';

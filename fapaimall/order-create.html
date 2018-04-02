@@ -151,7 +151,7 @@
 							<span class="desc_amend">{{params.deliverydate?params.deliverydate:(language=='cn'?'请选择':'Please select')}}</span>
 							<select v-on:change="dateChangeHandle(2)" v-model="params.deliverydate">
 								<option class="language" value=''>请选择</option>
-								<option v-for="item in pageData.bookDateItems" :value="item">{{item}}</option>
+								<option v-for="(item, index) in pageData.bookDateItems" :hidden="isnineforward==1 && index==0" :value="item">{{item}}</option>
 							</select>
 						</li>
 						<li>

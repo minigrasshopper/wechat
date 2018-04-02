@@ -1,0 +1,312 @@
+section{
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+	position: relative;
+	font-size: 1.4rem;
+	color: #373b3c;
+	background: #e3593f url('../images/decorate.png') no-repeat;
+	background-size: 100% auto;
+	background-position: center bottom;
+}
+.bg-gray{
+	background: #ffeae5;
+}
+.container{
+	padding: 60px 20px 20px 20px;
+}
+nav{
+	background: #4d4d4d;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	font-size: 1.6rem;
+	color: #fff;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+nav img{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 45px;
+	padding: 12px 20px;
+}
+nav .icon_back{
+	left: 0;
+}
+nav .icon_home{
+	right: 0;
+}
+input, select{
+	height: 36px;
+	background: transparent;
+	font-size: 1.4rem;
+}
+button{
+	background: #fdcc70;
+	height: 36px;
+	font-size: 1.5rem;	
+	color: #bb1425;
+	border-radius: 18px;
+	padding: 0 20px;
+}
+.button-default{
+	width: 66%;
+	font-weight: 600;
+	font-size: 1.6rem;
+}
+.button-clear{
+	color: #fff;
+	border-radius: 0;
+	padding: 0;
+	background: transparent;
+	border-bottom: 1px solid #fff;
+	height: 24px;
+}
+.button-outline{
+	color: #fff;
+	border: 1px solid #fff;
+	background: transparent;
+}
+.color-black{
+	color: #373b3c;
+}
+.color-gray{
+	color: #999;
+}
+.color-white{
+	color: #fff;
+}
+.color-red{
+	color: #e3573e !important;
+}
+.color-yellow{
+	color: #ffedbf;
+}
+.border-top{
+	border-top: 1px solid #ccc;
+}
+.border-bottom{
+	border-bottom: 1px solid #ccc;
+}
+.margin-v-10{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.margin-v-20{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.margin-top-10{
+	margin-top: 10px;
+}
+.margin-top-20{
+	margin-top: 20px;
+}
+.margin-top-30{
+	margin-top: 30px;
+}
+.margin-top-40{
+	margin-top: 40px;
+}
+.margin-bottom-10{
+	margin-bottom: 10px;
+}
+.margin-bottom-20{
+	margin-bottom: 20px;
+}
+.padding-v-20{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+/*commonBox开始*************************************/
+.commonBox{
+	font-size: 1.4rem;
+	line-height: 24px;
+	border-radius: 6px;
+	background: #ffeae5;
+	border: 1px solid #ccc;
+}
+.commonBox li{
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	padding: 8px 10px;
+	position: relative;
+	min-height: 40px;
+}
+.commonBox li:last-child{
+	border-bottom: none;
+}
+.commonBox li:active{
+	opacity: 0.6;
+}
+.commonBox .title{
+	float: left;
+	color: #e3573e;
+}
+.commonBox input.input_sm{
+	width: calc(100% - 155px);
+}
+/*.desc_amend：右边有ahead_btn的情况*/
+.commonBox .desc_amend{
+	padding-right: 15px;
+}
+.commonBox .desc, .commonBox .desc_amend{
+	max-width: calc(100% - 100px);
+	text-align: right;
+	float: right;
+	color: #4d4d4d;
+}
+.commonBox .icon{
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	width: 8px;
+}
+.commonBox select{
+	width: 100%;
+	opacity: 0;
+	border: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 40px;
+}
+.commonBox input{
+	float: right;
+	height: 24px;
+	border: none;
+	text-align: right;
+	width: calc(100% - 100px);
+}
+/*.double-select：两个input框*/
+.commonBox li.double-select div{
+	float: right;
+}
+.commonBox li.double-select select{
+	float: none;
+	width: auto;
+	text-align: center;
+	position: static;
+	opacity: 1;
+	height: 100%;
+}
+/*验证码盒子*/
+.commonBox li.verifyBox .title{
+	width: 50px;
+}
+.commonBox li.verifyBox input{
+	width: calc(100% - 150px);
+	float: right;
+	text-align: center;
+}
+.commonBox li.verifyBox button{
+	width: 100px;
+	border: none;
+	height: 24px;
+	border-left: 1px solid #ccc;
+	border-radius: 0;
+	padding: 0;
+	font-size: 1.3rem;
+	background: transparent;
+	float: right;
+}
+.commonBox li.verifyBox button.active{
+	color: #666;
+}
+/*.commonBox_amend：中间的li样式变化修正*/
+.commonBox_amend .icon{
+	right: 0;
+}
+.commonBox_amend li{
+	margin: 0 20px;
+	padding-left: 0;
+	padding-right: 0;
+}
+.commonBox_amend li:first-child,.commonBox_amend li:last-child{
+	margin: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.commonBox_amend li:first-child .icon,.commonBox_amend li:last-child .icon{
+	right: 20px;
+}
+/*commonBox结束*/
+
+.searchCommon{
+	overflow: hidden;
+}
+.searchCommon div{
+	float: left;
+	width: calc(100% - 90px);
+	position: relative;
+}
+.searchCommon input{
+	width: 100%;
+	border-radius: 18px;
+	padding-left: 30px;
+}
+.searchCommon img{
+	width: 16px;
+	left: 10px;
+}
+.searchCommon button{
+	float: right;
+	width: 80px;
+	background: #e2583e;
+	color: #fff;
+	font-weight: 500;
+}
+
+.title-c{
+	width: 100%;
+	height: 1px;
+	background: #ccc;
+	margin: 15px 0;
+}
+.title-c h6{
+	height: 30px;
+	line-height: 30px;
+	border-radius: 15px;
+	padding: 0 20px;
+	color: #ed3b3b;
+	border: 1px solid #ed3b3b;
+	background: #fff;
+}
+
+.line{
+	margin-top: -2px;
+}
+
+#commonNav{
+	width: 100%;
+	height: 45px;
+	line-height: 36px;
+	font-size: 1.6rem;
+	color: #fff;
+	text-align: center;
+	overflow: hidden;
+}
+#commonNav li{
+	float: left;
+	border-bottom: 3px solid #c61e01;
+}
+#commonNav li.active{
+	color: #fed86d;
+	font-size: 1.8rem;
+	border-bottom-color: #fed86d;
+}
+#commonNav li:nth-child(1){
+	width: 33%;
+}
+#commonNav li:nth-child(2){
+	width: 34%;
+}
+#commonNav li:nth-child(3){
+	width: 33%;
+}

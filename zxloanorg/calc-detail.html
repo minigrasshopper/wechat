@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-第三方渠道</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/calc-detail.css" />
+	</head>
+	<body>
+		<section id='calcDetailPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>还款详情</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div v-if="moneyObj">
+				<div class="moneyBox bg-gray">
+					<p>贷款金额：<span>{{moneyObj.ben}}</span> 万</p>
+					<p v-show="moneyObj.method=='等额本息'">月均还款：<span>{{moneyObj.list[0].money_total}}</span> 元</p>
+					<p v-show="moneyObj.method!='等额本息'">第一期还款：<span>{{moneyObj.list[0].money_total}}</span> 元</p>
+					<p>支付利息约为：<span>{{moneyObj.xi}}</span> 元</p>
+					<p>贷款期限：
+						<span>{{(parseInt(moneyObj.term/12))?(parseInt(moneyObj.term/12))+'年':''}}
+							{{(Number(moneyObj.term%12))?(Number(moneyObj.term%12))+'个月':''}}
+							({{moneyObj.term}}期)
+						</span>
+					</p>
+				</div>
+				<table>
+					<thead>
+					<tr>
+						<th>月</th>
+						<th>月供</th>
+						<th>月供本金</th>
+						<th>月供利息</th>
+						<th>剩余</th>
+					</tr>
+					</thead>
+					<tbody>
+					<template v-for="item in moneyObj.list">
+						<tr v-if="(item.termno-1)%12==0">
+							<td class="t-l" colspan="5"><button>第{{yearShow(item.termno)}}年</button></td>
+						</tr>
+						<tr>
+							<td>{{item.termno%12==0?12:item.termno%12}}月</td>
+							<td>{{item.money_total}}</td>
+							<td>{{item.money_ben}}</td>
+							<td>{{item.money_xi}}</td>
+							<td>{{item.money_ben_left}}</td>
+						</tr>
+					</template>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/calc-detail.js"></script>
+	</body>
+</html>

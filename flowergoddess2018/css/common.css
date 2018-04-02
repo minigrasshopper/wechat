@@ -1,0 +1,201 @@
+body{
+    font-size: 0.7rem !important;
+    line-height: normal !important;
+}
+section{
+    position: relative;
+    background: url('../images/common_bg.jpg') repeat;
+    background-size: 100% auto;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    color: #333;
+}
+.container{
+    padding-bottom: 70px;
+}
+nav{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: #f4547f;
+    height: 40px;
+    opacity: 0.6;
+    color: #fff;
+    line-height: 40px;
+    padding: 0 10px;
+}
+nav .iconfont{
+    font-size: 1.5rem;
+}
+nav span{
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+.iconfont{
+    vertical-align: middle;
+}
+.border{
+    border: 1px solid #fe8cae;
+}
+.border-top{
+    border-top: 1px solid #fe8cae;
+}
+.border-radius{
+    border-radius: 6px;
+}
+.color-default{
+    color: #f25580;
+}
+.color-white{
+    color: #fff;
+}
+.title{
+    width: 100%;
+    padding: 0 17%;
+    background: url('../images/decorate.jpg') no-repeat;
+    background-size: 100% 100%;
+    display: block;
+}
+.m-t-4{
+    margin-top: 4px;
+}
+.m-t-6{
+    margin-top: 6px;
+}
+.m-r-4{
+    margin-right: 4px;
+}
+.m-r-6{
+    margin-right: 6px;
+}
+.m-l-4{
+    margin-left: 4px;
+}
+.m-l-6{
+    margin-left: 6px;
+}
+.font-10{
+    font-size: 0.5rem;
+}
+.font-12{
+    font-size: 0.6rem;
+}
+.font-16{
+    font-size: 0.8rem;
+}
+.font-18{
+    font-size: 0.9rem;
+}
+.font-20{
+    font-size: 1rem;
+}
+.font-bold{
+    font-weight: 600;
+}
+.weui-loadmore {
+    margin: 0.8em auto !important;
+}
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #ff8bae;
+    width: 100%;
+    z-index: 999;
+    height: 50px;
+    border-top: 1px solid #f95d8c;
+}
+.footer li{
+    width: 25%;
+    height: 100%;
+    float: left;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.footer li div{
+    width: 100%;
+}
+.footer li div .iconfont{
+    font-size: 1rem;
+}
+.footer li.selected{
+    color: #d44970;
+}
+.resultcommon>div{
+    width: 80%;
+    background: #fff;
+    padding: 20px 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+.resultcommon .icon{
+    width: 60px;
+}
+.resultcommon h1{
+    color: #323232;
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.resultcommon p{
+    color: #323232;
+    margin-top: 8px;
+}
+.resultcommon i{
+    color: #323232;
+    margin-top: 8px;
+    font-size: 0.6rem;
+    font-style: normal;
+    display: block;
+}
+.resultcommon button{
+    background: #f25580;
+    width: 60%;
+    height: 40px;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-top: 16px;
+}
+.resultcommon .ticket{
+    position: relative;
+    width: 80%;
+    margin: 10px auto 0 auto;
+    background: url('../images/ticket_get.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 16px 5%;
+    text-align: left;
+}
+.resultcommon .ticket h3{
+    color: #f35581;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.resultcommon .ticket h4{
+    color: #333;
+    font-size: 0.5rem;
+    font-weight: 500;
+}
+.resultcommon .ticket h5{
+    color: #f35581;
+    font-size: 0.5rem;
+    position: absolute;
+    top: 0;
+    right: 5%;
+    height: 100%;
+    text-align: center;
+    writing-mode: tb;
+    font-weight: 600;
+}
+.resultcommon .icon-close{
+    position: absolute;
+    top: 0;
+    right: 4px;
+    font-size: 1.2rem;
+    color: #f25580;
+}

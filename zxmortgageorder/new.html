@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>中信按揭</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_564026_k4l2dcpwvqtihpvi.css">
+    <script src="//at.alicdn.com/t/font_564026_k4l2dcpwvqtihpvi.js"></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/new.css">
+</head>
+<body>
+    <section class='container hide'>
+        <nav>
+            <i v-on:touchend="historyHandle()" class="iconfont icon-back"></i>
+            <span>业务编辑</span>
+        </nav>
+        <h6>请填写以下信息</h6>
+        <div class="exhibitBox">
+            <span class="desc">借款人姓名</span>
+            <input :disabled="isnice==1" class="padding0" type="text" placeholder="请输入" v-model="params.customer_name">
+        </div>
+        <div class="exhibitBox">
+            <span class="desc">身份证号码</span>
+            <input :disabled="isnice==1" class="padding0" type="text" placeholder="请输入" v-model="params.customer_idcard">
+        </div>
+        <div class="exhibitBox">
+            <span class="desc">联系电话</span>
+            <input :disabled="isnice==1" class="padding0" type="tel" placeholder="请输入" v-model="params.customer_mobile">
+        </div>
+        <div class="exhibitBox large">
+            <span class="desc">申请贷款金额(元)</span>
+            <span class="newValue abs-h-center">{{numAmend(params.money_aj)}}</span>
+            <input :disabled="isnice==1" class="padding0" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" type="num" placeholder="请输入" v-model="params.money_aj">
+        </div>
+        <div class="exhibitBox large">
+            <span class="desc">申请公积金金额(元)</span>
+            <span class="newValue abs-h-center">{{numAmend(params.money_gjj)}}</span>
+            <input :disabled="isnice==1" class="padding0" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" type="num" placeholder="请输入" v-model="params.money_gjj">
+        </div>
+        <div class="exhibitBox large">
+            <span class="desc">附加装修贷金额(元)</span>
+            <span class="newValue abs-h-center">{{numAmend(params.money_zx)}}</span>
+            <input :disabled="isnice==1" class="padding0" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" type="num" placeholder="请输入" v-model="params.money_zx">
+        </div>
+        <div class="exhibitBox">
+            <span class="desc">子项目</span>
+            <i class="iconfont icon-ahead"></i>
+            <span class="value">{{getValueByKey(params.project_id, projects)}}</span>
+            <select :disabled="isnice==1" v-model="params.project_id">
+                <option v-for="(item, key) in projects" :value="item.project_id">{{item.name_project}}</option>
+            </select>
+        </div>
+        <div class="exhibitBox">
+            <span class="desc">房间号码</span>
+            <input :disabled="isnice==1" class="padding0" type="text" placeholder="请输入" v-model="params.room_no">
+        </div>
+        <h6 class="margin-top-10">客户资料收集情况</h6>
+        <div class="toggleBox">
+            <p v-on:click="toggleAll(1)"><i :class="isAll==1?'active':''" class="iconfont icon-radio"></i><span>资料收集完整</span></p>
+            <p v-on:click="toggleAll(0)"><i :class="isAll==0?'active':''" class="iconfont icon-radio"></i><span>资料收集不完整</span></p>
+        </div>
+        <div class="meansBox" v-if="isAll==0">
+            <p v-on:click="toggleInfo(item, key)" v-for="(item, key) in infoList">
+                <i class="iconfont icon-select" :class="item.status==1?'active':''"></i>
+                <span>{{item.name}}</span>
+            </p>
+        </div>
+        <h6 class="margin-top-10">备注信息</h6>
+        <textarea placeholder="填写备注信息" v-model="params.remark"></textarea>
+        <div class="btnBox">
+            <button v-if="isAll==0 && isnice==0" v-on:touchend="submitHandle()" class="button-outline">暂存</button>
+            <button v-if="isAll==1 && isnice==0" v-on:touchend="submitHandle()">确认提交</button>
+            <button v-if="isnice==1" v-on:touchend="jumpWork()">查看工作流</button>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/new.js"></script>
+</body>
+</html>

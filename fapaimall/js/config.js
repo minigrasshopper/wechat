@@ -20,7 +20,7 @@ var config = (function() {
 		apitoken: 'test',
 		shareInfo : {
 			title: '法派1855微商城，美味新鲜送到家',
-			desc: '微信订购蛋糕，同城配送免邮哦',
+			desc: '微信订购纯正法式烘焙美食，满200顺丰包邮哦',
             link: htmlUrl + 'index.html',
 			imgUrl: cdnUrl + 'images/share_show.jpg'
 		}
@@ -135,7 +135,7 @@ function testMobile(str){
 		changeAlert('请输入手机号码');
 		return false;
 	}else if(!reg.test(str)){
-		changeAlert('手机号码错误');
+		changeAlert('号码错误');
 		return false;
 	}
 	return true;
@@ -149,7 +149,7 @@ function testTel(str){
 		changeAlert('请输入电话号码');
 		return false;
 	}else if(!integer1.test(str) && !integer2.test(str)){
-		changeAlert('电话号码错误');
+		changeAlert('号码错误');
 		return false;
 	}
 	return true;
@@ -181,8 +181,9 @@ function nameFontChange(){
 			var i = obj.index;
 			var name_cn = '<span>' + str.slice(0, i) + '</span>';
 			var name_en = '<span class="font-news">' + str.slice(i) + '</span>';
-			$(item).html(name_cn + name_en + '<span class="blank font-news">I believe I can fly, because I have a dream</span>');
-			//加span标签占位，同时行高和.font-news一样，让页面布局一致【我最聪明】
+            $(item).html(name_cn + name_en);
+			/*$(item).html(name_cn + name_en + '<span class="font-news" style="opacity: 0;">&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;&npsb;</span>');
+			//加span标签占位，同时行高和.font-news一样，让页面布局一致【我最聪明】*/
 		}
 	});
 	$.each(dom2, function(index, item){

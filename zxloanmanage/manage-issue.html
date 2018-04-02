@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-客户经理</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/manage-issue.css" />
+	</head>
+	<body>
+		<section id='manageIssuePage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>问题详情</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+
+			<ul>
+				<li class="!item.solved?'active':''" v-for="item in pageData">
+					<p>
+						<span class="title">问题内容</span>
+						<span class="desc">{{item.content}}</span>
+					</p>
+					<p v-show="item.remark">
+						<span class="title">备注信息</span>
+						<span class="desc">{{item.remark}}</span>
+					</p>
+					<p>
+						<span class="title">提交时间</span>
+						<span class="desc">{{item.createtime}}</span>
+					</p>
+					<p>
+						<span class="title">处理时间</span>
+						<span class="desc">{{item.filltime}}</span>
+					</p>
+					<p>
+						<span class="title">提交人</span>
+						<span class="desc">{{item.operater}}</span>
+					</p>
+					<p>
+						<span class="title">操作岗</span>
+						<span class="desc">{{item.opjob}}</span>
+					</p>
+				</li>
+			</ul>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/manage-issue.js"></script>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+.container{
+    background: #fff;
+}
+.commonBox{
+    background: #fff;
+    margin-top: 15px;
+}
+.commonBox .title{
+    color: #373b3c;
+}

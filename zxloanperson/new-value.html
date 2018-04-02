@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-客户端</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/new-value.css" />
+	</head>
+	<body>
+		<section id='newValuePage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>房屋估值</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div class="titleBox rel wh-same">
+				<img class="w-100 shine abs-center" src="images/shine.png" alt=""/>
+				<div class="abs-center w-100 t-c">
+					<h2>{{curr}}<span>万</span></h2>
+					<p>房屋评估价格</p>
+				</div>
+				<img class="abs-h-center gold" src="images/gold.png" alt=""/>
+			</div>
+			<p class="color-white">注：上述房屋预估价格仅供您参考，您在我行的最高可贷额度为{{apply_price}}万元。</p>
+			<button v-on:touchend="goCalc()" class="button-clear m-auto d-b margin-top-20">还款计算器</button>
+			<button v-on:touchend="goNewUser()" class="button-default abs-h-center">我要贷款</button>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/new-value.js"></script>
+	</body>
+</html>

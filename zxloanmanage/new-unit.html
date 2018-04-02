@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-客户经理</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/new-unit.css" />
+	</head>
+	<body>
+		<section id='newUnitPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>{{project_name}}</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<!--<div class="searchCommon">-->
+				<!--<div>-->
+					<!--<input type="text" placeholder="请输入楼栋及单元名"/>-->
+					<!--<img class="abs-v-center" src="images/icon_search.png" alt=""/>-->
+				<!--</div>-->
+				<!--<button class="button-default">搜索</button>-->
+			<!--</div>-->
+			<ul class="commonBox">
+				<li v-for="item in buildingList">
+					<div v-on:click="detailHandle($event, item.id, item.unit)" class="hidden rel w-100">
+						<span class="title">{{item.name}}</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+					</div>
+					<ul class="clear hide">
+						<li v-for="value in roomList" v-on:click="goNew(item.id, item.unit, value.id, item.name, value.roomno)">{{value.roomno}}</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/new-unit.js"></script>
+	</body>
+</html>

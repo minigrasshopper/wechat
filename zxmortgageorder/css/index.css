@@ -1,0 +1,43 @@
+.profileBox{
+    color: #fff;
+}
+.profileBox div img{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+}
+.profileBox button{
+    padding: 0;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    color: #fff;
+    font-size: 0.8rem;
+}
+.profileBox button .iconfont{
+    font-size: 0.7rem;
+}
+
+ul{
+    width: 70%;
+    margin: 20px auto;
+    color: #ed3b3b;
+}
+ul li{
+    padding: 24px 0;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+ul li img{
+    left: 10%;
+    width: 20%;
+}
+ul li div{
+    margin-left: 40%;
+    text-align: left;
+}
+ul li div p:first-child{
+    margin-bottom: 6px;
+}

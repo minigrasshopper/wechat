@@ -1,0 +1,23 @@
+.titleBox{
+    text-align: center;
+    padding: 20px;
+}
+.titleBox img{
+    width: 36px;
+    margin-bottom: 5px;
+}
+.titleBox h2{
+    color: #fdeab0;
+    font-size: 2rem;
+    margin: 5px auto;
+    font-weight: 400;
+}
+.titleBox p{
+    color: #f9cfa7;
+    font-size: 1.4rem;
+}
+.commonBox li:nth-child(1){
+    background: #feeb9c;
+    border-bottom: none;
+}
+

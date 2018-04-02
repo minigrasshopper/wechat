@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个贷-客户端</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/config.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/same.css" />
+	<link rel="stylesheet" type="text/css" href="css/static.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/query.css" />
+</head>
+	<body>
+        <section id='queryPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>进度查询</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<img class='logo' src="images/logo.png">
+			<p class="color-yellow margin-v-20 t-c">请输入手机号码查询贷款进度</p>
+			<ul class="commonBox">
+				<li>
+					<span class="title">手机号码</span>
+					<input type="text" v-model="params.mobile" placeholder="请填写手机号码"/>
+				</li>
+				<li>
+					<span class="title">身份证号码</span>
+					<input type="text" v-model="params.idcard" placeholder="请填写身份证号码"/>
+				</li>
+				<li class="verifyBox">
+					<span class="title">验证码</span>
+					<button v-on:touchend="getVerify($event)">发送验证码</button>
+					<input type="text" v-model="params.verifycode" placeholder="请输入验证码"/>
+				</li>
+			</ul>
+			<div class="t-c margin-top-20">
+				<button v-on:touchend="goQueryList()" class="button-default">确认</button>
+			</div>
+			<div class="m-pop codePage t-c" v-show="loan_qrcode">
+				<div class="abs-center">
+					<img :src="loan_qrcode" alt="">
+					<p>请先关注中信银行武汉分行微信公众号</p>
+				</div>
+			</div>
+        </section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/query.js"></script>
+	</body>
+</html>

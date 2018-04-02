@@ -1,0 +1,40 @@
+.titleBox{
+    width: 90%;
+    margin: auto;
+}
+.titleBox div{
+    top: 40%;
+}
+.titleBox h2{
+    color: #e2583e;
+    font-size: 3rem;
+}
+.titleBox h2 span{
+    font-size: 2rem;
+}
+.titleBox p{
+    color: #eea38e;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+@keyframes shine_run {
+    from{
+        transform: translateX(-50%) translateY(-50%) rotate(-360deg);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+.titleBox .gold{
+    width: 80%;
+    bottom: 0;
+}
+.titleBox .shine{
+    width: 100%;
+    margin-bottom: -24px;
+    animation: shine_run 20s linear infinite;
+}
+
+button{
+    bottom: 8%;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-第三方渠道</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/new-user.css" />
+	</head>
+	<body>
+		<section id='newUserPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>申请客户信息</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<ul class="commonBox border-top">
+				<li>
+					<span class="title">客户类型</span>
+					<img class="icon" src="images/icon_ahead.png" alt=""/>
+					<span class="desc_amend">{{getValueByKey(customerTypeList, params.customerType)?getValueByKey(customerTypeList, params.customerType):'选择客户类型'}}</span>
+					<select v-model="params.customerType">
+						<option value="">请选择</option>
+						<option v-for="(item, key) in customerTypeList" v-bind:value="key">{{item}}</option>
+					</select>
+				</li>
+				<li class="color-red">个人信息</li>
+				<li>
+					<span class="title">姓名</span>
+					<input type="text" v-model="params.name" placeholder="请输入姓名"/>
+				</li>
+				<li>
+					<span class="title">手机号</span>
+					<input type="text" v-model="params.mobile" placeholder="请输入手机号码"/>
+				</li>
+				<li>
+					<span class="title">身份证</span>
+					<input type="text" v-model="params.idcard" placeholder="请输入证件号码"/>
+				</li>
+
+				<template v-if="params.customerType == 'P'">
+					<li class="color-red">单位信息</li>
+					<li>
+						<span class="title">工作单位</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{getValueByKey(jobList, params.job)?getValueByKey(jobList, params.job):'选择工作单位'}}</span>
+						<select v-model="params.job">
+							<option value="">请选择</option>
+							<option v-for="(item, key) in jobList" v-bind:value="key">{{item}}</option>
+						</select>
+					</li>
+					<li>
+						<span class="title">单位区域</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{getValueByKey(pareaList, params.parea)?getValueByKey(pareaList, params.parea):'选择单位区域'}}</span>
+						<select v-model="params.parea">
+							<option value="">请选择</option>
+							<option v-for="(item, key) in pareaList" v-bind:value="key">{{item}}</option>
+						</select>
+					</li>
+					<li>
+						<span class="title">年收入</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{getValueByKey(yearIncomeList, params.yearIncome)?getValueByKey(yearIncomeList, params.yearIncome):'选择年收入'}}</span>
+						<select v-model="params.yearIncome">
+							<option value="">请选择</option>
+							<option v-for="(item, key) in yearIncomeList" v-bind:value="key">{{item}}</option>
+						</select>
+					</li>
+				</template>
+
+				<template v-if="params.customerType == 'B'">
+					<li class="color-red">经营企业信息</li>
+					<li>
+						<span class="title">主营业务</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{getValueByKey(businessList, params.business)?getValueByKey(businessList, params.business):'选择主营业务'}}</span>
+						<select v-model="params.business">
+							<option value="">请选择</option>
+							<option v-for="(item, key) in businessList" v-bind:value="key">{{item}}</option>
+						</select>
+					</li>
+					<li>
+						<span class="title">经营区域</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{getValueByKey(bareaList, params.barea)?getValueByKey(bareaList, params.barea):'选择经营区域'}}</span>
+						<select v-model="params.barea">
+							<option value="">请选择</option>
+							<option v-for="(item, key) in bareaList" v-bind:value="key">{{item}}</option>
+						</select>
+					</li>
+					<li>
+						<span class="title">年营业额</span>
+						<img class="icon" src="images/icon_ahead.png" alt=""/>
+						<span class="desc_amend">{{getValueByKey(yearSalesList, params.yearSales)?getValueByKey(yearSalesList, params.yearSales):'选择年营业额'}}</span>
+						<select v-model="params.yearSales">
+							<option value="">请选择</option>
+							<option v-for="(item, key) in yearSalesList" v-bind:value="key">{{item}}</option>
+						</select>
+					</li>
+				</template>
+			</ul>
+			<div class="t-c margin-top-20">
+				<button v-on:touchend="goNew()" class="button-default">下一步</button>
+			</div>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/new-user.js"></script>
+	</body>
+</html>

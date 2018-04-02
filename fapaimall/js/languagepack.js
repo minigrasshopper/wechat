@@ -2,6 +2,13 @@
  * Created by 蚂蚱
  */
 var languagePack = {
+	"复活节限定": "Easter",
+	"情人节限定": "Valentine's day",
+    "买二得三专区": 'Order 2 boxes, 3d one is for free',
+    "号码错误": 'telphone error',
+    "好运饼": 'lucky cake',
+    "充值(套餐充值有赠送)": 'Recharge',
+    "圣诞限定": "Christmas time",
     "请选择配送城市": 'Please select the delivery City',
     "请选择套餐": 'Please choose the combo menu',
     "套餐充值": 'Package recharge',
@@ -63,7 +70,7 @@ var languagePack = {
     "已过期": 'Expired',
     "法派1855微商城": "Wechat mall of Comptoirs de france",
     "法派1855微商城，美味新鲜送到家": "Comptoirs de france the french taste at home.",
-    "微信订购蛋糕，同城配送免邮哦": "Book cakes on the wechat mall of Comptoirs de france with free local town delivery.",
+    '微信订购纯正法式烘焙美食，满200顺丰包邮哦': "Order our french authentic products and enjoy a free delivery over 200rmb",
     "我的订单": "My Orders",
     "商品详情": "Description",
     "立即购买": "Order",

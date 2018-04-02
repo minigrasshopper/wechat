@@ -1,0 +1,428 @@
+#indexPage,#gamePage,#resultPage,#myprizePage{
+	background-size: 100% 100%;
+	overflow: hidden;
+}
+/*followPage开始*/
+#followPage{
+	text-align: center;
+}
+#followPage img{
+	width: 80%;
+}
+#followPage p{
+	margin-top: 10px;
+	font-size: 1.2rem;
+	color: #ccc;
+}
+/*followPage结束*/
+
+/*indexPage开始*/
+@keyframes indexTitle_run{
+	from{
+		transform: translateX(-50%) scale(0);
+	}
+    60%{
+        transform: translateX(-50%) scale(1);
+    }
+    70%{
+        transform: translateX(-50%) scale(0.9);
+    }
+    80%{
+        transform: translateX(-50%) scale(1);
+    }
+    90%{
+        transform: translateX(-50%) scale(0.9);
+    }
+	to{
+		transform: translateX(-50%) scale(1);
+	}
+}
+@keyframes start_run {
+	from{
+		transform: translateX(-50%) scale(1);
+	}
+	50%{
+		transform: translateX(-50%) scale(1.05);
+	}
+	to{
+		transform: translateX(-50%) scale(1);
+	}
+}
+#logo{
+	top: 0;
+	width: 20%;
+}
+.indexTitle{
+	width: 100%;
+	top: 14.3%;
+    animation: indexTitle_run 1s linear forwards;
+    -webkit-animation: indexTitle_run 1s linear forwards;
+}
+#startBtn{
+    width: 76%;
+	bottom: 24%;
+    animation: start_run 1s linear infinite;
+    -webkit-animation: start_run 1s linear infinite;
+}
+#myprizeBtn{
+    bottom: 18%;
+	width: 60%;
+}
+#ruleBtn{
+    top: 15px;
+    right: 15px;
+    width: 10%;
+}
+/*indexPage结束*/
+
+/*rulePage开始*/
+@keyframes rule_run {
+	from{
+		transform: translateX(-50%) translateY(-50%) scale(0.2);
+	}
+	to{
+		transform: translateX(-50%) translateY(-50%) scale(1);
+	}
+}
+.rule_run{
+	animation: rule_run 0.5s linear forwards;
+	-webkit-animation: rule_run 0.5s linear forwards;
+}
+.ruleBox{
+	width: 83%;
+}
+#ruleBg{
+	width: 100%;
+}
+#ruleCloseBtn{
+	top: 10px;
+	right: 10px;
+	width: 30px;
+}
+.rules{
+    width: 100%;
+    padding: 0 8px;
+    top: 30%;
+	height: 58%;
+	text-align: left;
+	color: #f9ffff;
+	overflow: scroll;
+}
+.rules p{
+    margin-bottom: 15px;
+}
+/*rulePage结束*/
+
+/*gamePage开始*/
+@keyframes gameTitle_run {
+    from{
+        transform: translateX(-50%) scale(0.2);
+    }
+    to{
+        transform: translateX(-50%) scale(1);
+    }
+}
+@keyframes gameDecorate_run {
+    from{
+        transform: translateX(-50%) translateY(-50%) scale(0);
+    }
+    to{
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+}
+.bagMask{
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+.timeBox{
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    z-index: 100;
+    font-size: 14px;
+    color: #fff;
+}
+.timeBox p{
+    margin-top: 5px;
+}
+#second{
+    color: #fff200;
+    font-size: 16px;
+}
+.gameTitle{
+    width: 78%;
+    top: 18%;
+    animation: gameTitle_run .8s linear both;
+}
+.gameDecorate{
+    width: 90%;
+    animation: gameDecorate_run .8s linear both;
+}
+#state{
+    width: 40%;
+    top: 45%;
+}
+@keyframes state_run {
+    from{
+        transform: translateX(-50%) scale(1);
+    }
+    to{
+        transform: translateX(-50%) scale(0);
+    }
+}
+.state_run{
+    animation: state_run 1s linear infinite;
+}
+#gameBox img{
+    width: 18%;
+}
+@keyframes bagDown_run {
+    from{
+        top: 0;
+        transform: translateY(-100%);
+    }
+    to{
+        top: 100%;
+    }
+}
+@keyframes bagActive_run {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+.bagDown_slow{
+    animation: bagDown_run 4s linear both;
+}
+.bagDown_medium{
+    animation: bagDown_run 3s linear both;
+}
+.bagDown_quick{
+    animation: bagDown_run 2.4s linear both;
+}
+.bagDown_extra{
+    animation: bagDown_run 2s linear both;
+}
+.bagActive{
+    width: 20%;
+    animation: bagActive_run .5s linear both;
+}
+/*游戏初始状态的红包排列*/
+
+/*gamePage结束*/
+
+/*resultPage开始*/
+@keyframes resultDecorate_run {
+    from{
+        transform-origin: 50% 50%;
+        transform: rotate(-360deg);
+    }
+    to{
+        transform-origin: 50% 50%;
+        transform: rotate(360deg);
+    }
+}
+#resultPage .resultDecorate{
+    width: 100%;
+    animation: resultDecorate_run 8s linear infinite;
+}
+#resultPage>div{
+    width: 73.7%;
+}
+#resultBox{
+    text-align: center;
+    top: 38%;
+}
+#resultBox .numShow{
+    font-size: 18px;
+    color: #ffede1;
+    margin-bottom: 16px;
+}
+#resultBox .numShow span{
+    color: #fbdd94;
+    font-size: 20px;
+}
+#resultBox .hint{
+    font-size: 16px;
+    color: #fbdd94;
+    margin-bottom: 16px;
+}
+#resultBox img{
+    width: 80%;
+    margin: 8px auto;
+    display: block;
+}
+/*resultPage结束*/
+
+/*share开始*/
+@keyframes share_run {
+	from{
+		top: 10px;
+		right: 16px;
+	}
+	50%{
+		top: 5px;
+		right: 8px;
+	}
+	to{
+		top: 10px;
+		right: 16px;
+	}
+}
+.shareHint{
+	width: 84%;
+	top: 16px;
+	right: 16px;
+	animation: share_run 1s linear infinite;
+}
+/*share结束*/
+
+/*myprizePage页面开始*/
+#myprizePage{
+	text-align: center;
+}
+#myprizePage:before{
+	content: '';
+	display: table;
+}
+.prizeTitle{
+    text-align: center;
+    font-size: 23px;
+    color: #ffff63;
+    height: 80px;
+    line-height: 80px;
+    font-weight: 500;
+}
+.ticketBox{
+    height: calc(85% - 80px);
+	overflow: scroll;
+    padding: 0 8px;
+}
+.ticket{
+	width: 100%;
+    padding: 13px 12px;
+    background: #fff;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+.ticket div{
+	width: calc(100% - 65px);
+	text-align: left;
+}
+.ticket div h3{
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: #333;
+}
+.ticket div p{
+	font-size: 1rem;
+	color: #8e8e8e;
+}
+.ticket button{
+	width: 60px;
+	height: 30px;
+	font-size: 1.4rem;
+	font-weight: 600;
+	border-radius: 4px;
+	position: absolute;
+	top: 50%;
+    right: 12px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+.use{
+	color: #f88e07;
+    border: 1px solid #f88e07;
+    background: transparent;
+}
+.used{
+    color: #989898;
+    border: 1px solid #989898;
+    background: transparent;
+}
+#backBtn{
+	width: 53%;
+	top: 87%;
+}
+/*myprizePage页面结束*/
+
+/*checkpsd页面开始*/
+#checkpsdPage .checkBox{
+	background: #ed4b32;
+	width: 75%;
+	text-align: center;
+	border-radius: 12px;
+}
+#prizeCloseBtn{
+	width: 26px;
+	top: 10px;
+	right: 10px;
+}
+@keyframes checkBox_run{
+	from{
+		top: 0;
+		transform: translateX(-50%) translateY(-50%) scale(0.2);
+		opacity: 0;
+	}
+	to{
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%) scale(1);
+		opacity: 1;
+	}
+}
+.checkBox_run{
+	animation: checkBox_run 0.5s linear forwards;
+	-webkit-animation: checkBox_run 0.5s linear forwards;
+}
+.checkBox>div{
+	margin-top: 40px;
+}
+.checkBox input{
+	width: 90%;
+	height: 33px;
+	border-radius: 8px;
+	text-align: center;
+	font-size: 2rem;
+	background: #fff;
+}
+.checkBox .title{
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #fff;
+	margin: 10px 0 15px 0;
+}
+/*条形码\二维码样式*/
+#barcode,#qrcode{
+    margin: auto;
+    width: 90% !important;
+}
+#barcode object,#qrcode object{
+    width: 100%;
+}
+.checkBox .code{
+	font-size: 1.8rem;
+	color: #999;
+	margin: 20px auto;
+	font-weight: normal;
+}
+#sureBtn{
+	width: 35.4%;
+	margin: 18px auto;
+}
+/*checkpsd页面结束*/
+
+
+/*********************************媒体查询*****************************/
+/*iphone4*/
+@media only screen and (max-width: 320px) and (max-height: 416px){
+
+}
+/*iphone5*/
+@media only screen and (max-width: 320px) and (max-height: 504px){
+
+}

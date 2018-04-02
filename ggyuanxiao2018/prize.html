@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_528574_vzsz83wdoeay8pvi.css">
+    <script src="//at.alicdn.com/t/font_528574_vzsz83wdoeay8pvi.js"></script>
+	<script src="js/config.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/same.css" />
+    <link rel="stylesheet" type="text/css" href="css/prize.css" />
+</head>
+<body>
+    <section id="prizePage" class="hide" :style="styles.bg">
+        <ul class="w-100 abs-h-center hidden-s">
+            <li v-for="(item, index) in coupon" v-on:click="verifyHandle(item)" :class="item.isuse==1||item.isexpired==1?'noApply':''" :style="styles.ticket">
+                <div>
+                    <h2 class="font-15 font-bold t-l hidden-e-r2">{{item.qname}}</h2>
+                    <p class="font-10 t-l">使用时间：{{item.starttime}} - {{item.endtime}}</p>
+                </div>
+                <i v-if="item.isuse==1||item.isexpired==1" class="iconfont aheadBtn0 icon-ahead abs-v-center"></i>
+                <i v-if="item.isuse==0&&item.isexpired==0" class="iconfont aheadBtn1 icon-ahead abs-v-center"></i>
+                <i v-if="item.isuse==0 && item.isexpired==1" class="iconfont icon-expired abs-v-center"></i>
+                <i v-if="item.isuse==1" class="iconfont icon-used abs-v-center"></i>
+            </li>
+        </ul>
+        <img v-on:click="backHandle()" class="abs-h-center backBtn" :src="selfData.prize.btn_back" alt=""/>
+    </section>
+
+    <section id="verifyPage" class="hide" v-if="item" :class="item.isuse==1||item.isexpired==1?'noApply':''">
+        <!--verifyPage.noApply表示券不能使用-->
+        <!--核销框-->
+        <div class="wh-100 rel hidden-s">
+            <div class="name_time_state t-c rel w-100">
+                <span></span><span></span>
+                <h2 class="font-18">{{item.qname}}</h2>
+                <h6 class="font-14">{{item.shorttitle}}</h6>
+                <p class="font-10">{{item.starttime}} - {{item.endtime}}</p>
+                <!--判断券状态，显示状态图标-->
+                <i v-if="item.isuse==0 && item.isexpired==1" class="iconfont icon-expired abs"></i>
+                <i v-if="item.isuse==1" class="iconfont icon-used abs"></i>
+            </div>
+
+            <div v-if="item.consumemethod==0&&item.showtype==0" class="showBox codeBox t-c">
+                <!-- 卡券号 -->
+                <p class="code line-30">{{item.code}}</p>
+                <p class="font-10">使用时请出示卡券号</p>
+            </div>
+            <div v-if="item.consumemethod==0&&item.showtype==1" class="showBox barcodeBox t-c">
+                <!-- 条形码+卡券号 -->
+                <div id="barcode"></div>
+                <p class="code">{{item.code}}</p>
+                <p class="font-10">使用时请出示该条形码或卡券号</p>
+            </div>
+            <div v-if="item.consumemethod==0&&item.showtype==2" class="showBox qrcodeBox t-c">
+                <!-- 二维码+卡券号 -->
+                <div id="qrcode"></div>
+                <p class="code">{{item.code}}</p>
+                <p class="font-10">使用时请出示该二维码或卡券号</p>
+            </div>
+            <!--<div class="showBox deliveryBox t-c hide">
+                &lt;!&ndash; 实物邮寄 &ndash;&gt;
+                <input type="text" placeholder="姓名"/>
+                <input type="text" placeholder="电话"/>
+                <input type="email" placeholder="邮箱"/>
+                <textarea placeholder="地址"></textarea>
+                <p>请核对信息是否正确</p>
+                <button id="sureBtn" class="font-18">提 交</button>
+            </div>-->
+            <div v-if="item.consumemethod==1" class="showBox psdBox t-c">
+                <!-- 线下领取，密码核销 -->
+                <h5 class="color-black font-14">请输入核销密码</h5>
+                <input type="text" v-model="password"/>
+                <p class="font-10">使用时请输入核销密码</p>
+                <button v-on:click="checkHandle()" class="font-16">核 销</button>
+            </div>
+
+            <div class="descBox t-l">
+                <h5 class="font-14 line-20">使用说明</h5>
+                <div class="desc font-14" v-html="textConvert(item.descrip)"></div>
+            </div>
+
+            <button v-on:click="closeHandle()" class="verifyCloseBtn">关 闭</button>
+        </div>
+    </section>
+
+	<script type="text/javascript" src="js/prize.js"></script>
+</body>
+</html>

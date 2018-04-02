@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>个贷-第三方渠道</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+		<meta content="no-cache" http-equiv="pragma">
+		<meta content="telephone=no, address=no" name="format-detection">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<script src="http://zxcdn.letwx.com/app/libs/oauth.min.js?v=20160712"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/config.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<link rel="stylesheet" type="text/css" href="css/static.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/new-success.css" />
+	</head>
+	<body>
+		<section id='newSuccessPage' class='hide container'>
+			<nav>
+				<img class="icon_back" v-on:touchend="historyHandle()" src="images/icon_back.png">
+				<span>提交成功</span>
+				<img class="icon_home" v-on:touchend="homeHandle()" src="images/icon_home.png" alt=""/>
+			</nav>
+			<div class="titleBox rel w-100">
+				<img src="images/icon_crown.png" alt=""/>
+				<h2>恭 喜 您</h2>
+				<p>贷款申请提交成功</p>
+			</div>
+			<ul class="commonBox" v-if="pageData">
+				<li>
+					<span class="title">推荐人柜员号</span>
+					<span class="desc">{{pageData.order.invite_code?pageData.order.invite_code:'无'}}</span>
+				</li>
+				<li>
+					<span class="title">贷款人</span>
+					<span class="desc">{{pageData.order.customer.name}}</span>
+				</li>
+				<li>
+					<span class="title">申请编号</span>
+					<span class="desc">{{pageData.order.apply_no}}</span>
+				</li>
+				<li v-for="(item, index) in pageData.order.pawn">
+					<span class="title">房屋地址{{pageData.order.pawn.length>1?(index+1):''}}</span>
+					<span class="desc">{{item.address}}</span>
+				</li>
+				<li>
+					<span class="title">联系电话</span>
+					<span class="desc">{{pageData.order.customer.mobile}}</span>
+				</li>
+			</ul>
+			<div class="t-c">
+				<button v-on:touchend="goNewIndex()" class="button-default">返回首页</button>
+			</div>
+		</section>
+
+		<script src="http://zxcdn.letwx.com/app/libs/one.js"></script>
+		<script type="text/javascript" src="js/new-success.js"></script>
+	</body>
+</html>

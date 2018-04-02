@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>樱花女神</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <script src="js/hammer.js"></script>
+    <script src="js/vue.js"></script>
+    <script src='js/lrz.mobile.min.js'></script>
+    <script src="https://cdn.bootcss.com/require.js/2.3.5/require.min.js"></script>
+    <script src="js/config.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_585901_jbltksy95w5ewmi.css">
+    <script src="//at.alicdn.com/t/font_585901_jbltksy95w5ewmi.js"></script>
+    <link rel="stylesheet" href="css/same.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+    <section class="hide">
+        <!--<nav v-if="!isShare">
+            <i v-on:click="historyHandle()" class="iconfont icon-back"></i>
+            <span v-on:click="historyHandle()">返回</span>
+        </nav>-->
+        <nav>
+            <i v-on:click="jumpHome()" class="iconfont icon-back"></i>
+            <span v-on:click="jumpHome()">回到首页</span>
+        </nav>
+        <div class="profileBox">
+            <img class="headimg" :src="pageData.detail.headimgurl" alt="">
+            <p class="name font-16 hidden-e"><span class="m-r-6">No.{{pageData.detail.no}}</span><span class="color-default font-bold">{{pageData.detail.name}}</span></p>
+            <p class="score color-default"><span class="m-r-6">总票数：{{pageData.detail.votes}}</span><span>樱花：{{pageData.detail.flowers}}</span></p>
+            <div class="rankBox">
+                <div class="abs-center w-100">
+                    <p class="font-12">当前排名</p>
+                    <p class="font-18 m-t-4">{{pageData.detail.rank}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="imgBox">
+            <img v-for="item in pageData.detail.pics" :src="item" alt="">
+        </div>
+        <ul class="voteBox">
+           <li v-on:click="voteHandle('vote')">
+               <i>&times;{{pageData.num_vote_left}}</i>
+               <img class="abs-v-center" src="images/icon_star.png" alt="">
+               <p>投她一票</p>
+           </li>
+           <li v-on:click="voteHandle('flower')">
+               <i>&times;{{pageData.num_flower_left}}</i>
+               <img class="abs-v-center" src="images/icon_flower.png" alt="">
+               <p>送她樱花<br><span class="font-10">1朵樱花=5票</span></p>
+           </li>
+        </ul>
+        <img v-if="voteid==voteid_self" class="madeBtn" v-on:click="hint_openHandle()" src="images/btn_made.png" alt="">
+
+        <div class="funsBox">
+            <img src="images/detail_funs.png" alt="">
+            <h6 v-if="!pageData.detail.fans.length">虚位以待，快来投票</h6>
+            <ul v-if="pageData.detail.fans.length">
+                <li v-for="item in pageData.detail.fans">
+                    <p class="hidden-e">
+                        <span class="color-default">{{item.idx}}</span>
+                        <img :src="item.headimgurl" alt="">
+                        <span>{{item.nickname}}</span>
+                        <span></span>
+                    </p>
+                    <p class="color-default">{{item.votes}}票</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="maskBox resultcommon hasvote hide">
+            <!--有投票数-->
+            <div class="abs-center">
+                <i v-on:click="result_closeHandle()" class="iconfont icon-close"></i>
+                <img class="icon" src="images/icon_success.png" alt="">
+                <h1>投票成功！</h1>
+                <p>谢谢亲，每天投票助她拿大奖！</p>
+                <button v-on:click="result_closeHandle()">继续投票</button>
+                <i v-if="hasGetCoupon==1">哇，获得一张良品铺子优惠券！</i>
+                <div v-if="hasGetCoupon==1" class="ticket" v-on:click="jumpUrl(couponInfo.geturl)">
+                    <h3>{{couponInfo.name}}</h3>
+                    <h4>{{couponInfo.desc}}</h4>
+                    <h5>立即使用</h5>
+                </div>
+            </div>
+        </div>
+        <div class="maskBox resultcommon novote-nosign hide">
+            <!--无投票数+未签到-->
+            <div class="abs-center">
+                <i v-on:click="result_closeHandle()" class="iconfont icon-close"></i>
+                <img class="icon" src="images/icon_fail.png" alt="">
+                <h1>今日投票机会已用完</h1>
+                <p>您可以去商城签到，获得樱花奖励</p>
+                <p>一朵樱花等于5票哦！</p>
+                <button v-on:click="jumpMall()">去签到</button>
+            </div>
+        </div>
+        <div class="maskBox resultcommon novote-hassign hide">
+            <!--无投票数+已签到-->
+            <div class="abs-center">
+                <i v-on:click="result_closeHandle()" class="iconfont icon-close"></i>
+                <img class="icon" src="images/icon_fail.png" alt="">
+                <h1>今日投票机会已用完</h1>
+                <p>明天继续加油哦</p>
+                <button v-on:click="result_closeHandle()">知道了</button>
+            </div>
+        </div>
+        <div class="maskBox resultcommon hasflower hide">
+            <!--有樱花-->
+            <div class="abs-center">
+                <i v-on:click="result_closeHandle()" class="iconfont icon-close"></i>
+                <img class="icon" src="images/icon_flower.png" alt="">
+                <h1>赠送成功！</h1>
+                <p>谢谢亲，每天可签到获得樱花哦！</p>
+                <button v-on:click="result_closeHandle()">继续赠送</button>
+                <i v-if="hasGetCoupon==1">哇，获得一张良品铺子优惠券！</i>
+                <div v-if="hasGetCoupon==1" class="ticket" v-on:click="jumpUrl(couponInfo.geturl)">
+                    <h3>{{couponInfo.name}}</h3>
+                    <h4>{{couponInfo.desc}}</h4>
+                    <h5>立即使用</h5>
+                </div>
+            </div>
+        </div>
+        <div class="maskBox resultcommon noflower-nosign hide">
+            <!--无樱花+未签到-->
+            <div class="abs-center">
+                <i v-on:click="result_closeHandle()" class="iconfont icon-close"></i>
+                <img class="icon" src="images/icon_fail.png" alt="">
+                <h1>您还没有樱花</h1>
+                <p>去商城签到可获得</p>
+                <button v-on:click="jumpMall()">去商城</button>
+            </div>
+        </div>
+        <div class="maskBox resultcommon noflower-hassign hide">
+            <!--无樱花+已签到-->
+            <div class="abs-center">
+                <i v-on:click="result_closeHandle()" class="iconfont icon-close"></i>
+                <img class="icon" src="images/icon_fail.png" alt="">
+                <h1>今日樱花已领完</h1>
+                <p>明天记得来签到哦</p>
+                <button v-on:click="result_closeHandle()">知道了</button>
+            </div>
+        </div>
+        <div class="maskBox makeupBox"></div>
+        <div class="maskBox adBox">
+            <div class="rel w-100">
+                <img class="headimg" :src="ad_headimg" alt="">
+                <img class="abs-h-center qrcode" src="images/qrcode.png" alt="">
+            </div>
+            <div class="textBox">
+                <p class="font-20">我是<span class="color-default m-l-4">{{pageData.detail.name}}</span></p>
+                <i class="line"></i>
+                <p>我在参加“樱花女神”选拔</p>
+                <p class="m-t-4">请为{{pageData.detail.no}}号投票</p>
+            </div>
+        </div>
+
+        <div class="maskBox hintBox hide">
+            <i v-on:click="hint_closeHandle()" class="iconfont icon-close"></i>
+            <img v-on:click="show_open()" class="adimg" :src="adimg" alt="">
+            <img class="detail_method" src="images/detail_method.png" alt="">
+        </div>
+
+        <div class="maskBox showBox hide" v-on:click="show_close()">
+            <!--<i v-on:click="show_close()" class="abs-center wh-100"></i>-->
+            <img class="w-100 abs-v-center" :src="adimg" alt="">
+        </div>
+
+    </section>
+
+    <script type="text/javascript" src="js/detail.js"></script>
+</body>
+</html>

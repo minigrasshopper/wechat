@@ -1,0 +1,44 @@
+.logo{
+	width: 40%;
+	margin: 10px auto;
+	display: block;
+}
+@keyframes title_run {
+	from{
+		top: 0;
+		transform: translateX(-50%) translateY(-100%);
+	}
+	to{
+		top: 16%;
+	}
+}
+@keyframes opacity_run {
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+.title{
+	width: 67.5%;
+	animation: title_run .5s linear both;
+}
+.img_text{
+	top: 30%;
+}
+.img_text img:nth-child(1){
+	width: 80%;
+	animation: opacity_run 1s linear .8s both;
+}
+.img_text img:nth-child(2){
+	width: 49%;
+	margin-top: 10px;
+	animation: opacity_run .5s linear 1.6s both;
+}
+button{
+	margin: 10px auto 0 auto;
+}
+p{
+	bottom: 10px;
+}

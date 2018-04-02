@@ -1,0 +1,90 @@
+h6{
+    font-size: 0.8rem;
+    line-height: 2rem;
+    padding: 0 20px;
+    color: #ff4c45;
+    font-weight: 500;
+    border-bottom: 1px solid #c9c9c9;
+    background: #fff;
+}
+.toggleBox{
+    overflow: hidden;
+    padding: 0 20px;
+    background: #fff;
+}
+.toggleBox p{
+    height: 40px;
+    line-height: 40px;
+}
+.toggleBox p:nth-child(1){
+    float: left;
+}
+.toggleBox p:nth-child(2){
+    float: right;
+}
+.toggleBox span{
+    margin-left: 4px;
+}
+.toggleBox .iconfont{
+    color: #999;
+    font-size: 0.9rem;
+}
+.toggleBox .iconfont.active {
+    color: #ff4c45;
+}
+
+.meansBox{
+    padding: 0 20px;
+    background: #fff;
+    border-top: 1px solid #c9c9c9;
+}
+.meansBox p{
+    line-height: 1.4rem;
+    font-size: 0.7rem;
+}
+.meansBox p span{
+    margin-left: 4px;
+}
+.meansBox p .iconfont{
+    font-size: 1rem;
+    color: #ccc;
+}
+.meansBox .iconfont.active {
+    color: #ff4c45;
+}
+.meansBox textarea{
+    width: 100%;
+    height: 60px;
+    font-size: 14px;
+    border: 1px solid #c9c9c9;
+    padding: 10px;
+}
+.btnBox{
+    overflow: hidden;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+}
+.btnBox button{
+    width: 60%;
+    margin-top: 10px;
+}
+.exhibitBox .newValue{
+    top: 0;
+    line-height: normal;
+    font-size: 0.5rem;
+    color: #454545;
+}
+textarea{
+    width: 100%;
+    height: 70px;
+    padding: 10px 20px;
+}
+/*.btnBox button:nth-child(1){*/
+    /*float: left;*/
+    /*margin-left: 5%;*/
+/*}*/
+/*.btnBox button:nth-child(2){*/
+    /*float: right;*/
+    /*margin-right: 5%;*/
+/*}*/

@@ -1,0 +1,112 @@
+.inputBox{
+    width: 85%;
+    margin: auto;
+}
+.inputBox p{
+    overflow: hidden;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+.inputBox span{
+    color: #f45482;
+    font-size: 0.8rem;
+}
+.inputBox input,.inputBox select{
+    border: 1px solid #ff8bae;
+    border-radius: 6px;
+    height: 40px;
+    float: right;
+    width: calc(100% - 50px);
+    background-color: #ffe8f0;
+}
+.inputBox input{
+    padding-left: 8px;
+}
+h6{
+    font-weight: 500;
+    font-size: 0.7rem;
+    width: 80%;
+    margin: auto;
+    color: #666867;
+}
+.imgBox{
+    width: 80%;
+    overflow: hidden;
+    margin: 10px auto;
+}
+.imgBox li{
+    position: relative;
+    float: left;
+    width: 30%;
+    padding-top: 30%;
+    border: 1px solid #f05a7d;
+    margin-right: 3.3%;
+    overflow: hidden;
+}
+.imgBox li img{
+    width: 100%;
+    height: 100%;
+}
+.imgBox li .iconfont{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9;
+}
+.imgBox li:last-child{
+    margin-right: 0;
+}
+.imgBox li.addBtn{
+    border: 1px dashed #f25580;
+}
+.imgBox li.addBtn div{
+    width: 100%;
+    text-align: center;
+    color: #f25580;
+    font-size: 0.8rem;
+}
+.imgBox li.addBtn input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+.square{
+    position: relative;
+    /*border: 1px solid #fff;*/
+    background: rgba(255,255,255,0.5);
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+}
+.square img{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+.editBox .btnBox{
+    width: 80%;
+    bottom: 5%;
+    overflow: hidden;
+}
+.editBox .btnBox button{
+    background: transparent;
+    color: #fff;
+    font-size: 0.9rem;
+}
+.editBox .btnBox button:nth-child(1){
+    float: left;
+}
+.editBox .btnBox button:nth-child(2){
+    float: right;
+}
+
+.submitBtn, .lookBtn{
+    display: block;
+    width: 40%;
+    margin: 20px auto 0 auto;
+}

@@ -1,0 +1,115 @@
+.userBox{
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+.userBox p{
+    overflow: hidden;
+    line-height: 2.4rem;
+}
+.userBox p span{
+    float: left;
+}
+.userBox p span:nth-child(1){
+    width: 85px;
+}
+.userBox p span:nth-child(2){
+    width: calc(100% - 85px);
+    color: #999;
+}
+
+.issueBox{
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.issueBox div{
+    overflow: hidden;
+    text-align: center;
+}
+.issueBox div p{
+    color: #373b3c;
+    font-size: 1.4rem;
+    float: left;
+    width: 40%;
+    margin: 10px 5%;
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+.issueBox div p.active{
+    font-size: 1.6rem;
+    color: #ff4c47;
+    border-bottom: 1px solid #ff4c47;
+}
+.issueBox li{
+    padding: 10px 0;
+    border-bottom: 1px solid #dcdcdc;
+}
+.issueBox ul li:last-child{
+    border-bottom: none;
+}
+.issueBox li p{
+    color: #b3b3b3;
+    margin-bottom: 10px;
+}
+.issueBox ul li p:first-child{
+    color: #373b3c;
+}
+.issueBox ul.active li p:first-child{
+    color: #ff4c47;
+}
+.issueBox li p:last-child{
+    margin-bottom: 0;
+}
+
+.button-clear-auto{
+    color: #44a6ff;
+}
+
+.appoint_check_common>div{
+    width: 80%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 15px 0;
+    text-align: center;
+}
+.appoint_check_common .closeBtn{
+    width: 30px;
+    top: -40px;
+    right: 0;
+}
+.appoint_check_common textarea{
+    width: 90%;
+    margin: 20px 0;
+    height: 75px;
+    border-radius: 5px;
+}
+.appoint_check_common .hint{
+    margin: 30px 0 20px 0;
+}
+
+.appoint1Box ul{
+    padding: 0 20px;
+    margin: 35px auto 0 auto;
+}
+.appoint1Box li{
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.appoint1Box li p{
+    line-height: 2.4rem;
+    text-align: left;
+}
+.appoint1Box li input,.appoint1Box li select{
+    width: 100%;
+}
+.appoint1Box li.timeBox{
+    line-height: 36px;
+}
+.appoint1Box li.timeBox div{
+    width: calc(50% - 8px);
+}
+.appoint1Box li.timeBox select{
+    width: calc(100% - 24px);
+    margin-right: 5px;
+    text-align: center;
+}
+

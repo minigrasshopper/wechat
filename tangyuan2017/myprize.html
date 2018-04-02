@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title"></title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+	<meta content="no-cache" http-equiv="pragma">
+	<meta content="telephone=no, address=no" name="format-detection">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<script src="http://qcdn.letwx.com/app/libs/oauth.min.js"></script>
+	<script src="js/config.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://qcdn.letwx.com/app/dist/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/base2.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+    <audio id="audio_button" src="http://qcdn.letwx.com/app/tangyuan2017-build/resource/button.mp3" preload></audio>
+
+	<section id="myprizePage" class="wh-100 hide"></section>
+
+	<textarea id="myprizeTMP" class="hide">
+        <h2 class="prizeTitle">我的奖品</h2>
+		<div class="ticketBox">
+			<%
+			for( i=0; i<coupon.length; i++){
+			%>
+			<div class="ticket rel">
+				<div>
+					<h3><%=coupon[i].qname%></h3>
+					<p>兑换说明：<%=coupon[i].descrip%></p>
+					<p>兑奖时间：<%=coupon[i].starttime%> - <%=coupon[i].endtime%></p>
+				</div>
+				<button class="<%=(coupon[i].isuse==0)?'use':'used'%>" data-showtype="<%=coupon[i].showtype%>" data-code="<%=coupon[i].code%>" data-isnet="<%=coupon[i].isnet%>" data-useurl="<%=coupon[i].useurl%>">
+					<%=(coupon[i].isuse==0)?'使 用':'已使用'%>
+				</button>
+			</div>
+			<%
+			}
+			%>
+		</div>
+		<img class="abs-h-center" id="backBtn" alt="#" />
+	</textarea>
+
+	<section id="checkpsdPage" class="m-pop hide rel">
+		<div class="checkBox abs-center">
+			<img id="prizeCloseBtn" class="abs" src="" alt=""/>
+			<div class="showtype0 hide">
+				<p class="title">请店员输入门店密码</p>
+				<input id="userInput" type="text"/>
+			</div>
+			<div class="showtype1 hide">
+				<p class="title">请店员扫描条形码</p>
+				<div id="barcode" class="t-c"></div>
+				<p class="code"></p>
+			</div>
+			<div class="showtype2 hide">
+				<p class="title">请店员扫描二维码</p>
+				<div id="qrcode" class="t-c"></div>
+				<p class="code"></p>
+			</div>
+			<img id="sureBtn" data-code="" data-showtype="" src="" />
+		</div>
+	</section>
+
+    <section id="followPage" class="m-pop hide">
+        <div class="abs-center w-100">
+            <img src="" alt=""/>
+            <p>咦，需要先关注我们才能使用奖券哦~</p>
+        </div>
+    </section>
+
+	<script src="http://qcdn.letwx.com/app/libs/one.js"></script>
+	<script type="text/javascript" src="js/myprize.js"></script>
+</body>
+</html>
